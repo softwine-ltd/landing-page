@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Softwine.LTD</title>
+    <title>Softwine</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,61 +14,74 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
             padding: 0 20px;
         }
+
         header {
             background: #ffffff;
             padding: 1rem 0;
         }
+
         header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         header .logo {
             display: flex;
             align-items: center;
         }
+
         header .logo svg {
             width: 50px;
             height: 50px;
             margin-right: 10px;
         }
+
         header nav ul {
             display: flex;
             list-style: none;
         }
+
         header nav ul li {
             margin-left: 20px;
         }
+
         header nav ul li a {
             text-decoration: none;
             color: #51A5D7;
         }
+
         .hero {
             background: #51A5D7;
             color: #ffffff;
             padding: 3rem 0;
             text-align: center;
         }
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
+
         .hero .slogan {
             font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 1rem;
         }
+
         .hero .email {
             font-size: 1.2rem;
             color: #A0CD9A;
             margin-bottom: 2rem;
         }
+
         .btn {
             display: inline-block;
             background: #A0CD9A;
@@ -79,30 +93,37 @@
             text-decoration: none;
             transition: opacity 0.2s ease-in;
         }
+
         .btn:hover {
             opacity: 0.8;
         }
+
         .features {
             padding: 3rem 0;
         }
+
         .features h2 {
             text-align: center;
             margin-bottom: 2rem;
         }
+
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
+
         .feature {
             background: #ffffff;
             padding: 1.5rem;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         .feature h3 {
             color: #51A5D7;
         }
+
         footer {
             background: #ffffff;
             color: #51A5D7;
@@ -111,27 +132,76 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
-                        <path d="M15,65 Q5,65 5,50 Q5,35 15,35 Q15,20 30,20 Q45,20 50,35 Q65,20 80,35 Q95,35 95,50 Q95,65 80,65 Q75,80 50,80 Q25,80 15,65 Z" fill="#51A5D7"/>
-                        <circle cx="25" cy="45" r="10" fill="#3084c4"/>
-                        <circle cx="75" cy="40" r="12" fill="#3084c4"/>
-                        <path d="M40,50 L60,50 L55,75 Q50,80 45,75 Z" fill="#A0CD9A"/>
-                        <rect x="48" y="75" width="4" height="10" fill="#A0CD9A"/>
-                        <ellipse cx="50" cy="85" rx="8" ry="2" fill="#A0CD9A"/>
-                        <circle cx="45" cy="60" r="2" fill="#ffffff"/>
-                        <circle cx="55" cy="65" r="2" fill="#ffffff"/>
-                        <circle cx="50" cy="55" r="2" fill="#ffffff"/>
-                        <line x1="20" y1="50" x2="40" y2="50" stroke="#ffffff" stroke-width="1"/>
-                        <line x1="60" y1="50" x2="80" y2="50" stroke="#ffffff" stroke-width="1"/>
-                        <circle cx="20" cy="50" r="2" fill="#ffffff"/>
-                        <circle cx="80" cy="50" r="2" fill="#ffffff"/>
+                <div class="logo">                   
+                    <svg data-v-fde0c5aa="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50"
+                        class="iconLeftSlogan">
+                        <defs data-v-fde0c5aa=""><!----></defs>
+                        <rect data-v-fde0c5aa="" fill="#51A5D7" x="0" y="0" width="300px" height="300px"
+                            class="logo-background-square"></rect>
+                        <defs data-v-fde0c5aa=""><!----></defs>
+                        <g data-v-fde0c5aa="" id="7661b0a0-9552-4729-8f3f-add882636701" fill="#ffffff"
+                            transform="matrix(3.4161150300892325,0,0,3.4161150300892325,117.47967103836133,123.89301796133333)">
+                            <path
+                                d="M0.01 6.69C0.01 8.53 0.78 9.42 2.32 9.42C3.81 9.42 4.63 8.58 4.63 7.01C4.63 5.66 3.70 4.94 2.77 4.23L2.79 4.23C2.10 3.70 1.41 3.15 1.41 2.44C1.41 1.71 1.74 1.39 2.32 1.39C2.94 1.39 3.23 1.81 3.23 2.73L3.23 2.93C3.23 3.21 3.46 3.43 3.74 3.43L4.13 3.43C4.41 3.43 4.63 3.21 4.63 2.93L4.63 2.73C4.63 0.95 3.84-0.01 2.32-0.01C0.84-0.01 0.01 0.90 0.01 2.48C0.01 3.86 0.98 4.62 1.90 5.35L1.90 5.33C2.59 5.87 3.23 6.38 3.23 7.04C3.23 7.78 2.91 8.04 2.32 8.04C2.13 8.04 1.89 8.01 1.74 7.85C1.54 7.69 1.41 7.36 1.41 6.69L1.41 6.51C1.41 6.23 1.18 6.01 0.91 6.01L0.52 6.01C0.24 6.01 0.01 6.23 0.01 6.51ZM5.59 6.69C5.59 7.80 5.89 8.44 6.33 8.88C6.79 9.32 7.38 9.44 7.88 9.44C8.40 9.44 8.99 9.32 9.45 8.88C9.88 8.44 10.18 7.80 10.18 6.69L10.18 2.73C10.18 0.95 9.42 0 7.88 0C6.36 0 5.59 0.97 5.59 2.73ZM6.99 2.73C6.99 1.82 7.27 1.39 7.88 1.39C8.48 1.39 8.78 1.79 8.78 2.73L8.78 6.69C8.78 7.64 8.47 8.05 7.88 8.05C7.28 8.05 6.99 7.62 6.99 6.69ZM11.72 0C11.44 0 11.21 0.22 11.21 0.50L11.21 8.93C11.21 9.21 11.44 9.44 11.72 9.44L12.11 9.44C12.38 9.44 12.61 9.21 12.61 8.93L12.61 5.40L14.18 5.40C14.46 5.40 14.69 5.18 14.69 4.90L14.69 4.52C14.69 4.24 14.46 4.02 14.18 4.02L12.61 4.02L12.61 1.39L14.74 1.39C15.02 1.39 15.25 1.16 15.25 0.88L15.25 0.50C15.25 0.22 15.02 0 14.74 0ZM16.23 0.88C16.23 1.16 16.45 1.39 16.73 1.39L17.86 1.39L17.86 8.92C17.86 9.20 18.09 9.42 18.37 9.42L18.75 9.42C19.03 9.42 19.25 9.20 19.25 8.92L19.25 1.39L20.40 1.39C20.68 1.39 20.90 1.16 20.90 0.88L20.90 0.49C20.90 0.21 20.68-0.01 20.40-0.01L16.73-0.01C16.45-0.01 16.23 0.21 16.23 0.49ZM25.90 0.41C25.86 0.18 25.63 0 25.41 0L25.10 0C24.88 0 24.65 0.18 24.61 0.41L23.88 4.66L23.24 0.42C23.20 0.18 22.97 0 22.74 0L22.33 0C22.01 0 21.80 0.27 21.84 0.57L23.21 9.02C23.25 9.24 23.46 9.44 23.70 9.44L24.01 9.44C24.23 9.44 24.46 9.25 24.50 9.03L25.26 4.56L26.00 9.03C26.04 9.25 26.26 9.44 26.49 9.44L26.81 9.44C27.05 9.44 27.27 9.24 27.31 9.02L28.66 0.57C28.70 0.27 28.46 0 28.15 0L27.75 0C27.51 0 27.27 0.18 27.24 0.42L26.61 4.63ZM31.01 0.50C31.01 0.22 30.77 0 30.51 0L30.11 0C29.83 0 29.61 0.22 29.61 0.50L29.61 8.93C29.61 9.21 29.83 9.44 30.11 9.44L30.51 9.44C30.77 9.44 31.01 9.21 31.01 8.93ZM36.09 9.44C36.37 9.44 36.60 9.21 36.60 8.93L36.60 0.50C36.60 0.22 36.37 0 36.09 0L35.70 0C35.42 0 35.20 0.22 35.20 0.50L35.20 5.12L33.25 0.31C33.19 0.15 32.97 0 32.79 0L32.45 0C32.19 0 31.95 0.22 31.95 0.50L31.95 8.93C31.95 9.21 32.19 9.44 32.45 9.44L32.86 9.44C33.12 9.44 33.36 9.21 33.36 8.93L33.36 4.31L35.31 9.13C35.36 9.28 35.60 9.44 35.77 9.44ZM38.19 0C37.91 0 37.69 0.22 37.69 0.50L37.69 8.93C37.69 9.21 37.91 9.44 38.19 9.44L41.22 9.44C41.50 9.44 41.72 9.21 41.72 8.93L41.72 8.55C41.72 8.27 41.50 8.05 41.22 8.05L39.07 8.05L39.07 5.40L40.84 5.40C41.12 5.40 41.34 5.18 41.34 4.90L41.34 4.52C41.34 4.24 41.12 4.02 40.84 4.02L39.07 4.02L39.07 1.39L41.22 1.39C41.50 1.39 41.72 1.16 41.72 0.88L41.72 0.50C41.72 0.22 41.50 0 41.22 0Z">
+                            </path>
+                        </g>
+                        <defs data-v-fde0c5aa=""><!----></defs>
+                        <g data-v-fde0c5aa="" id="c384ea37-ceba-4697-904b-a8162751fcf7" stroke="none" fill="#A0CD9A"
+                            transform="matrix(2.4361706961543717,0,0,2.4361706961543717,33.906360697977995,110.42054771534538)">
+                            <g stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M15.331 12.01A6.502 6.502 0 002.52 13.998C2.78 17.383 5.602 19.998 9 20l7.51-.01a4.748 4.748 0 003.686-8.02 4.753 4.753 0 00-5.214-1.13">
+                                </path>
+                                <path
+                                    d="M21.075 21.505a.491.51 0 00-.565.499v.952l-.875-.29a.491.51 0 00-.299.97l.874.29-.536.773a.491.51 0 00.797.595l.536-.773.544.768a.491.51 0 00.792-.603l-.543-.768.871-.298a.491.51 0 00-.307-.967l-.872.298V22a.491.51 0 00-.417-.495z"
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    color="#000" font-weight="400" font-family="sans-serif" overflow="visible"
+                                    stroke-width="3.288"></path>
+                                <path
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    d="M26 26.5a.5.5 0 00-.493.507v2.986a.5.5 0 101 0v-2.986A.5.5 0 0026 26.5z"
+                                    color="#000" font-weight="400" font-family="sans-serif" overflow="visible"></path>
+                                <path
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    d="M24.515 27.999a.5.5 0 100 1H27.5a.5.5 0 100-1z" color="#000" font-weight="400"
+                                    font-family="sans-serif" overflow="visible"></path>
+                                <path
+                                    d="M17.574 2.006a.491.51 0 00-.565.498v.953l-.875-.29a.491.51 0 00-.3.97l.875.29-.536.772a.491.51 0 00.797.595l.536-.772.543.767a.491.51 0 00.793-.602l-.543-.768.871-.298a.491.51 0 00-.307-.967l-.873.298V2.5a.491.51 0 00-.416-.494zM27.077 12.506a.491.51 0 00-.565.498v.953l-.875-.29a.491.51 0 00-.3.97l.875.29-.536.772a.491.51 0 00.797.595l.536-.773.544.768a.491.51 0 00.792-.603l-.543-.767.871-.298a.491.51 0 00-.307-.967l-.872.297V13a.491.51 0 00-.417-.494z"
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    color="#000" font-weight="400" font-family="sans-serif" overflow="visible"
+                                    stroke-width="3.288"></path>
+                                <path
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    d="M24.5 5.5a.5.5 0 00-.493.507v2.986a.5.5 0 101 0V6.007A.5.5 0 0024.5 5.5z"
+                                    color="#000" font-weight="400" font-family="sans-serif" overflow="visible"></path>
+                                <path
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    d="M23.014 7a.5.5 0 100 1H26a.5.5 0 100-1zM7.494 22.499a.5.5 0 00-.493.508v2.986a.5.5 0 101 0v-2.986a.5.5 0 00-.507-.508z"
+                                    color="#000" font-weight="400" font-family="sans-serif" overflow="visible"></path>
+                                <path
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    d="M6.009 23.999a.5.5 0 100 1h2.985a.5.5 0 100-1z" color="#000" font-weight="400"
+                                    font-family="sans-serif" overflow="visible"></path>
+                                <path
+                                    d="M14.573 25.505a.491.51 0 00-.565.499v.952l-.875-.29a.491.51 0 00-.3.97l.875.29-.536.773a.491.51 0 00.797.595l.536-.773.543.768a.491.51 0 00.793-.603l-.543-.768.871-.298a.491.51 0 00-.307-.967l-.873.298V26a.491.51 0 00-.416-.495z"
+                                    style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"
+                                    color="#000" font-weight="400" font-family="sans-serif" overflow="visible"
+                                    stroke-width="3.288"></path>
+                            </g>
+                        </g>
+                        <defs data-v-fde0c5aa=""><!----></defs>
+                        <g data-v-fde0c5aa="" id="3d120e79-0faa-43a5-a0da-08379bf739aa" fill="#ffffff"
+                            transform="matrix(0.3129569608061138,0,0,0.3129569608061138,117.37300155312131,165.48393360353856)">
+                            <path
+                                d="M1.75 4.65C1.75 4.03 2.11 3.08 4.21 3.08C5.91 3.08 6.69 3.82 6.80 4.75L7.88 4.75C7.80 3.36 6.68 2.10 4.21 2.10C1.89 2.10 0.73 3.15 0.73 4.66C0.73 7.84 7.07 6.69 7.07 8.96C7.07 10.05 6.09 10.60 4.52 10.60C2.91 10.60 1.61 10.05 1.54 8.71L0.45 8.71C0.59 10.37 1.71 11.59 4.45 11.59C6.73 11.59 8.12 10.64 8.12 8.92C8.12 5.68 1.75 6.80 1.75 4.65ZM20.86 2.10C18.05 2.10 16.16 4.21 16.16 6.85C16.16 9.48 18.05 11.59 20.86 11.59C23.67 11.59 25.56 9.48 25.56 6.85C25.56 4.21 23.67 2.10 20.86 2.10ZM20.86 10.57C18.61 10.57 17.21 8.93 17.21 6.85C17.21 4.76 18.61 3.12 20.86 3.12C23.11 3.12 24.51 4.76 24.51 6.85C24.51 8.93 23.11 10.57 20.86 10.57ZM40.94 3.22L40.94 2.21L34.24 2.21L34.24 11.48L35.29 11.48L35.29 7.46L40.32 7.46L40.32 6.44L35.29 6.44L35.29 3.22ZM55.99 2.21L48.47 2.21L48.47 3.22L51.70 3.22L51.70 11.48L52.75 11.48L52.75 3.22L55.99 3.22ZM69.89 3.70L72.39 11.48L73.58 11.48L76.47 2.21L75.36 2.21L72.98 10.00L70.49 2.21L69.29 2.21L66.79 10.00L64.41 2.21L63.31 2.21L66.19 11.48L67.38 11.48ZM88.42 2.21L87.11 2.21L83.17 11.48L84.34 11.48L85.47 8.79L90.06 8.79L91.20 11.48L92.36 11.48ZM85.88 7.83L87.77 3.30L89.66 7.83ZM101.58 7.92L104.80 7.92L107.04 11.48L108.29 11.48L105.85 7.74C106.89 7.50 108.09 6.90 108.09 5.11C108.09 3.35 106.88 2.21 104.97 2.21L100.53 2.21L100.53 11.48L101.58 11.48ZM101.58 3.21L104.85 3.21C106.16 3.21 107.04 3.93 107.04 5.11C107.04 6.55 105.78 6.93 104.79 6.93L101.58 6.93ZM123.72 3.22L123.72 2.21L116.90 2.21L116.90 11.48L123.72 11.48L123.72 10.47L117.95 10.47L117.95 7.35L123.10 7.35L123.10 6.33L117.95 6.33L117.95 3.22ZM132.02 10.05L132.02 11.48L133.38 11.48L133.38 10.05ZM156.39 2.21L155.08 2.21L151.14 11.48L152.31 11.48L153.44 8.79L158.03 8.79L159.17 11.48L160.33 11.48ZM153.85 7.83L155.74 3.30L157.63 7.83ZM169.55 7.92L172.77 7.92L175.01 11.48L176.26 11.48L173.82 7.74C174.86 7.50 176.06 6.90 176.06 5.11C176.06 3.35 174.85 2.21 172.94 2.21L168.50 2.21L168.50 11.48L169.55 11.48ZM169.55 3.21L172.82 3.21C174.13 3.21 175.01 3.93 175.01 5.11C175.01 6.55 173.75 6.93 172.76 6.93L169.55 6.93ZM188.85 10.57C186.59 10.57 185.33 8.93 185.33 6.85C185.33 4.76 186.59 3.12 188.85 3.12C190.37 3.12 191.38 3.85 191.86 4.98L192.96 4.98C192.37 3.29 190.86 2.10 188.76 2.10C185.98 2.10 184.28 4.21 184.28 6.85C184.28 9.48 185.98 11.59 188.76 11.59C190.86 11.59 192.37 10.40 192.96 8.71L191.86 8.71C191.38 9.84 190.37 10.57 188.85 10.57ZM207.97 2.21L207.97 6.33L202.58 6.33L202.58 2.21L201.53 2.21L201.53 11.48L202.58 11.48L202.58 7.35L207.97 7.35L207.97 11.48L209.02 11.48L209.02 2.21ZM219.34 2.21L218.29 2.21L218.29 11.48L219.34 11.48ZM235.19 2.21L227.67 2.21L227.67 3.22L230.90 3.22L230.90 11.48L231.95 11.48L231.95 3.22L235.19 3.22ZM250.33 3.22L250.33 2.21L243.52 2.21L243.52 11.48L250.33 11.48L250.33 10.47L244.57 10.47L244.57 7.35L249.72 7.35L249.72 6.33L244.57 6.33L244.57 3.22ZM262.84 10.57C260.58 10.57 259.32 8.93 259.32 6.85C259.32 4.76 260.58 3.12 262.84 3.12C264.36 3.12 265.37 3.85 265.85 4.98L266.95 4.98C266.36 3.29 264.85 2.10 262.75 2.10C259.97 2.10 258.27 4.21 258.27 6.85C258.27 9.48 259.97 11.59 262.75 11.59C264.85 11.59 266.36 10.40 266.95 8.71L265.85 8.71C265.37 9.84 264.36 10.57 262.84 10.57ZM282.02 2.21L274.50 2.21L274.50 3.22L277.73 3.22L277.73 11.48L278.78 11.48L278.78 3.22L282.02 3.22ZM297.07 2.21L297.07 7.52C297.07 9.67 295.64 10.57 294.17 10.57C292.70 10.57 291.28 9.67 291.28 7.52L291.28 2.21L290.23 2.21L290.23 7.49C290.23 9.95 291.86 11.59 294.17 11.59C296.49 11.59 298.12 9.94 298.12 7.49L298.12 2.21ZM308.32 7.92L311.54 7.92L313.78 11.48L315.03 11.48L312.59 7.74C313.63 7.50 314.83 6.90 314.83 5.11C314.83 3.35 313.61 2.21 311.71 2.21L307.27 2.21L307.27 11.48L308.32 11.48ZM308.32 3.21L311.58 3.21C312.90 3.21 313.78 3.93 313.78 5.11C313.78 6.55 312.52 6.93 311.53 6.93L308.32 6.93ZM330.46 3.22L330.46 2.21L323.64 2.21L323.64 11.48L330.46 11.48L330.46 10.47L324.69 10.47L324.69 7.35L329.84 7.35L329.84 6.33L324.69 6.33L324.69 3.22ZM338.76 10.05L338.76 11.48L340.12 11.48L340.12 10.05ZM365.67 3.22L365.67 2.21L358.97 2.21L358.97 11.48L360.02 11.48L360.02 7.46L365.05 7.46L365.05 6.44L360.02 6.44L360.02 3.22ZM380.86 2.21L380.86 7.52C380.86 9.67 379.43 10.57 377.96 10.57C376.49 10.57 375.07 9.67 375.07 7.52L375.07 2.21L374.02 2.21L374.02 7.49C374.02 9.95 375.65 11.59 377.96 11.59C380.28 11.59 381.91 9.94 381.91 7.49L381.91 2.21ZM397.64 2.21L390.12 2.21L390.12 3.22L393.36 3.22L393.36 11.48L394.41 11.48L394.41 3.22L397.64 3.22ZM412.69 2.21L412.69 7.52C412.69 9.67 411.26 10.57 409.79 10.57C408.32 10.57 406.91 9.67 406.91 7.52L406.91 2.21L405.86 2.21L405.86 7.49C405.86 9.95 407.48 11.59 409.79 11.59C412.12 11.59 413.74 9.94 413.74 7.49L413.74 2.21ZM423.95 7.92L427.17 7.92L429.41 11.48L430.65 11.48L428.22 7.74C429.25 7.50 430.46 6.90 430.46 5.11C430.46 3.35 429.24 2.21 427.34 2.21L422.90 2.21L422.90 11.48L423.95 11.48ZM423.95 3.21L427.21 3.21C428.53 3.21 429.41 3.93 429.41 5.11C429.41 6.55 428.15 6.93 427.15 6.93L423.95 6.93ZM446.08 3.22L446.08 2.21L439.26 2.21L439.26 11.48L446.08 11.48L446.08 10.47L440.31 10.47L440.31 7.35L445.47 7.35L445.47 6.33L440.31 6.33L440.31 3.22ZM454.38 10.05L454.38 11.48L455.74 11.48L455.74 10.05Z">
+                            </path>
+                        </g>
                     </svg>
-                    <span>Softwine.LTD</span>
                 </div>
                 <ul>
                     <li><a href="#services">Services</a></li>
@@ -144,9 +214,10 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Softwine.LTD</h1>
+            <h1>Softwine</h1>
             <p class="slogan">Software. Architecture. Future.</p>
-            <p class="email">Contact us: <a href="mailto:customers@softwine.net" style="color: #A0CD9A;">customers@softwine.net</a></p>
+            <p class="email">Contact us: <a href="mailto:customers@softwine.net"
+                    style="color: #A0CD9A;">customers@softwine.net</a></p>
             <a href="#contact" class="btn">Get Started</a>
         </div>
     </section>
@@ -178,4 +249,5 @@
         </div>
     </footer>
 </body>
+
 </html>
