@@ -167,6 +167,59 @@
             color: #333;
         }
 
+        .how-we-help {
+            padding: 2rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .how-we-help .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .how-we-help h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
         footer {
             background: #ffffff;
             color: #51A5D7;
@@ -211,7 +264,8 @@
                 <div class="feature">
                     <i class="fas fa-cloud fa-2x" style="color: #51A5D7;"></i>
                     <h3>Cloud Architecture</h3>
-                    <p>Design scalable and efficient cloud infrastructures customized to meet your specific requirements.</p>
+                    <p>Design scalable and efficient cloud infrastructures customized to meet your specific
+                        requirements.</p>
                 </div>
                 <div class="feature">
                     <i class="fas fa-code fa-2x" style="color: #51A5D7;"></i>
@@ -228,36 +282,35 @@
     </section>
 
 
-    <section id="infrastructure" class="infrastructure">
+    <section id="how-we-help" class="how-we-help">
         <div class="container">
             <h2>How We Help You</h2>
-            <div class="infrastructure-grid">
-                <div class="infrastructure-item">
+            <div class="card-grid">
+                <div class="card">
                     <i class="fas fa-cloud-upload-alt fa-2x" style="color: #51A5D7;"></i>
                     <h3>Cloud Migration</h3>
                     <p>Seamlessly transition your existing infrastructure to the cloud, ensuring minimal downtime and
-                        maximum efficiency, whether it's public, private, or hybrid cloud solutions..</p>
+                        maximum efficiency.</p>
                 </div>
-                <div class="infrastructure-item">
+                <div class="card">
                     <i class="fas fa-server fa-2x" style="color: #51A5D7;"></i>
                     <h3>Serverless Architecture</h3>
                     <p>Design and implement serverless solutions that scale automatically and reduce operational costs.
                     </p>
                 </div>
-                <div class="infrastructure-item">
+                <div class="card">
                     <i class="fas fa-box fa-2x" style="color: #51A5D7;"></i>
                     <h3>Containerization</h3>
-                    <p>Leverage container technologies (e.g. Docker, Kubernetes, etc.) to improve application
-                        portability and
+                    <p>Leverage container technologies like Docker and Kubernetes to improve application portability and
                         scalability.</p>
                 </div>
-                <div class="infrastructure-item">
+                <div class="card">
                     <i class="fas fa-code-branch fa-2x" style="color: #51A5D7;"></i>
                     <h3>CI/CD and Pipelines</h3>
                     <p>Automate your development workflow with continuous integration and continuous deployment
                         pipelines, enhancing productivity and reducing errors.</p>
                 </div>
-                <div class="infrastructure-item">
+                <div class="card">
                     <i class="fas fa-cogs fa-2x" style="color: #51A5D7;"></i>
                     <h3>DevOps Integration</h3>
                     <p>Implement DevOps practices and tools to streamline your development and deployment processes.</p>
