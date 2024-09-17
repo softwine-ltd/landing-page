@@ -221,9 +221,42 @@
 
         /* Media Queries for Mobile Devices */
         @media (max-width: 768px) {
+            .feature-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                /* Firefox */
+                -ms-overflow-style: none;
+                /* Internet Explorer 10+ */
+                gap: 1rem;
+                /* Reduced gap for mobile */
+                padding-bottom: 1rem;
+                /* Add some padding to show part of next slide */
+                padding-left: 1rem;
+                /* Add left padding to show first slide */
+                padding-right: 1rem;
+                /* Add right padding for consistency */
+            }
+
+            .feature-grid::-webkit-scrollbar {
+                display: none;
+                /* WebKit */
+            }
+
             .feature {
-                flex: 1 1 100%;
-                max-width: 100%;
+                flex: 0 0 85%;
+                /* Slightly increase to 85% of the container width */
+                max-width: 60%;
+                scroll-snap-align: center;
+            }
+
+            .features .container {
+                padding-left: 0;
+                padding-right: 0;
             }
 
             .masonry-grid {
