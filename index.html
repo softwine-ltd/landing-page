@@ -213,14 +213,79 @@
         }
 
         footer {
-            background: #ffffff;
+            background-color: #f9f9f9;
             color: #51A5D7;
             text-align: center;
             padding: 1rem 0;
         }
 
-        /* Media Queries for Mobile Devices */
+        .about {
+            background: #ffffff;
+            padding: 4rem 0;
+        }
+
+        .about h2 {
+            color: #666;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .story-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-icon {
+            position: absolute;
+            top: -10px;
+            left: -15px;
+            background-color: #A0CD9A;
+            color: #ffffff;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-15deg);
+        }
+
+        .story-content {
+            padding-left: 3rem;
+            line-height: 1.6;
+        }
+
+        .story-content p {
+            color: #51A5D7;
+            margin-bottom: 1rem;
+        }
+
         @media (max-width: 768px) {
+            .story-card {
+                padding: 1.5rem;
+            }
+
+            .story-icon {
+                width: 60px;
+                height: 60px;
+                top: -10px;
+                left: -10px;
+            }
+
+            .story-icon i {
+                font-size: 1.5em;
+            }
+
+            .story-content {
+                padding-left: 1.5rem;
+            }
+
             .feature-grid {
                 display: flex;
                 flex-wrap: nowrap;
@@ -290,7 +355,7 @@
             <nav>
                 <ul>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#infrastructure">Infrastructure</a></li>
+                    <li><a href="#how-we-help">Expertise</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -393,6 +458,54 @@
                     <i class="fas fa-rocket fa-2x" style="color: #51A5D7;"></i>
                     <h3>Future-Proof Solutions</h3>
                     <p>Implement cutting-edge technologies to keep your business ahead of the curve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="story-card">
+                <div class="story-icon">
+                    <i class="fas fa-wine-bottle fa-3x"></i>
+                </div>
+                <div class="story-content">
+                    <p>
+                        Softwine's journey began with a simple observation that would revolutionize how businesses
+                        approach
+                        software architecture and DevOps.
+                    </p>
+                    <p>
+                        Our founder, <a href="https://bezbran.com" target="_blank" rel="noopener noreferrer">Bezalel
+                            Brandwine</a>, had spent years as a hands-on software architect in a fast-paced cloud
+                        startup.
+                    </p>
+                    <p>
+                        This realization sparked an idea. What if there was a way to provide businesses with expertly
+                        crafted software infrastructure and DevOps solutions that could be set up once and maintained
+                        efficiently? This would free companies to focus on their core business without the overhead of
+                        full-time, specialized tech teams.
+                    </p>
+                    <p>
+                        In 2024, Bezalel founded Softwine with a mission to make high-quality software
+                        architecture and DevOps accessible to businesses of all sizes. Like a fine wine that's carefully
+                        crafted and aged to perfection, Softwine's solutions are meticulously designed, implemented, and
+                        maintained to provide lasting value.
+                    </p>
+                    <p>
+                        Today, Softwine continues to grow, partnering with businesses across industries to create
+                        robust,
+                        scalable, and efficient software infrastructures. Our team of experts brings the sophistication
+                        of
+                        advanced software architecture with the approachability of a trusted partner, ensuring that our
+                        clients can harness the full potential of technology without the complexity.
+                    </p>
+                    <p>
+                        At Softwine, we're not just building software solutions; we're cultivating digital ecosystems
+                        that
+                        help businesses thrive in an increasingly connected world.
+                    </p>
                 </div>
             </div>
         </div>
