@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
@@ -24,52 +25,63 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
             padding: 0 20px;
         }
+
         header {
             background: #ffffff;
             padding: 1rem 0;
         }
+
         header nav {
             display: flex;
             justify-content: flex-end;
             align-items: center;
         }
+
         header nav ul {
             display: flex;
             list-style: none;
         }
+
         header nav ul li {
             margin-left: 20px;
         }
+
         header nav ul li a {
             text-decoration: none;
             color: #51A5D7;
         }
+
         .hero {
             background: #51A5D7;
             color: #ffffff;
             padding: 3rem 0;
             text-align: center;
         }
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
+
         .hero .slogan {
             font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 1rem;
         }
+
         .hero .email {
             font-size: 1.2rem;
             color: #A0CD9A;
             margin-bottom: 2rem;
         }
+
         .btn {
             display: inline-block;
             background: #A0CD9A;
@@ -81,19 +93,23 @@
             text-decoration: none;
             transition: opacity 0.2s ease-in;
         }
+
         .btn:hover {
             opacity: 0.8;
         }
+
         .projects {
             padding: 3rem 0;
             background-color: #ffffff;
         }
+
         .projects h2 {
             text-align: center;
             margin-bottom: 2rem;
             font-size: 2.5rem;
             color: #51A5D7;
         }
+
         .project-card {
             background: #f4f4f4;
             padding: 1.5rem;
@@ -102,27 +118,41 @@
             margin-bottom: 2rem;
             transition: transform 0.3s ease;
         }
+
         .project-card:hover {
             transform: translateY(-10px);
         }
+
         .project-card h3 {
             color: #51A5D7;
             margin-bottom: 1rem;
         }
+
         .project-card p {
             color: #333;
             margin-bottom: 0.5rem;
         }
+
+        .project-card p strong {
+            color: #51A5D7;
+        }
+
+        .project-card p:nth-of-type(3) {
+            text-align: justify;
+        }
+
         .project-card ul {
             color: #333;
             padding-left: 20px;
         }
+
         footer {
             background-color: #f9f9f9;
             color: #51A5D7;
             text-align: center;
             padding: 1rem 0;
         }
+
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -130,6 +160,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -164,13 +195,19 @@
                 <h3>Reports Validations Software</h3>
                 <p><strong>Client:</strong> Ficohsa Bank</p>
                 <p><strong>Technologies:</strong> NextJS, NodeJS, MSSQL, Windows servers</p>
-                <p><strong>Overview:</strong> This specialized software was developed for a bank to ensure the integrity and accuracy of financial data before it is submitted to regulatory authorities. It automates the process of validating and reconciling reports, ensuring compliance with regulatory standards and minimizing the risk of reporting errors.</p>
+                <p><strong>Overview:</strong> This specialized software was developed for a bank to ensure the integrity
+                    and accuracy of financial data before it is submitted to regulatory authorities. It automates the
+                    process of validating and reconciling reports, ensuring compliance with regulatory standards and
+                    minimizing the risk of reporting errors.</p>
             </div>
             <div class="project-card">
                 <h3>Marketplace for Models' Agencies</h3>
                 <p><strong>Client:</strong> BaModel</p>
-                <p><strong>Technologies:</strong> Evolving from PHP (Laravel) & VueJS, MySQL to NextJS, NodeJS, PostgreSQL</p>
-                <p><strong>Overview:</strong> BaModel is an innovative platform designed to connect aspiring models with global modeling agencies. It simplifies the process of getting noticed by top agencies worldwide, acting as a bridge between models and verified agencies seeking fresh talent.</p>
+                <p><strong>Technologies:</strong> Evolving from PHP (Laravel) & VueJS, MySQL to NextJS, NodeJS,
+                    PostgreSQL</p>
+                <p><strong>Overview:</strong> BaModel is an innovative platform designed to connect aspiring models with
+                    global modeling agencies. It simplifies the process of getting noticed by top agencies worldwide,
+                    acting as a bridge between models and verified agencies seeking fresh talent.</p>
                 <p><strong>Features:</strong></p>
                 <ul>
                     <li>Emailing and notifications</li>
@@ -184,8 +221,14 @@
             </div>
             <div class="project-card">
                 <h3>KULLA - 2D to 3D Conversion Platform</h3>
-                <p><strong>Technologies:</strong> Django, NextJS, Flask & Blender (microservice), ArgoCD, Docker, PostgreSQL, Google OAUTH2</p>
-                <p><strong>Overview:</strong> Kulla is a cloud-based platform designed to bridge the gap between 2D and 3D construction workflows, particularly in the architectural and construction sectors. The software allows users to continue working with traditional 2D tools like AutoCAD while automatically converting floor plans into 3D Building Information Modeling (BIM) formats. This enhances collaboration and communication between stakeholders, helping reduce errors and delays in construction projects.</p>
+                <p><strong>Technologies:</strong> Django, NextJS, Flask & Blender (microservice), ArgoCD, Docker,
+                    PostgreSQL, Google OAUTH2</p>
+                <p><strong>Overview:</strong> Kulla is a cloud-based platform designed to bridge the gap between 2D and
+                    3D construction workflows, particularly in the architectural and construction sectors. The software
+                    allows users to continue working with traditional 2D tools like AutoCAD while automatically
+                    converting floor plans into 3D Building Information Modeling (BIM) formats. This enhances
+                    collaboration and communication between stakeholders, helping reduce errors and delays in
+                    construction projects.</p>
             </div>
         </div>
     </section>
@@ -197,4 +240,5 @@
         </div>
     </footer>
 </body>
+
 </html>
