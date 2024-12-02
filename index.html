@@ -87,22 +87,6 @@
             margin-bottom: 2rem;
         }
 
-        .btn {
-            display: inline-block;
-            background: #A0CD9A;
-            color: #ffffff;
-            padding: 0.8rem 1.8rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: opacity 0.2s ease-in;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-        }
-
         .features {
             padding: 3rem 0;
             background-color: #ffffff;
@@ -357,7 +341,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#how-we-help">Expertise</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/projects-a.html">Projects</a></li>
                 </ul>
             </nav>
         </div>
@@ -373,7 +357,63 @@
 
             <p class="email">Contact us: <a href="mailto:contactus@softwine.net"
                     style="color: #A0CD9A;">contactus@softwine.net</a></p>
-            <a href="#contact" class="btn">Get Started</a>
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <!-- Google Calendar Appointment Scheduling -->
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+
+            <script>
+                (function () {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function () {
+                        calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2MS91tKNsEQ0xXQ4KkkBCouHzjMUCeI4udEJw2XvChVNQYDb-1QQv_G_d2EgTJePuzbxiWG9-Y?gv=true',
+                            color: '#A0CD9A',
+                            label: 'Book a meeting',
+                            target,
+                        });
+
+                        setTimeout(() => {
+                            const button = target.nextElementSibling;
+                            if (button && button.tagName === 'BUTTON') {
+                                // Get the dynamic class name
+                                const buttonClass = button.className;
+
+                                // Create and append dynamic styles
+                                const style = document.createElement('style');
+                                style.textContent = `
+                    .${buttonClass} {
+                        display: inline-flex !important;
+                        align-items: center !important;
+                        gap: 8px !important;
+                        color: white !important;
+                        background-color: #A0CD9A !important;
+                        padding: 0.8rem 1.8rem;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 1rem;
+                        text-decoration: none;
+                        transition: opacity 0.2s ease-in;
+                    }
+
+                    .${buttonClass}::before {
+                        font-family: "Font Awesome 6 Free";
+                        content: "\\f133";
+                        font-weight: 900;
+                    }
+                    
+                    .${buttonClass}:hover {
+                        opacity: 0.8;
+                    }
+                `;
+                                document.head.appendChild(style);
+                            }
+                        }, 100); // Small delay to ensure button is created
+                    });
+                })();
+            </script>
+            <!-- end Google Calendar Appointment Scheduling -->
         </div>
     </section>
 
@@ -384,7 +424,8 @@
                 <div class="feature">
                     <i class="fas fa-cloud fa-2x" style="color: #51A5D7;"></i>
                     <h3>Cloud Architecture</h3>
-                    <p>Design scalable and efficient cloud infrastructures, both private, public and hybrid, customized to meet
+                    <p>Design scalable and efficient cloud infrastructures, both private, public and hybrid, customized
+                        to meet
                         your specific requirements and security needs.</p>
                 </div>
                 <div class="feature">
