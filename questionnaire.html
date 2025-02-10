@@ -192,6 +192,8 @@
                 message: "What would you like to achieve with our help?",
                 options: [
                     "Build a new software solution",
+                    "Build an AI-powered solution from scratch",
+                    "Add AI capabilities to existing systems",
                     "Improve existing software",
                     "Move systems to the cloud",
                     "Make current systems faster and better",
@@ -199,11 +201,58 @@
                 ],
                 next: {
                     "Build a new software solution": "new_system_details",
+                    "Add AI capabilities to existing systems": "ai_enhancement_needs",
+                    "Build an AI-powered solution from scratch": "ai_solution_details",
                     "Improve existing software": "project_scale",
                     "Move systems to the cloud": "project_scale",
                     "Make current systems faster and better": "project_scale",
                     "Not sure - need guidance": "guidance_needed"
                 }
+            },
+            ai_enhancement_needs: {
+                message: "What kind of AI capabilities are you interested in adding? (Select all that apply)",
+                options: [
+                    "Automated customer support",
+                    "Data analysis and insights",
+                    "Process automation",
+                    "Document processing and understanding",
+                    "Predictive analytics",
+                    "Image or video analysis",
+                    "Other/Custom solution",
+                    "Continue to next step"
+                ],
+                next: "data_availability",
+                allowMultiple: true
+            },
+            data_availability: {
+                message: "Do you already have data that could be used to train AI models?",
+                options: [
+                    "Yes, we have structured data",
+                    "Yes, but it needs organization",
+                    "No, we need to start collecting",
+                    "Not sure what data we need",
+                    "Would like to discuss data requirements"
+                ],
+                next: "project_scale"
+            },
+            ai_solution_details: {
+                message: "Tell us about the AI-powered solution you envision:",
+                type: "form",
+                fields: [
+                    {name: "description", label: "What problem should the AI solve?"},
+                    {name: "expected_outcome", label: "What outcomes are you looking for?"}
+                ],
+                next: "ai_inspiration"
+            },
+            ai_inspiration: {
+                message: "Have you seen similar AI solutions that inspired your idea?",
+                options: [
+                    "Yes, I can share examples",
+                    "No, but interested in possibilities",
+                    "This would be something unique",
+                    "Not sure - need guidance"
+                ],
+                next: "data_availability"
             },
             new_system_details: {
                 message: "Could you briefly describe what kind of software solution you're looking to build? (For example: customer portal, internal tool, mobile app, etc.)",
@@ -262,6 +311,9 @@
                     "High maintenance costs",
                     "System crashes or errors",
                     "Difficulty managing data",
+                    "Need automation",
+                    "Manual processes taking too long",
+                    "Need better insights from data",
                     "Continue to next step"
                 ],
                 next: "budget_range",
