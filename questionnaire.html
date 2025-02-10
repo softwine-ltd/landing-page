@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Consultation Bot</title>
+    <style>
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .chat-header {
+            background: #51A5D7;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #ffffff;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 10px;
+            max-width: 85%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .bot-message {
+            background: #f4f4f4;
+            margin-right: auto;
+            color: #51A5D7;
+        }
+
+        .user-message {
+            background: #A0CD9A;
+            color: white;
+            margin-left: auto;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .option-button {
+            background: #f4f4f4;
+            border: 2px solid #51A5D7;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease;
+            color: #51A5D7;
+            font-weight: 500;
+        }
+
+        .option-button:hover {
+            background: #51A5D7;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #f4f4f4;
+            background: white;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 2px solid #f4f4f4;
+            border-radius: 8px;
+            margin-right: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: #51A5D7;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            background: #A0CD9A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .chat-input button:hover {
+            background: #8bb984;
+            transform: translateY(-2px);
+        }
+
+        .chat-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #51A5D7;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .chat-toggle:hover {
+            background: #4590bd;
+            transform: scale(1.1);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button class="chat-toggle" id="chatToggle">💬</button>
+    
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">Architecture Consultation Assistant</div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input" id="chatInput">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Conversation flow definition
+        const conversationFlow = {
+            start: {
+                message: "Hello! I'm here to understand your software architecture needs. Would you like to start a quick consultation?",
+                options: ["Yes, let's begin", "I'd prefer to browse first"],
+                next: {
+                    "Yes, let's begin": "project_type",
+                    "I'd prefer to browse first": "browse_info"
+                }
+            },
+            browse_info: {
+                message: "No problem! You can explore our services anytime. When you're ready to discuss your project, just click any option.",
+                options: ["Start consultation", "Tell me about your expertise"],
+                next: {
+                    "Start consultation": "project_type",
+                    "Tell me about your expertise": "expertise_info"
+                }
+            },
+            expertise_info: {
+                message: "We specialize in modern software architecture and infrastructure, including:\n- Cloud-native solutions\n- Microservices architecture\n- DevOps implementation\n- Scalable system design\nWould you like to discuss your specific needs?",
+                options: ["Yes, let's discuss my project", "I have more questions"],
+                next: {
+                    "Yes, let's discuss my project": "project_type",
+                    "I have more questions": "contact_expert"
+                }
+            },
+            project_type: {
+                message: "What would you like to achieve with our help?",
+                options: [
+                    "Build a new software solution",
+                    "Improve existing software",
+                    "Move systems to the cloud",
+                    "Make current systems faster and better",
+                    "Not sure - need guidance"
+                ],
+                next: {
+                    "Build a new software solution": "new_system_details",
+                    "Improve existing software": "project_scale",
+                    "Move systems to the cloud": "project_scale",
+                    "Make current systems faster and better": "project_scale",
+                    "Not sure - need guidance": "guidance_needed"
+                }
+            },
+            new_system_details: {
+                message: "Could you briefly describe what kind of software solution you're looking to build? (For example: customer portal, internal tool, mobile app, etc.)",
+                type: "form",
+                fields: [
+                    {name: "description", label: "Brief description of your idea"}
+                ],
+                next: "similar_solutions"
+            },
+            similar_solutions: {
+                message: "Are you aware of any similar solutions in the market that inspire your idea?",
+                options: [
+                    "Yes, I know similar solutions",
+                    "No, but I'd like to learn about existing options",
+                    "This would be something unique"
+                ],
+                next: "project_scale"
+            },
+            guidance_needed: {
+                message: "No problem! Let's start with understanding your business needs. What's the main challenge you're trying to solve?",
+                type: "form",
+                fields: [
+                    {name: "challenge", label: "What business challenge are you facing?"}
+                ],
+                next: "project_scale"
+            },
+            project_scale: {
+                message: "How would you describe the size of your organization?",
+                options: [
+                    "Small business or startup",
+                    "Growing company",
+                    "Large organization",
+                    "Not sure / Other"
+                ],
+                next: "timeline"
+            },
+            timeline: {
+                message: "What's your expected timeline for this project?",
+                options: [
+                    "Immediate start (1-2 months)",
+                    "Near future (3-6 months)",
+                    "Long-term planning (6+ months)",
+                    "Not sure yet"
+                ],
+                next: "current_challenges"
+            },
+            current_challenges: {
+                message: "What challenges are you facing? (Select all that apply)",
+                options: [
+                    "System is too slow",
+                    "Need better security",
+                    "Hard to add new features",
+                    "High maintenance costs",
+                    "System crashes or errors",
+                    "Difficulty managing data",
+                    "Continue to next step"
+                ],
+                next: "budget_range",
+                allowMultiple: true
+            },
+            budget_range: {
+                message: "Do you have a budget range in mind for this project?",
+                options: [
+                    "Under $50,000",
+                    "Between $50,000 - $200,000",
+                    "Over $200,000",
+                    "Not decided yet",
+                    "Would like to discuss options"
+                ],
+                next: "contact_info"
+            },
+            contact_info: {
+                message: "Great! To schedule a detailed consultation, I'll need some contact information. Could you provide:",
+                type: "form",
+                fields: [
+                    {name: "name", label: "Your Name"},
+                    {name: "email", label: "Email Address"},
+                    {name: "company", label: "Company Name"}
+                ],
+                next: "summary"
+            },
+            summary: {
+                message: "Thank you! I've collected all the necessary information. Our team will review your needs and contact you within 24 hours. Would you like to see a summary of your responses?",
+                options: ["Yes, show summary", "No, I'm done"],
+                next: {
+                    "Yes, show summary": "show_summary",
+                    "No, I'm done": "farewell"
+                }
+            },
+            contact_expert: {
+                message: "I'll have one of our software architects contact you directly. Could you provide your contact information?",
+                type: "form",
+                fields: [
+                    {name: "name", label: "Your Name"},
+                    {name: "email", label: "Email Address"},
+                    {name: "company", label: "Company Name"}
+                ],
+                next: "farewell"
+            },
+            farewell: {
+                message: "Thank you for your interest! We'll be in touch soon. Have a great day!",
+                options: ["Start a new consultation"],
+                next: {
+                    "Start a new consultation": "start"
+                }
+            }
+        };
+
+        // Store user responses
+        let userResponses = {
+            timestamp: new Date().toISOString(),
+            answers: {}
+        };
+
+        let currentStep = 'start';
+        let isOpen = false;
+
+        // DOM elements
+        const chatToggle = document.getElementById('chatToggle');
+        const chatContainer = document.getElementById('chatContainer');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const userInput = document.getElementById('userInput');
+
+        // Toggle chat
+        chatToggle.addEventListener('click', () => {
+            isOpen = !isOpen;
+            chatContainer.style.display = isOpen ? 'flex' : 'none';
+            if (isOpen && chatMessages.children.length === 0) {
+                showStep(currentStep);
+            }
+        });
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', `${sender}-message`);
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showOptions(options, allowMultiple = false) {
+            const optionsContainer = document.createElement('div');
+            optionsContainer.classList.add('options-container');
+            
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.classList.add('option-button');
+                button.textContent = option;
+                button.onclick = () => handleOption(option, allowMultiple);
+                optionsContainer.appendChild(button);
+            });
+            
+            chatMessages.appendChild(optionsContainer);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showForm(fields) {
+            const form = document.createElement('div');
+            form.classList.add('options-container');
+            
+            fields.forEach(field => {
+                const input = document.createElement('input');
+                input.type = field.name === 'email' ? 'email' : 'text';
+                input.placeholder = field.label;
+                input.classList.add('input-field');
+                form.appendChild(input);
+            });
+            
+            const submitButton = document.createElement('button');
+            submitButton.classList.add('option-button');
+            submitButton.textContent = 'Submit';
+            submitButton.onclick = () => {
+                const formData = {};
+                form.querySelectorAll('input').forEach(input => {
+                    formData[input.type] = input.value;
+                });
+                handleFormSubmit(formData);
+            };
+            form.appendChild(submitButton);
+            
+            chatMessages.appendChild(form);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleFormSubmit(formData) {
+            userResponses.answers[currentStep] = formData;
+            saveResponses();
+            
+            const nextStep = conversationFlow[currentStep].next;
+            currentStep = nextStep;
+            showStep(currentStep);
+        }
+
+        function handleOption(option, allowMultiple) {
+            if (!allowMultiple) {
+                addMessage(option, 'user');
+            }
+
+            if (allowMultiple && option !== "Continue to contact info") {
+                if (!userResponses.answers[currentStep]) {
+                    userResponses.answers[currentStep] = [];
+                }
+                userResponses.answers[currentStep].push(option);
+                return;
+            }
+
+            let nextStep;
+            if (typeof conversationFlow[currentStep].next === 'string') {
+                nextStep = conversationFlow[currentStep].next;
+            } else {
+                nextStep = conversationFlow[currentStep].next[option];
+            }
+
+            if (!allowMultiple) {
+                userResponses.answers[currentStep] = option;
+            }
+            
+            saveResponses();
+            if (nextStep) {
+                currentStep = nextStep;
+                showStep(currentStep);
+            }
+        }
+
+        function showStep(step) {
+            const currentStepData = conversationFlow[step];
+            addMessage(currentStepData.message, 'bot');
+            
+            if (currentStepData.type === 'form') {
+                showForm(currentStepData.fields);
+            } else if (currentStepData.options) {
+                showOptions(currentStepData.options, currentStepData.allowMultiple);
+            }
+        }
+
+        function saveResponses() {
+            // In a real implementation, you might want to send this to your server
+            console.log('Saved responses:', userResponses);
+            localStorage.setItem('chatbot_responses', JSON.stringify(userResponses));
+        }
+
+        function showSummary() {
+            const summary = Object.entries(userResponses.answers)
+                .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
+                .join('\n');
+            addMessage('Here\'s a summary of your responses:\n' + summary, 'bot');
+        }
+
+        // Handle enter key
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
