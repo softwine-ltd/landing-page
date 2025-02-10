@@ -422,7 +422,7 @@
                 }
             },
             show_summary: {
-                message: "Here's a summary of your consultation:",
+                message: "Above a summary of your consultation:",
                 options: ["Start new consultation", "Close"],
                 next: {
                     "Start new consultation": "start",
@@ -463,7 +463,7 @@
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', `${sender}-message`);
-            messageDiv.textContent = text;
+            messageDiv.innerHTML = text; // Changed from textContent to innerHTML
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -622,7 +622,7 @@
             chatMessages.appendChild(form);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-        
+
         function handleFormSubmit(formData) {
             userResponses.answers[currentStep] = formData;
             saveResponses();
@@ -689,17 +689,58 @@
             console.log('Saved responses:', userResponses);
             localStorage.setItem('chatbot_responses', JSON.stringify(userResponses));
         }
-
         function showSummary() {
-            let summaryText = "Your consultation summary:\n\n";
+            let summaryText = "📋 Consultation Summary<br><br>";
+
+            const sectionNames = {
+                project_type: "Project Type",
+                new_system_details: "Project Description",
+                similar_solutions: "Similar Solutions",
+                ai_enhancement_needs: "AI Capabilities Needed",
+                data_availability: "Data Status",
+                project_scale: "Organization Size",
+                timeline: "Timeline",
+                current_challenges: "Current Challenges",
+                budget_range: "Budget Range",
+                contact_info: "Contact Information"
+            };
+
+            function formatValue(key, value) {
+                if (!value) return "";
+
+                // Handle arrays (multiple selections)
+                if (Array.isArray(value)) {
+                    return value.map(item => `• ${item}`).join('<br>');
+                }
+
+                // Handle contact info object
+                if (key === "contact_info" && typeof value === "object") {
+                    const contactInfo = [];
+                    if (value.text) contactInfo.push(`• Name: ${value.text}`);
+                    if (value.email) contactInfo.push(`• Email: ${value.email}`);
+                    if (value.company) contactInfo.push(`• Company: ${value.company}`);
+                    return contactInfo.join('<br>');
+                }
+
+                return value;
+            }
+
+            // Build summary by sections
             for (const [key, value] of Object.entries(userResponses.answers)) {
-                if (value && conversationFlow[key]) {
-                    summaryText += `${conversationFlow[key].message}\n`;
-                    summaryText += `Answer: ${Array.isArray(value) ? value.join(", ") : value}\n\n`;
+                if (value && sectionNames[key]) {
+                    summaryText += `▶ ${sectionNames[key]}<br>`;
+                    const formattedValue = formatValue(key, value);
+                    if (formattedValue) {
+                        summaryText += `${formattedValue}<br><br>`;
+                    }
                 }
             }
+
+            summaryText += `Consultation Date: ${new Date(userResponses.timestamp).toLocaleString()}`;
+
             return summaryText;
         }
+
 
         // Handle enter key
         userInput.addEventListener('keypress', (e) => {
