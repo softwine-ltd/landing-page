@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -180,10 +179,9 @@
         }
     </style>
 </head>
-
 <body>
     <button class="chat-toggle" id="chatToggle">💬</button>
-
+    
     <div class="chat-container" id="chatContainer">
         <div class="chat-header">
             Architecture Consultation Assistant
@@ -302,8 +300,8 @@
                 message: "Tell us about the AI-powered solution you envision:",
                 type: "form",
                 fields: [
-                    { name: "description", label: "What problem should the AI solve?" },
-                    { name: "expected_outcome", label: "What outcomes are you looking for?" }
+                    {name: "description", label: "What problem should the AI solve?"},
+                    {name: "expected_outcome", label: "What outcomes are you looking for?"}
                 ],
                 next: "ai_inspiration"
             },
@@ -321,7 +319,7 @@
                 message: "Could you briefly describe what kind of software solution you're looking to build? (For example: customer portal, internal tool, mobile app, etc.)",
                 type: "form",
                 fields: [
-                    { name: "description", label: "Brief description of your idea" }
+                    {name: "description", label: "Brief description of your idea"}
                 ],
                 next: "similar_solutions"
             },
@@ -338,7 +336,7 @@
                 message: "No problem! Let's start with understanding your business needs. What's the main challenge you're trying to solve?",
                 type: "form",
                 fields: [
-                    { name: "challenge", label: "What business challenge are you facing?" }
+                    {name: "challenge", label: "What business challenge are you facing?"}
                 ],
                 next: "project_scale"
             },
@@ -397,9 +395,9 @@
                 message: "Great! To schedule a detailed consultation, I'll need some contact information. Could you provide:",
                 type: "form",
                 fields: [
-                    { name: "name", label: "Your Name" },
-                    { name: "email", label: "Email Address" },
-                    { name: "company", label: "Company Name" }
+                    {name: "name", label: "Your Name"},
+                    {name: "email", label: "Email Address"},
+                    {name: "company", label: "Company Name"}
                 ],
                 next: "summary"
             },
@@ -415,9 +413,9 @@
                 message: "I'll have one of our software architects contact you directly. Could you provide your contact information?",
                 type: "form",
                 fields: [
-                    { name: "name", label: "Your Name" },
-                    { name: "email", label: "Email Address" },
-                    { name: "company", label: "Company Name" }
+                    {name: "name", label: "Your Name"},
+                    {name: "email", label: "Email Address"},
+                    {name: "company", label: "Company Name"}
                 ],
                 next: "farewell"
             },
@@ -470,7 +468,7 @@
         function showOptions(options, allowMultiple = false) {
             const optionsContainer = document.createElement('div');
             optionsContainer.classList.add('options-container');
-
+            
             // Add selection summary container if multiple selection is allowed
             let selectionSummary;
             if (allowMultiple) {
@@ -479,24 +477,24 @@
                 selectionSummary.style.display = 'none';
                 optionsContainer.appendChild(selectionSummary);
             }
-
+            
             options.forEach(option => {
                 const button = document.createElement('button');
                 button.classList.add('option-button');
                 if (option.toLowerCase().includes('continue')) {
                     button.classList.add('continue-button');
                 }
-
+                
                 const buttonText = document.createElement('span');
                 buttonText.textContent = option;
-
+                
                 const checkmark = document.createElement('span');
                 checkmark.textContent = '✓';
                 checkmark.classList.add('checkmark');
-
+                
                 button.appendChild(buttonText);
                 button.appendChild(checkmark);
-
+                
                 button.onclick = () => {
                     if (allowMultiple) {
                         if (option.toLowerCase().includes('continue')) {
@@ -504,19 +502,19 @@
                             const selectedOptions = Array.from(optionsContainer.querySelectorAll('.option-button.selected'))
                                 .map(btn => btn.querySelector('span').textContent)
                                 .filter(text => !text.toLowerCase().includes('continue'));
-
+                            
                             if (selectedOptions.length > 0) {
                                 handleOption(selectedOptions, true);
                             }
                         } else {
                             // Toggle selection
                             button.classList.toggle('selected');
-
+                            
                             // Update selection summary
                             const selectedOptions = Array.from(optionsContainer.querySelectorAll('.option-button.selected'))
                                 .map(btn => btn.querySelector('span').textContent)
                                 .filter(text => !text.toLowerCase().includes('continue'));
-
+                            
                             if (selectedOptions.length > 0) {
                                 selectionSummary.textContent = 'Selected: ' + selectedOptions.join(', ');
                                 selectionSummary.style.display = 'block';
@@ -530,7 +528,7 @@
                 };
                 optionsContainer.appendChild(button);
             });
-
+            
             chatMessages.appendChild(optionsContainer);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -538,7 +536,7 @@
         function showForm(fields) {
             const form = document.createElement('div');
             form.classList.add('options-container');
-
+            
             fields.forEach(field => {
                 const input = document.createElement('input');
                 input.type = field.name === 'email' ? 'email' : 'text';
@@ -546,7 +544,7 @@
                 input.classList.add('input-field');
                 form.appendChild(input);
             });
-
+            
             const submitButton = document.createElement('button');
             submitButton.classList.add('option-button');
             submitButton.textContent = 'Submit';
@@ -558,7 +556,7 @@
                 handleFormSubmit(formData);
             };
             form.appendChild(submitButton);
-
+            
             chatMessages.appendChild(form);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -566,14 +564,20 @@
         function handleFormSubmit(formData) {
             userResponses.answers[currentStep] = formData;
             saveResponses();
-
+            
             const nextStep = conversationFlow[currentStep].next;
             currentStep = nextStep;
             showStep(currentStep);
         }
 
         function handleOption(option, allowMultiple) {
-            if (!allowMultiple) {
+            if (allowMultiple && Array.isArray(option)) {
+                addMessage("Selected: " + option.join(", "), 'user');
+                userResponses.answers[currentStep] = option;
+                const nextStep = conversationFlow[currentStep].next;
+                currentStep = nextStep;
+                showStep(currentStep);
+            } else if (!allowMultiple) {
                 addMessage(option, 'user');
             }
 
@@ -595,7 +599,7 @@
             if (!allowMultiple) {
                 userResponses.answers[currentStep] = option;
             }
-
+            
             saveResponses();
             if (nextStep) {
                 currentStep = nextStep;
@@ -606,7 +610,7 @@
         function showStep(step) {
             const currentStepData = conversationFlow[step];
             addMessage(currentStepData.message, 'bot');
-
+            
             if (currentStepData.type === 'form') {
                 showForm(currentStepData.fields);
             } else if (currentStepData.options) {
@@ -635,5 +639,4 @@
         });
     </script>
 </body>
-
 </html>
