@@ -110,43 +110,6 @@
             display: inline;
         }
 
-        .chat-input {
-            display: flex;
-            padding: 15px;
-            border-top: 1px solid #f4f4f4;
-            background: white;
-        }
-
-        .chat-input input {
-            flex-grow: 1;
-            padding: 10px;
-            border: 2px solid #f4f4f4;
-            border-radius: 8px;
-            margin-right: 10px;
-            transition: border-color 0.3s ease;
-        }
-
-        .chat-input input:focus {
-            outline: none;
-            border-color: #51A5D7;
-        }
-
-        .chat-input button {
-            padding: 10px 20px;
-            background: #A0CD9A;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .chat-input button:hover {
-            background: #8bb984;
-            transform: translateY(-2px);
-        }
-
         .chat-toggle {
             position: fixed;
             bottom: 20px;
@@ -190,10 +153,7 @@
             <button class="close-button" onclick="toggleChat()">×</button>
         </div>
         <div class="chat-messages" id="chatMessages"></div>
-        <div class="chat-input" id="chatInput">
-            <input type="text" id="userInput" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+        
     </div>
 
     <style>
