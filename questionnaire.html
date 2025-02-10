@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,12 +72,42 @@
             transition: all 0.3s ease;
             color: #51A5D7;
             font-weight: 500;
+            margin-bottom: 8px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .option-button:hover {
+        .option-button.selected {
             background: #51A5D7;
             color: white;
-            transform: translateY(-2px);
+        }
+
+        .option-button.continue-button {
+            background: #A0CD9A;
+            border-color: #A0CD9A;
+            color: white;
+            font-weight: bold;
+            margin-top: 16px;
+        }
+
+        .selection-summary {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 8px;
+            font-size: 0.9em;
+            color: #51A5D7;
+        }
+
+        .checkmark {
+            display: none;
+            margin-left: 8px;
+        }
+
+        .option-button.selected .checkmark {
+            display: inline;
         }
 
         .chat-input {
@@ -149,17 +180,49 @@
         }
     </style>
 </head>
+
 <body>
     <button class="chat-toggle" id="chatToggle">💬</button>
-    
+
     <div class="chat-container" id="chatContainer">
-        <div class="chat-header">Architecture Consultation Assistant</div>
+        <div class="chat-header">
+            Architecture Consultation Assistant
+            <button class="close-button" onclick="toggleChat()">×</button>
+        </div>
         <div class="chat-messages" id="chatMessages"></div>
         <div class="chat-input" id="chatInput">
             <input type="text" id="userInput" placeholder="Type your message...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
+
+    <style>
+        .close-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-button:hover {
+            opacity: 0.8;
+        }
+
+        .chat-header {
+            position: relative;
+        }
+    </style>
 
     <script>
         // Conversation flow definition
@@ -192,20 +255,20 @@
                 message: "What would you like to achieve with our help?",
                 options: [
                     "Build a new software solution",
-                    "Build an AI-powered solution from scratch",
                     "Add AI capabilities to existing systems",
                     "Improve existing software",
                     "Move systems to the cloud",
                     "Make current systems faster and better",
+                    "Build an AI-powered solution from scratch",
                     "Not sure - need guidance"
                 ],
                 next: {
                     "Build a new software solution": "new_system_details",
                     "Add AI capabilities to existing systems": "ai_enhancement_needs",
-                    "Build an AI-powered solution from scratch": "ai_solution_details",
                     "Improve existing software": "project_scale",
                     "Move systems to the cloud": "project_scale",
                     "Make current systems faster and better": "project_scale",
+                    "Build an AI-powered solution from scratch": "ai_solution_details",
                     "Not sure - need guidance": "guidance_needed"
                 }
             },
@@ -239,8 +302,8 @@
                 message: "Tell us about the AI-powered solution you envision:",
                 type: "form",
                 fields: [
-                    {name: "description", label: "What problem should the AI solve?"},
-                    {name: "expected_outcome", label: "What outcomes are you looking for?"}
+                    { name: "description", label: "What problem should the AI solve?" },
+                    { name: "expected_outcome", label: "What outcomes are you looking for?" }
                 ],
                 next: "ai_inspiration"
             },
@@ -258,7 +321,7 @@
                 message: "Could you briefly describe what kind of software solution you're looking to build? (For example: customer portal, internal tool, mobile app, etc.)",
                 type: "form",
                 fields: [
-                    {name: "description", label: "Brief description of your idea"}
+                    { name: "description", label: "Brief description of your idea" }
                 ],
                 next: "similar_solutions"
             },
@@ -275,7 +338,7 @@
                 message: "No problem! Let's start with understanding your business needs. What's the main challenge you're trying to solve?",
                 type: "form",
                 fields: [
-                    {name: "challenge", label: "What business challenge are you facing?"}
+                    { name: "challenge", label: "What business challenge are you facing?" }
                 ],
                 next: "project_scale"
             },
@@ -334,9 +397,9 @@
                 message: "Great! To schedule a detailed consultation, I'll need some contact information. Could you provide:",
                 type: "form",
                 fields: [
-                    {name: "name", label: "Your Name"},
-                    {name: "email", label: "Email Address"},
-                    {name: "company", label: "Company Name"}
+                    { name: "name", label: "Your Name" },
+                    { name: "email", label: "Email Address" },
+                    { name: "company", label: "Company Name" }
                 ],
                 next: "summary"
             },
@@ -352,9 +415,9 @@
                 message: "I'll have one of our software architects contact you directly. Could you provide your contact information?",
                 type: "form",
                 fields: [
-                    {name: "name", label: "Your Name"},
-                    {name: "email", label: "Email Address"},
-                    {name: "company", label: "Company Name"}
+                    { name: "name", label: "Your Name" },
+                    { name: "email", label: "Email Address" },
+                    { name: "company", label: "Company Name" }
                 ],
                 next: "farewell"
             },
@@ -383,13 +446,17 @@
         const chatInput = document.getElementById('chatInput');
         const userInput = document.getElementById('userInput');
 
-        // Toggle chat
-        chatToggle.addEventListener('click', () => {
+        function toggleChat() {
             isOpen = !isOpen;
             chatContainer.style.display = isOpen ? 'flex' : 'none';
             if (isOpen && chatMessages.children.length === 0) {
                 showStep(currentStep);
             }
+        }
+
+        // Toggle chat
+        chatToggle.addEventListener('click', () => {
+            toggleChat();
         });
 
         function addMessage(text, sender) {
@@ -403,15 +470,67 @@
         function showOptions(options, allowMultiple = false) {
             const optionsContainer = document.createElement('div');
             optionsContainer.classList.add('options-container');
-            
+
+            // Add selection summary container if multiple selection is allowed
+            let selectionSummary;
+            if (allowMultiple) {
+                selectionSummary = document.createElement('div');
+                selectionSummary.classList.add('selection-summary');
+                selectionSummary.style.display = 'none';
+                optionsContainer.appendChild(selectionSummary);
+            }
+
             options.forEach(option => {
                 const button = document.createElement('button');
                 button.classList.add('option-button');
-                button.textContent = option;
-                button.onclick = () => handleOption(option, allowMultiple);
+                if (option.toLowerCase().includes('continue')) {
+                    button.classList.add('continue-button');
+                }
+
+                const buttonText = document.createElement('span');
+                buttonText.textContent = option;
+
+                const checkmark = document.createElement('span');
+                checkmark.textContent = '✓';
+                checkmark.classList.add('checkmark');
+
+                button.appendChild(buttonText);
+                button.appendChild(checkmark);
+
+                button.onclick = () => {
+                    if (allowMultiple) {
+                        if (option.toLowerCase().includes('continue')) {
+                            // Handle continue button click
+                            const selectedOptions = Array.from(optionsContainer.querySelectorAll('.option-button.selected'))
+                                .map(btn => btn.querySelector('span').textContent)
+                                .filter(text => !text.toLowerCase().includes('continue'));
+
+                            if (selectedOptions.length > 0) {
+                                handleOption(selectedOptions, true);
+                            }
+                        } else {
+                            // Toggle selection
+                            button.classList.toggle('selected');
+
+                            // Update selection summary
+                            const selectedOptions = Array.from(optionsContainer.querySelectorAll('.option-button.selected'))
+                                .map(btn => btn.querySelector('span').textContent)
+                                .filter(text => !text.toLowerCase().includes('continue'));
+
+                            if (selectedOptions.length > 0) {
+                                selectionSummary.textContent = 'Selected: ' + selectedOptions.join(', ');
+                                selectionSummary.style.display = 'block';
+                            } else {
+                                selectionSummary.style.display = 'none';
+                            }
+                        }
+                    } else {
+                        handleOption(option, false);
+                    }
+                };
                 optionsContainer.appendChild(button);
             });
-            
+
             chatMessages.appendChild(optionsContainer);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -419,7 +538,7 @@
         function showForm(fields) {
             const form = document.createElement('div');
             form.classList.add('options-container');
-            
+
             fields.forEach(field => {
                 const input = document.createElement('input');
                 input.type = field.name === 'email' ? 'email' : 'text';
@@ -427,7 +546,7 @@
                 input.classList.add('input-field');
                 form.appendChild(input);
             });
-            
+
             const submitButton = document.createElement('button');
             submitButton.classList.add('option-button');
             submitButton.textContent = 'Submit';
@@ -439,7 +558,7 @@
                 handleFormSubmit(formData);
             };
             form.appendChild(submitButton);
-            
+
             chatMessages.appendChild(form);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -447,7 +566,7 @@
         function handleFormSubmit(formData) {
             userResponses.answers[currentStep] = formData;
             saveResponses();
-            
+
             const nextStep = conversationFlow[currentStep].next;
             currentStep = nextStep;
             showStep(currentStep);
@@ -476,7 +595,7 @@
             if (!allowMultiple) {
                 userResponses.answers[currentStep] = option;
             }
-            
+
             saveResponses();
             if (nextStep) {
                 currentStep = nextStep;
@@ -487,7 +606,7 @@
         function showStep(step) {
             const currentStepData = conversationFlow[step];
             addMessage(currentStepData.message, 'bot');
-            
+
             if (currentStepData.type === 'form') {
                 showForm(currentStepData.fields);
             } else if (currentStepData.options) {
@@ -516,4 +635,5 @@
         });
     </script>
 </body>
+
 </html>
