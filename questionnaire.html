@@ -6,6 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Architecture Consultation Bot</title>
     <style>
+        .close-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-button:hover {
+            opacity: 0.8;
+        }
+
+        .chat-header {
+            position: relative;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin: 4px 0;
+            display: none;
+            padding: 4px 8px;
+            background: #fef2f2;
+            border-radius: 4px;
+        }
+
+        .input-field:invalid {
+            border-color: #dc2626;
+        }
+
+        .input-field {
+            transition: border-color 0.2s ease;
+        }
+
         .chat-container {
             position: fixed;
             bottom: 20px;
@@ -153,38 +197,27 @@
             <button class="close-button" onclick="toggleChat()">×</button>
         </div>
         <div class="chat-messages" id="chatMessages"></div>
-        
+
     </div>
 
-    <style>
-        .close-button {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 0;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-button:hover {
-            opacity: 0.8;
-        }
-
-        .chat-header {
-            position: relative;
-        }
-    </style>
-
     <script>
+        const validation = {
+            email: (value) => {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return {
+                    isValid: emailRegex.test(value),
+                    message: emailRegex.test(value) ? '' : 'Please enter a valid email address'
+                };
+            },
+            required: (value) => ({
+                isValid: value.trim().length > 0,
+                message: value.trim().length > 0 ? '' : 'This field is required'
+            }),
+            maxLength: (value, max) => ({
+                isValid: value.length <= max,
+                message: value.length <= max ? '' : `Maximum ${max} characters allowed`
+            })
+        };
         // Conversation flow definition
         const conversationFlow = {
             start: {
@@ -507,11 +540,44 @@
             const form = document.createElement('div');
             form.classList.add('options-container');
 
+            // Error message container
+            const errorContainer = document.createElement('div');
+            errorContainer.classList.add('error-message');
+            form.appendChild(errorContainer);
+
             fields.forEach(field => {
                 const input = document.createElement('input');
                 input.type = field.name === 'email' ? 'email' : 'text';
                 input.placeholder = field.label;
                 input.classList.add('input-field');
+
+                // Add maxlength attribute based on field type
+                if (field.name === 'description' || field.name === 'expected_outcome') {
+                    input.maxLength = 256;
+                } else {
+                    input.maxLength = 100;
+                }
+
+                // Add real-time validation
+                input.addEventListener('input', () => {
+                    const validations = [];
+                    validations.push(validation.required(input.value));
+                    validations.push(validation.maxLength(input.value, input.maxLength));
+
+                    if (field.name === 'email') {
+                        validations.push(validation.email(input.value));
+                    }
+
+                    // Show first error if any
+                    const error = validations.find(v => !v.isValid);
+                    if (error) {
+                        errorContainer.textContent = error.message;
+                        errorContainer.style.display = 'block';
+                    } else {
+                        errorContainer.style.display = 'none';
+                    }
+                });
+
                 form.appendChild(input);
             });
 
@@ -520,17 +586,43 @@
             submitButton.textContent = 'Submit';
             submitButton.onclick = () => {
                 const formData = {};
-                form.querySelectorAll('input').forEach(input => {
+                const inputs = form.querySelectorAll('input');
+                let isValid = true;
+                let firstInvalidInput = null;
+
+                inputs.forEach(input => {
+                    const validations = [];
+                    validations.push(validation.required(input.value));
+                    validations.push(validation.maxLength(input.value, input.maxLength));
+
+                    if (input.type === 'email') {
+                        validations.push(validation.email(input.value));
+                    }
+
+                    const error = validations.find(v => !v.isValid);
+                    if (error) {
+                        isValid = false;
+                        errorContainer.textContent = error.message;
+                        errorContainer.style.display = 'block';
+                        if (!firstInvalidInput) firstInvalidInput = input;
+                    }
+
                     formData[input.type] = input.value;
                 });
-                handleFormSubmit(formData);
+
+                if (isValid) {
+                    errorContainer.style.display = 'none';
+                    handleFormSubmit(formData);
+                } else if (firstInvalidInput) {
+                    firstInvalidInput.focus();
+                }
             };
             form.appendChild(submitButton);
 
             chatMessages.appendChild(form);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-
+        
         function handleFormSubmit(formData) {
             userResponses.answers[currentStep] = formData;
             saveResponses();
