@@ -150,7 +150,28 @@ class ChatWidget {
         this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
     }
 
-    handleFormSubmit(form) {
+    async sendToBackend(data) {
+        try {
+            const response = await fetch('https://softwine-questionnaire-654206846542.us-central1.run.app', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            return await response.json();
+        } catch (error) {
+            console.error('Error sending data:', error);
+            throw error;
+        }
+    }
+
+    async handleFormSubmit(form) {
         const formData = {};
         const inputs = form.querySelectorAll('input');
         let isValid = true;
@@ -187,6 +208,16 @@ class ChatWidget {
             this.showStep(this.currentStep);
         } else if (firstInvalidInput) {
             firstInvalidInput.focus();
+        }
+        try {
+            if (this.currentStep === 'summary') {
+                await this.sendToBackend({
+                    timestamp: this.userResponses.timestamp,
+                    responses: this.userResponses.answers
+                });
+            }
+        } catch (error) {
+            this.addMessage("There was an error submitting your consultation. Please try again.", 'bot');
         }
     }
 
