@@ -176,36 +176,33 @@ export const conversationFlow = {
         next: "summary"
     },
     summary: {
-        message: "Thank you! I've collected all the necessary information. Our team will review your needs and contact you within 24 hours. Would you like to see a summary of your responses?",
-        options: ["Yes, show summary", "No, I'm done"],
+        message: "Thank you! I've collected all the necessary information. Would you like to:",
+        options: [
+            "Schedule a meeting",
+            "See consultation summary",
+            "End consultation"
+        ],
         next: {
-            "Yes, show summary": "show_summary",
-            "No, I'm done": "farewell"
+            "Schedule a meeting": "farewell",
+            "See consultation summary": "show_summary",
+            "End consultation": "farewell"
         }
     },
-    contact_expert: {
-        message: "I'll have one of our software architects contact you directly. Could you provide your contact information?",
-        type: "form",
-        fields: [
-            { name: "name", label: "Your Name" },
-            { name: "email", label: "Email Address" },
-            { name: "company", label: "Company Name" }
-        ],
-        next: "farewell"
+
+    show_summary: {
+        message: "Here's a summary of your consultation:",
+        options: ["Schedule a meeting", "End consultation"],
+        next: {
+            "Schedule a meeting": "farewell",
+            "End consultation": "farewell"
+        }
     },
+
     farewell: {
-        message: "Thank you for your interest! We'll be in touch soon. Have a great day!",
+        message: "Thank you for your interest! Feel free to reach out if you have any questions. Have a great day!",
         options: ["Start a new consultation"],
         next: {
             "Start a new consultation": "start"
-        }
-    },
-    show_summary: {
-        message: "Above a summary of your consultation:",
-        options: ["Start new consultation", "Close"],
-        next: {
-            "Start new consultation": "start",
-            "Close": "farewell"
         }
     },
 };

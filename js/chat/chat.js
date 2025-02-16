@@ -115,6 +115,7 @@ class ChatWidget {
         fields.forEach(field => {
             const input = document.createElement('input');
             input.type = field.name === 'email' ? 'email' : 'text';
+            input.name = field.name;
             input.placeholder = field.label;
             input.classList.add('input-field');
             input.maxLength = field.name === 'description' || field.name === 'expected_outcome' ? 256 : 100;
@@ -195,7 +196,7 @@ class ChatWidget {
                 if (!firstInvalidInput) firstInvalidInput = input;
             }
 
-            formData[input.type] = input.value;
+            formData[input.name] = input.value;
         });
 
         if (isValid) {
@@ -231,8 +232,11 @@ class ChatWidget {
         } else if (!allowMultiple) {
             this.addMessage(option, 'user');
         }
+        if (option === "Schedule a meeting") {
+            window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ2MS91tKNsEQ0xXQ4KkkBCouHzjMUCeI4udEJw2XvChVNQYDb-1QQv_G_d2EgTJePuzbxiWG9-Y?gv=true', '_blank');
+        }
 
-        if (this.currentStep === 'summary' && option === "Yes, show summary") {
+        if (this.currentStep === 'summary' && option === "See consultation summary") {
             this.addMessage(this.showSummary(), 'bot');
         }
 
@@ -324,7 +328,7 @@ class ChatWidget {
         }
 
         return value;
-    }
+    }  
 }
 
 // Initialize chat widget

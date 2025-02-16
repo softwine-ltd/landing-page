@@ -281,6 +281,23 @@ footer {
     margin-bottom: 1rem;
 }
 
+.calendar-button {
+    background-color: #A0CD9A !important;
+    color: white !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0.8rem 1.8rem;
+}
+
+.calendar-button:hover {
+    opacity: 0.8;
+}
+
+.calendar-button i {
+    font-size: 1.1em;
+}
+
 @media (max-width: 768px) {
     .container {
         width: 90%;
