@@ -16,149 +16,8 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Softwine (portfolio)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #51A5D7;
-            color: #A0CD9A;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-
-        header {
-            background: #ffffff;
-            padding: 1rem 0;
-        }
-
-        header nav {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        header nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        header nav ul li {
-            margin-left: 20px;
-        }
-
-        header nav ul li a {
-            text-decoration: none;
-            color: #51A5D7;
-        }
-
-        .hero {
-            background: #51A5D7;
-            color: #ffffff;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero .slogan {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-
-        .hero .email {
-            font-size: 1.2rem;
-            color: #A0CD9A;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #A0CD9A;
-            color: #ffffff;
-            padding: 0.8rem 1.8rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: opacity 0.2s ease-in;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-        }
-
-        .projects {
-            padding: 3rem 0;
-            background-color: #ffffff;
-        }
-
-        .projects h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            color: #51A5D7;
-        }
-
-        .project-card {
-            background: #f4f4f4;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-card h3 {
-            color: #51A5D7;
-            margin-bottom: 1rem;
-        }
-
-        .project-card p {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card p strong {
-            color: #51A5D7;
-        }
-
-        .project-card p:nth-of-type(3) {
-            text-align: justify;
-        }
-
-        .project-card ul {
-            color: #333;
-            padding-left: 20px;
-        }
-
-        footer {
-            background-color: #f9f9f9;
-            color: #51A5D7;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
 
 <body>
@@ -166,9 +25,10 @@
         <div class="container">
             <nav>
                 <ul>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="/">About Us</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/#how-we-help">Expertise</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/projects-a.html">Projects</a></li>
                 </ul>
             </nav>
         </div>
@@ -184,13 +44,103 @@
 
             <p class="email">Contact us: <a href="mailto:contactus@softwine.net"
                     style="color: #A0CD9A;">contactus@softwine.net</a></p>
-            <a href="#contact" class="btn">Get Started</a>
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <!-- Google Calendar Appointment Scheduling -->
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+
+            <script>
+                (function () {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function () {
+                        calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2MS91tKNsEQ0xXQ4KkkBCouHzjMUCeI4udEJw2XvChVNQYDb-1QQv_G_d2EgTJePuzbxiWG9-Y?gv=true',
+                            color: '#A0CD9A',
+                            label: 'Book a meeting',
+                            target,
+                        });
+
+                        setTimeout(() => {
+                            const button = target.nextElementSibling;
+                            if (button && button.tagName === 'BUTTON') {
+                                // Get the dynamic class name
+                                const buttonClass = button.className;
+
+                                // Create and append dynamic styles
+                                const style = document.createElement('style');
+                                style.textContent = `
+                        .${buttonClass} {
+                            display: inline-flex !important;
+                            align-items: center !important;
+                            gap: 8px !important;
+                            color: white !important;
+                            background-color: #A0CD9A !important;
+                            padding: 0.8rem 1.8rem;
+                            border: none;
+                            cursor: pointer;
+                            font-size: 1rem;
+                            text-decoration: none;
+                            transition: opacity 0.2s ease-in;
+                        }
+    
+                        .${buttonClass}::before {
+                            font-family: "Font Awesome 6 Free";
+                            content: "\\f133";
+                            font-weight: 900;
+                        }
+                        
+                        .${buttonClass}:hover {
+                            opacity: 0.8;
+                        }
+                    `;
+                                document.head.appendChild(style);
+                            }
+                        }, 100); // Small delay to ensure button is created
+                    });
+                })();
+            </script>
+            <!-- end Google Calendar Appointment Scheduling -->
         </div>
     </section>
 
     <section id="projects" class="projects">
         <div class="container">
             <h2>Our Projects</h2>
+            <div class="project-card">
+                <h3>Custom Internal Social Network</h3>
+                <p><strong>Technologies:</strong> React, Node.js, MongoDB, WebSocket</p>
+                <p><strong>Overview:</strong> Developed a customized internal social network with enhanced privacy
+                    features, including specialized group member visibility restrictions to protect business assets. The
+                    platform balances social connectivity with data security, preventing unauthorized access to member
+                    lists while maintaining full functionality.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Furniture AR Visualization App</h3>
+                <p><strong>Technologies:</strong> React Native, ARKit/ARCore, Computer Vision, Cloud Storage</p>
+                <p><strong>Overview:</strong> Created an innovative tablet application for furniture stores that allows
+                    customers to visualize furniture pieces in their intended spaces. Users can take a photo of their
+                    space, and the app overlays 3D furniture models in real-time, providing an interactive AR experience
+                    for better purchase decisions.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Hospital Research Library Access System</h3>
+                <p><strong>Technologies:</strong> Node.js, OAuth2, SSL/TLS, MongoDB, Network Security</p>
+                <p><strong>Overview:</strong> Developed a secure access system for 24 Israeli hospitals, enabling safe
+                    connections to medical research libraries. The system includes robust user management, advanced
+                    security features, and comprehensive network activity monitoring to ensure data protection and
+                    efficient resource access.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Specialized AI Chat System</h3>
+                <p><strong>Technologies:</strong> Python, TensorFlow, Natural Language Processing, Vector Database</p>
+                <p><strong>Overview:</strong> Created a custom AI chat system trained specifically on famous homeopathy
+                    books. The system ensures all responses are sourced exclusively from the author's works, maintaining
+                    authenticity while providing accessible information to users.</p>
+            </div>
             <div class="project-card">
                 <h3>Reports Validations Software</h3>
                 <p><strong>Client:</strong> Ficohsa Bank</p>
@@ -239,6 +189,20 @@
             <p>Contact: <a href="mailto:contactus@softwine.net" style="color: #51A5D7;">contactus@softwine.net</a></p>
         </div>
     </footer>
+
+    <!-- Chat Widget -->
+    <button class="chat-toggle" id="chatToggle">💬</button>
+
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            Architecture Consultation Assistant
+            <button class="close-button">×</button>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+    </div>
+
+    <!-- Chat Widget Scripts -->
+    <script type="module" src="js/chat/chat.js"></script>
 </body>
 
 </html>
