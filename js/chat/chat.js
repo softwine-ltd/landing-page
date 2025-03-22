@@ -233,7 +233,7 @@ class ChatWidget {
             this.addMessage(option, 'user');
         }
         if (option === "Schedule a meeting") {
-            window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ2MS91tKNsEQ0xXQ4KkkBCouHzjMUCeI4udEJw2XvChVNQYDb-1QQv_G_d2EgTJePuzbxiWG9-Y?gv=true', '_blank');
+            window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true', '_blank');
         }
 
         if (this.currentStep === 'summary' && option === "See consultation summary") {
