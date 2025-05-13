@@ -45,10 +45,31 @@ header nav ul li a {
 }
 
 .hero {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 900;
     background: #51A5D7;
     color: #ffffff;
     padding: 3rem 0;
     text-align: center;
+    transition: padding 0.2s ease-out;
+}
+
+.hero.is-sticky {
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: padding 0.3s ease-in;
+}
+
+.hero .logo-section img {
+    transition: max-height 0.2s ease-out;
+}
+
+/* Smaller logo only when sticky */
+.hero.is-sticky .logo-section img {
+    max-height: 60px;
+    transition: max-height 0.3s ease-in;
 }
 
 .hero h1 {
@@ -414,5 +435,11 @@ footer {
 
     .masonry-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        transition: padding 0.3s ease;
     }
 }
