@@ -2,47 +2,49 @@ document.addEventListener('DOMContentLoaded', function() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
     
+    // Force remove sticky class on page load
+    hero.classList.remove('is-sticky');
+    
     // Create a placeholder element to prevent layout jumping
     const placeholder = document.createElement('div');
-    let placeholderHeight = 0;
-    let heroHeight = hero.offsetHeight;
-    const heroOriginalPadding = parseFloat(getComputedStyle(hero).paddingTop) + 
-                               parseFloat(getComputedStyle(hero).paddingBottom);
-    const heroStickyPadding = 2; // 1rem top + 1rem bottom (adjust if your sticky padding differs)
-    const heightDifference = heroOriginalPadding - heroStickyPadding;
-    
-    // Insert the placeholder after the hero
+    placeholder.style.display = 'none'; // Hide initially
     hero.parentNode.insertBefore(placeholder, hero.nextSibling);
     
+    // Get initial measurements
+    const initialHeroHeight = hero.offsetHeight;
+    
     function updateStickyState() {
-        // Get the hero's position relative to the viewport
-        const heroRect = hero.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // If hero top is at or above the viewport top, make it sticky
-        if (heroRect.top <= 0) {
+        // Only apply sticky when we've scrolled past the initial hero position
+        if (scrollTop > 50) { // Add a small threshold
             if (!hero.classList.contains('is-sticky')) {
-                hero.classList.add('is-sticky');
+                // Calculate the difference in height right at the moment of change
+                const currentHeroHeight = hero.offsetHeight;
                 
-                // Update placeholder height to match the height difference
-                placeholderHeight = heightDifference;
-                placeholder.style.height = placeholderHeight + 'rem';
+                // Set the placeholder height to match what we're about to lose
+                placeholder.style.display = 'block';
+                placeholder.style.height = (initialHeroHeight - currentHeroHeight) + 'px';
+                
+                // Add sticky class
+                hero.classList.add('is-sticky');
             }
         } else {
             if (hero.classList.contains('is-sticky')) {
                 hero.classList.remove('is-sticky');
+                // Transition the placeholder away
                 placeholder.style.height = '0px';
+                setTimeout(() => {
+                    placeholder.style.display = 'none';
+                }, 300); // Match transition duration
             }
         }
     }
     
-    // Run on scroll and resize
-    window.addEventListener('scroll', updateStickyState);
-    window.addEventListener('resize', function() {
-        // Recalculate hero height on resize
-        heroHeight = hero.offsetHeight;
+    // Only add scroll event after a slight delay to ensure proper initialization
+    setTimeout(function() {
+        window.addEventListener('scroll', updateStickyState);
+        // Force initial check to ensure correct starting state
         updateStickyState();
-    });
-    
-    // Initial check
-    updateStickyState();
+    }, 100);
 });
