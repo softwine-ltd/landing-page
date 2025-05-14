@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Run after a small delay to ensure carousels are created
+    
     setTimeout(enhanceCarousels, 500);
     
-    // Also enhance after window resize
+    
     window.addEventListener('resize', function() {
         if (window.innerWidth <= 768) {
             setTimeout(enhanceCarousels, 300);
@@ -10,25 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function enhanceCarousels() {
-        // Only apply on mobile
+        
         if (window.innerWidth > 768) return;
         
-        // Find all carousel cards
+        
         const carouselCards = document.querySelectorAll('.carousel-slide .feature, .carousel-slide .masonry-card, .carousel-slide .project-card');
         
         carouselCards.forEach(card => {
-            // Add scrollable content class to paragraphs and lists
+            
             const contentElements = card.querySelectorAll('p, ul');
             contentElements.forEach(el => {
                 el.classList.add('scrollable-content');
             });
             
-            // Check if card has overflow content
+            
             const paragraphs = card.querySelectorAll('p');
             paragraphs.forEach(p => {
-                // Check if paragraph has overflow
+                
                 if (p.scrollHeight > p.clientHeight) {
-                    // Add overflow indicator if not already present
+                    
                     if (!card.querySelector('.overflow-indicator')) {
                         const indicator = document.createElement('div');
                         indicator.className = 'overflow-indicator';
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         indicator.style.display = 'block';
                     }
                     
-                    // Add scroll event to hide indicator when scrolled to bottom
+                    
                     p.addEventListener('scroll', function() {
                         const indicator = card.querySelector('.overflow-indicator');
                         if (indicator) {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Do the same for lists
+            
             const lists = card.querySelectorAll('ul');
             lists.forEach(list => {
                 if (list.scrollHeight > list.clientHeight) {
@@ -77,12 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Enhance carousel navigation
+        
         const carousels = document.querySelectorAll('.carousel-container');
         carousels.forEach(carousel => {
-            // Add keyboard navigation
+            
             document.addEventListener('keydown', function(e) {
-                // Only apply keyboard navigation when carousel is in viewport
+                
                 const rect = carousel.getBoundingClientRect();
                 const isInViewport = (
                     rect.top >= 0 &&

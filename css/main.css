@@ -152,7 +152,7 @@ header nav ul li a {
 }
 
 .how-we-help .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -205,11 +205,13 @@ header nav ul li a {
 .how-we-help .masonry-grid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin: -0.75rem;
+    width: 100%;
 }
 
 .how-we-help .masonry-card {
-    width: calc(33.333% - 1.5rem);
+    width: calc(29% - 1.5rem);
     margin: 0.75rem;
     height: auto;
     display: flex;
@@ -220,9 +222,6 @@ header nav ul li a {
     margin-top: 0.5rem;
 }
 
-.how-we-help .masonry-card p {
-    flex-grow: 1;
-}
 
 .projects {
     padding: 3rem 0;
@@ -417,14 +416,16 @@ footer {
     }
 }
 
+@media (max-width: 1200px) {
+    .how-we-help .masonry-card {
+        width: calc(29% - 1.5rem);
+    }
+}
+
 @media (max-width: 992px) {
     .how-we-help .masonry-card {
         width: calc(50% - 1.5rem);
     }
-
-    /* .masonry-grid {
-        grid-template-columns: repeat(2, 1fr);
-    } */
 }
 
 @media (max-width: 576px) {
@@ -432,9 +433,9 @@ footer {
         width: calc(100% - 1.5rem);
     }
 
-    .masonry-grid {
+    /* .masonry-grid {
         grid-template-columns: 1fr;
-    }
+    } */
 }
 
 @media (min-width: 768px) {
@@ -667,133 +668,134 @@ footer {
 
 /* Equal height cards in mobile carousel */
 @media (max-width: 768px) {
-  /* Make all carousel slides equal height */
-  .carousel-slide {
-    display: flex;
-    height: auto;
-  }
-  
-  /* Feature cards in carousel */
-  .carousel-slide .feature {
-    height: 320px;
-    max-height: 320px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow-y: auto;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Masonry cards in carousel */
-  .carousel-slide .masonry-card {
-    height: 250px;
-    max-height: 250px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow-y: auto;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Project cards in carousel */
-  .carousel-slide .project-card {
-    height: 350px;
-    max-height: 350px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow-y: auto;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Icon placement */
-  .carousel-slide .feature i,
-  .carousel-slide .masonry-card i {
-    margin-bottom: 10px;
-    flex-shrink: 0;
-  }
-  
-  /* Title styling */
-  .carousel-slide .feature h3,
-  .carousel-slide .masonry-card h3,
-  .carousel-slide .project-card h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    flex-shrink: 0;
-  }
-  
-  /* Content area */
-  .carousel-slide .feature p,
-  .carousel-slide .masonry-card p,
-  .carousel-slide .project-card p {
-    flex: 1;
-    overflow-y: auto;
-    margin-bottom: 5px;
-    padding-right: 5px;
-  }
-  
-  /* Scrollbar styling for overflow content */
-  .carousel-slide .feature p::-webkit-scrollbar,
-  .carousel-slide .masonry-card p::-webkit-scrollbar,
-  .carousel-slide .project-card p::-webkit-scrollbar {
-    width: 3px;
-  }
-  
-  .carousel-slide .feature p::-webkit-scrollbar-thumb,
-  .carousel-slide .masonry-card p::-webkit-scrollbar-thumb,
-  .carousel-slide .project-card p::-webkit-scrollbar-thumb {
-    background: #51A5D7;
-    border-radius: 3px;
-  }
-  
-  /* Adjust project cards with extra content */
-  .carousel-slide .project-card ul {
-    overflow-y: auto;
-    margin: 5px 0;
-    padding-left: 20px;
-    padding-right: 5px;
-  }
-  
-  /* Mobile card fade effect for overflow content */
-  .carousel-slide .feature,
-  .carousel-slide .masonry-card,
-  .carousel-slide .project-card {
-    position: relative;
-  }
-  
-  .carousel-slide .feature::after,
-  .carousel-slide .masonry-card::after,
-  .carousel-slide .project-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(to top, rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0));
-    pointer-events: none;
-  }
+
+    /* Make all carousel slides equal height */
+    .carousel-slide {
+        display: flex;
+        height: auto;
+    }
+
+    /* Feature cards in carousel */
+    .carousel-slide .feature {
+        height: 320px;
+        max-height: 320px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-y: auto;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Masonry cards in carousel */
+    .carousel-slide .masonry-card {
+        height: 250px;
+        max-height: 250px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-y: auto;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Project cards in carousel */
+    .carousel-slide .project-card {
+        height: 350px;
+        max-height: 350px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-y: auto;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Icon placement */
+    .carousel-slide .feature i,
+    .carousel-slide .masonry-card i {
+        margin-bottom: 10px;
+        flex-shrink: 0;
+    }
+
+    /* Title styling */
+    .carousel-slide .feature h3,
+    .carousel-slide .masonry-card h3,
+    .carousel-slide .project-card h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        flex-shrink: 0;
+    }
+
+    /* Content area */
+    .carousel-slide .feature p,
+    .carousel-slide .masonry-card p,
+    .carousel-slide .project-card p {
+        flex: 1;
+        overflow-y: auto;
+        margin-bottom: 5px;
+        padding-right: 5px;
+    }
+
+    /* Scrollbar styling for overflow content */
+    .carousel-slide .feature p::-webkit-scrollbar,
+    .carousel-slide .masonry-card p::-webkit-scrollbar,
+    .carousel-slide .project-card p::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .carousel-slide .feature p::-webkit-scrollbar-thumb,
+    .carousel-slide .masonry-card p::-webkit-scrollbar-thumb,
+    .carousel-slide .project-card p::-webkit-scrollbar-thumb {
+        background: #51A5D7;
+        border-radius: 3px;
+    }
+
+    /* Adjust project cards with extra content */
+    .carousel-slide .project-card ul {
+        overflow-y: auto;
+        margin: 5px 0;
+        padding-left: 20px;
+        padding-right: 5px;
+    }
+
+    /* Mobile card fade effect for overflow content */
+    .carousel-slide .feature,
+    .carousel-slide .masonry-card,
+    .carousel-slide .project-card {
+        position: relative;
+    }
+
+    .carousel-slide .feature::after,
+    .carousel-slide .masonry-card::after,
+    .carousel-slide .project-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(to top, rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0));
+        pointer-events: none;
+    }
 }
 
 /* Adjustments for very small screens */
 @media (max-width: 480px) {
-  .carousel-slide .feature {
-    height: 280px;
-    max-height: 280px;
-  }
-  
-  .carousel-slide .masonry-card {
-    height: 220px;
-    max-height: 220px;
-  }
-  
-  .carousel-slide .project-card {
-    height: 320px;
-    max-height: 320px;
-  }
+    .carousel-slide .feature {
+        height: 280px;
+        max-height: 280px;
+    }
+
+    .carousel-slide .masonry-card {
+        height: 220px;
+        max-height: 220px;
+    }
+
+    .carousel-slide .project-card {
+        height: 320px;
+        max-height: 320px;
+    }
 }
 
 /* Carousel styling improvements */

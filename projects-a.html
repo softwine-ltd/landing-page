@@ -64,10 +64,10 @@
                         setTimeout(() => {
                             const button = target.nextElementSibling;
                             if (button && button.tagName === 'BUTTON') {
-                                // Get the dynamic class name
+                                
                                 const buttonClass = button.className;
 
-                                // Create and append dynamic styles
+                                
                                 const style = document.createElement('style');
                                 style.textContent = `
                         .${buttonClass} {
@@ -96,7 +96,7 @@
                     `;
                                 document.head.appendChild(style);
                             }
-                        }, 100); // Small delay to ensure button is created
+                        }, 100); 
                     });
                 })();
             </script>

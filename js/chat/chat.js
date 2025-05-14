@@ -331,7 +331,7 @@ class ChatWidget {
     }  
 }
 
-// Initialize chat widget
+
 document.addEventListener('DOMContentLoaded', () => {
     new ChatWidget();
 });
