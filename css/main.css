@@ -199,7 +199,6 @@ header nav ul li a {
     color: #666;
     font-size: 1rem;
     line-height: 1.5;
-    /* Add flex-grow to push content to fill available space */
     flex-grow: 1;
 }
 
@@ -441,5 +440,227 @@ footer {
 @media (min-width: 768px) {
     .hero {
         transition: padding 0.3s ease;
+    }
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: none;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 90%;
+    margin-right: 20px;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel-btn {
+    background: #51A5D7;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: #3d8eb9;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background: #51A5D7;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    .feature-grid {
+        flex-direction: column;
+    }
+
+    .feature {
+        max-width: 100%;
+    }
+
+    .story-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    .founder-photo {
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .story-content {
+        flex: 1;
+        padding-left: 0;
+    }
+
+    .carousel-container {
+        display: block;
+    }
+
+
+    .feature-grid,
+    .how-we-help .masonry-grid {
+        display: none;
+    }
+
+    header nav {
+        justify-content: center;
+    }
+
+    header nav ul {
+        padding: 0;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .slogan {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    h3 {
+        font-size: 1.3rem !important;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero.is-sticky {
+        padding: 0.5rem 0;
+    }
+
+    .founder-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    header nav ul li {
+        margin: 0 5px;
+    }
+
+    header nav ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+.project-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .carousel-slide .project-card {
+        padding: 15px;
+        margin: 0;
+        height: auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .project-card ul {
+        padding-left: 15px;
+        margin-top: 5px;
+    }
+
+    .project-card li {
+        margin-bottom: 5px;
+    }
+
+    .projects .carousel-slide {
+        min-width: 90%;
+        max-width: 90%;
+    }
+
+    .story-card {
+        padding: 15px;
+    }
+
+    .founder-quote {
+        font-size: 1.1rem;
+        padding-left: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slide {
+        min-width: 95%;
+        max-width: 95%;
+        margin-right: 10px;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
     }
 }
