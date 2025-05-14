@@ -664,3 +664,278 @@ footer {
         height: 8px;
     }
 }
+
+/* Equal height cards in mobile carousel */
+@media (max-width: 768px) {
+  /* Make all carousel slides equal height */
+  .carousel-slide {
+    display: flex;
+    height: auto;
+  }
+  
+  /* Feature cards in carousel */
+  .carousel-slide .feature {
+    height: 320px;
+    max-height: 320px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Masonry cards in carousel */
+  .carousel-slide .masonry-card {
+    height: 250px;
+    max-height: 250px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Project cards in carousel */
+  .carousel-slide .project-card {
+    height: 350px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Icon placement */
+  .carousel-slide .feature i,
+  .carousel-slide .masonry-card i {
+    margin-bottom: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Title styling */
+  .carousel-slide .feature h3,
+  .carousel-slide .masonry-card h3,
+  .carousel-slide .project-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Content area */
+  .carousel-slide .feature p,
+  .carousel-slide .masonry-card p,
+  .carousel-slide .project-card p {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 5px;
+    padding-right: 5px;
+  }
+  
+  /* Scrollbar styling for overflow content */
+  .carousel-slide .feature p::-webkit-scrollbar,
+  .carousel-slide .masonry-card p::-webkit-scrollbar,
+  .carousel-slide .project-card p::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .carousel-slide .feature p::-webkit-scrollbar-thumb,
+  .carousel-slide .masonry-card p::-webkit-scrollbar-thumb,
+  .carousel-slide .project-card p::-webkit-scrollbar-thumb {
+    background: #51A5D7;
+    border-radius: 3px;
+  }
+  
+  /* Adjust project cards with extra content */
+  .carousel-slide .project-card ul {
+    overflow-y: auto;
+    margin: 5px 0;
+    padding-left: 20px;
+    padding-right: 5px;
+  }
+  
+  /* Mobile card fade effect for overflow content */
+  .carousel-slide .feature,
+  .carousel-slide .masonry-card,
+  .carousel-slide .project-card {
+    position: relative;
+  }
+  
+  .carousel-slide .feature::after,
+  .carousel-slide .masonry-card::after,
+  .carousel-slide .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to top, rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0));
+    pointer-events: none;
+  }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 480px) {
+  .carousel-slide .feature {
+    height: 280px;
+    max-height: 280px;
+  }
+  
+  .carousel-slide .masonry-card {
+    height: 220px;
+    max-height: 220px;
+  }
+  
+  .carousel-slide .project-card {
+    height: 320px;
+    max-height: 320px;
+  }
+}
+
+/* Carousel styling improvements */
+.carousel-container {
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+.carousel-track {
+    padding: 10px 0;
+}
+
+/* Style specifically for carousel cards */
+.carousel-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.carousel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Progress indicator for cards with overflow */
+.overflow-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #51A5D7;
+    opacity: 0.7;
+    display: none;
+}
+
+/* Card content that can be scrolled */
+.scrollable-content {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 5px;
+}
+
+/* Responsive padding and margin adjustments */
+@media (max-width: 768px) {
+
+    /* Carousel spacing improvements */
+    .carousel-container {
+        margin: 15px 0;
+    }
+
+    .carousel-slide {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 0;
+    }
+
+    /* More space for touch targets */
+    .carousel-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .carousel-dots {
+        margin: 12px 0;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 6px;
+    }
+
+    /* Make card content more comfortable to read */
+    .carousel-card {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .carousel-card h3 {
+        margin-top: 5px;
+        margin-bottom: 12px;
+        font-size: 1.3rem;
+    }
+
+    .carousel-card p {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    /* Add subtle transitions for scrolling */
+    .scrollable-content {
+        scrollbar-width: thin;
+        transition: scroll 0.3s ease;
+        max-height: 100%;
+    }
+
+    /* Equal heights for lists */
+    .carousel-card ul {
+        max-height: 150px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+}
+
+/* Smooth card transitions */
+.carousel-track {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active card indicator */
+.carousel-slide {
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+/* Active carousel dot animation */
+.carousel-dot.active {
+    transform: scale(1.2);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Improved carousel button hover state */
+.carousel-btn:hover {
+    background: #3d8eb9;
+    transform: scale(1.1);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Fix for iOS mobile scrolling issues */
+@supports (-webkit-touch-callout: none) {
+
+    .scrollable-content,
+    .carousel-card p,
+    .carousel-card ul {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-slide .feature::after,
+    .carousel-slide .masonry-card::after,
+    .carousel-slide .project-card::after {
+        height: 25px;
+        /* Slightly higher for iOS */
+    }
+}

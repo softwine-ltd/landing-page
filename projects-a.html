@@ -107,7 +107,7 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2>Our Projects</h2>
-            <div class="project-cards-container">
+            <div class="project-cards-container project-grid">
                 <div class="project-card">
                     <h3>Custom Internal Social Network</h3>
                     <p><strong>Technologies:</strong> React, Node.js, MongoDB, WebSocket</p>
@@ -223,90 +223,8 @@
     <script src="js/sticky-header.js"></script>
     <script src="js/carousel.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (window.innerWidth <= 768) {
-                const projectsContainer = document.querySelector('.project-cards-container');
-                if (!projectsContainer) return;
-
-                const projectCards = Array.from(document.querySelectorAll('.project-card'));
-
-                const carousel = document.createElement('div');
-                carousel.className = 'carousel-container';
-
-                const track = document.createElement('div');
-                track.className = 'carousel-track';
-
-                projectCards.forEach(card => {
-                    const slide = document.createElement('div');
-                    slide.className = 'carousel-slide';
-                    slide.appendChild(card.cloneNode(true));
-                    track.appendChild(slide);
-                });
-
-                carousel.appendChild(track);
-
-                const controls = document.createElement('div');
-                controls.className = 'carousel-controls';
-
-                const prevBtn = document.createElement('button');
-                prevBtn.className = 'carousel-btn prev';
-                prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-                controls.appendChild(prevBtn);
-
-                const dots = document.createElement('div');
-                dots.className = 'carousel-dots';
-
-                projectCards.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.className = index === 0 ? 'carousel-dot active' : 'carousel-dot';
-                    dot.dataset.index = index;
-                    dots.appendChild(dot);
-                });
-
-                controls.appendChild(dots);
-
-                const nextBtn = document.createElement('button');
-                nextBtn.className = 'carousel-btn next';
-                nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-                controls.appendChild(nextBtn);
-
-                carousel.appendChild(controls);
-
-                projectsContainer.parentNode.insertBefore(carousel, projectsContainer.nextSibling);
-
-                projectsContainer.style.display = 'none';
-
-                let currentIndex = 0;
-                const slideWidth = carousel.querySelector('.carousel-slide').offsetWidth;
-
-                function updateSlide() {
-                    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-                    carousel.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentIndex);
-                    });
-                }
-
-                prevBtn.addEventListener('click', () => {
-                    currentIndex = Math.max(0, currentIndex - 1);
-                    updateSlide();
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    currentIndex = Math.min(projectCards.length - 1, currentIndex + 1);
-                    updateSlide();
-                });
-
-                carousel.querySelectorAll('.carousel-dot').forEach(dot => {
-                    dot.addEventListener('click', () => {
-                        currentIndex = parseInt(dot.dataset.index);
-                        updateSlide();
-                    });
-                });
-            }
-        });
-    </script>
+    <script src="js/carousel-enhancements.js"></script>
+ 
 </body>
 
 </html>
