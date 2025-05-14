@@ -66,7 +66,7 @@ header nav ul li a {
     transition: max-height 0.2s ease-out;
 }
 
-/* Smaller logo only when sticky */
+
 .hero.is-sticky .logo-section img {
     max-height: 60px;
     transition: max-height 0.3s ease-in;
@@ -152,7 +152,7 @@ header nav ul li a {
 }
 
 .how-we-help .container {
-    /* max-width: 1200px; */
+    
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -433,9 +433,6 @@ footer {
         width: calc(100% - 1.5rem);
     }
 
-    /* .masonry-grid {
-        grid-template-columns: 1fr;
-    } */
 }
 
 @media (min-width: 768px) {
@@ -666,16 +663,16 @@ footer {
     }
 }
 
-/* Equal height cards in mobile carousel */
+
 @media (max-width: 768px) {
 
-    /* Make all carousel slides equal height */
+    
     .carousel-slide {
         display: flex;
         height: auto;
     }
 
-    /* Feature cards in carousel */
+    
     .carousel-slide .feature {
         height: 320px;
         max-height: 320px;
@@ -687,7 +684,7 @@ footer {
         box-sizing: border-box;
     }
 
-    /* Masonry cards in carousel */
+    
     .carousel-slide .masonry-card {
         height: 250px;
         max-height: 250px;
@@ -699,7 +696,7 @@ footer {
         box-sizing: border-box;
     }
 
-    /* Project cards in carousel */
+    
     .carousel-slide .project-card {
         height: 350px;
         max-height: 350px;
@@ -711,14 +708,14 @@ footer {
         box-sizing: border-box;
     }
 
-    /* Icon placement */
+    
     .carousel-slide .feature i,
     .carousel-slide .masonry-card i {
         margin-bottom: 10px;
         flex-shrink: 0;
     }
 
-    /* Title styling */
+    
     .carousel-slide .feature h3,
     .carousel-slide .masonry-card h3,
     .carousel-slide .project-card h3 {
@@ -727,7 +724,7 @@ footer {
         flex-shrink: 0;
     }
 
-    /* Content area */
+    
     .carousel-slide .feature p,
     .carousel-slide .masonry-card p,
     .carousel-slide .project-card p {
@@ -737,7 +734,7 @@ footer {
         padding-right: 5px;
     }
 
-    /* Scrollbar styling for overflow content */
+    
     .carousel-slide .feature p::-webkit-scrollbar,
     .carousel-slide .masonry-card p::-webkit-scrollbar,
     .carousel-slide .project-card p::-webkit-scrollbar {
@@ -751,7 +748,7 @@ footer {
         border-radius: 3px;
     }
 
-    /* Adjust project cards with extra content */
+    
     .carousel-slide .project-card ul {
         overflow-y: auto;
         margin: 5px 0;
@@ -759,7 +756,7 @@ footer {
         padding-right: 5px;
     }
 
-    /* Mobile card fade effect for overflow content */
+    
     .carousel-slide .feature,
     .carousel-slide .masonry-card,
     .carousel-slide .project-card {
@@ -780,7 +777,7 @@ footer {
     }
 }
 
-/* Adjustments for very small screens */
+
 @media (max-width: 480px) {
     .carousel-slide .feature {
         height: 280px;
@@ -798,7 +795,7 @@ footer {
     }
 }
 
-/* Carousel styling improvements */
+
 .carousel-container {
     padding: 10px 0;
     margin: 20px 0;
@@ -808,7 +805,7 @@ footer {
     padding: 10px 0;
 }
 
-/* Style specifically for carousel cards */
+
 .carousel-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -819,7 +816,7 @@ footer {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Progress indicator for cards with overflow */
+
 .overflow-indicator {
     position: absolute;
     bottom: 5px;
@@ -832,17 +829,17 @@ footer {
     display: none;
 }
 
-/* Card content that can be scrolled */
+
 .scrollable-content {
     overflow-y: auto;
     flex: 1;
     padding-right: 5px;
 }
 
-/* Responsive padding and margin adjustments */
+
 @media (max-width: 768px) {
 
-    /* Carousel spacing improvements */
+    
     .carousel-container {
         margin: 15px 0;
     }
@@ -853,7 +850,7 @@ footer {
         padding: 0;
     }
 
-    /* More space for touch targets */
+    
     .carousel-btn {
         width: 45px;
         height: 45px;
@@ -869,7 +866,7 @@ footer {
         margin: 0 6px;
     }
 
-    /* Make card content more comfortable to read */
+    
     .carousel-card {
         padding: 16px;
         border-radius: 8px;
@@ -886,14 +883,14 @@ footer {
         line-height: 1.4;
     }
 
-    /* Add subtle transitions for scrolling */
+    
     .scrollable-content {
         scrollbar-width: thin;
         transition: scroll 0.3s ease;
         max-height: 100%;
     }
 
-    /* Equal heights for lists */
+    
     .carousel-card ul {
         max-height: 150px;
         overflow-y: auto;
@@ -901,31 +898,31 @@ footer {
     }
 }
 
-/* Smooth card transitions */
+
 .carousel-track {
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Active card indicator */
+
 .carousel-slide {
     position: relative;
     transition: opacity 0.3s ease;
 }
 
-/* Active carousel dot animation */
+
 .carousel-dot.active {
     transform: scale(1.2);
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Improved carousel button hover state */
+
 .carousel-btn:hover {
     background: #3d8eb9;
     transform: scale(1.1);
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Fix for iOS mobile scrolling issues */
+
 @supports (-webkit-touch-callout: none) {
 
     .scrollable-content,
@@ -938,6 +935,6 @@ footer {
     .carousel-slide .masonry-card::after,
     .carousel-slide .project-card::after {
         height: 25px;
-        /* Slightly higher for iOS */
+        
     }
 }
