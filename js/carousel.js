@@ -137,32 +137,49 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         let startX = 0;
+        let startY = 0;
         let isDragging = false;
+        let isHorizontalDrag = null;
 
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
             isDragging = true;
+            isHorizontalDrag = null;
         });
 
         track.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
-            e.preventDefault();
-            const currentX = e.touches[0].clientX;
-            const diff = startX - currentX;
 
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    currentIndex = (currentIndex + 1) % cards.length;
-                } else {
-                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                }
-                updateSlide();
-                isDragging = false;
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+
+            if (isHorizontalDrag === null) {
+                isHorizontalDrag = Math.abs(diffX) > Math.abs(diffY);
             }
+
+            // Only prevent default for horizontal drags
+            if (isHorizontalDrag) {
+                e.preventDefault();
+
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        currentIndex = (currentIndex + 1) % cards.length;
+                    } else {
+                        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                    }
+                    updateSlide();
+                    isDragging = false;
+                }
+            }
+            // For vertical drags, do nothing and let default behavior happen
         });
 
         track.addEventListener('touchend', () => {
             isDragging = false;
+            isHorizontalDrag = null;
         });
 
         updateSlide();
