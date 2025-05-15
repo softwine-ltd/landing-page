@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     initCarousels();
 
-    
+
     let resizeTimer;
     window.addEventListener('resize', function () {
         clearTimeout(resizeTimer);
@@ -10,30 +10,30 @@ document.addEventListener('DOMContentLoaded', function () {
             if (window.innerWidth <= 768) {
                 initCarousels();
             } else {
-                
+
                 document.querySelectorAll('.feature-grid, .masonry-grid, .project-cards-container').forEach(grid => {
                     if (grid) grid.style.display = 'flex';
                 });
 
-                
+
                 document.querySelectorAll('.carousel-container').forEach(carousel => {
                     if (carousel) carousel.style.display = 'none';
                 });
             }
-        }, 250); 
+        }, 250);
     });
 
     function initCarousels() {
-        
+
         if (window.innerWidth > 768) return;
 
-        
+
         createCarousel('feature-grid', 'feature');
 
-        
+
         createCarousel('masonry-grid', 'masonry-card');
 
-        
+
         createCarousel('project-cards-container', 'project-card');
     }
 
@@ -41,25 +41,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const grid = document.querySelector('.' + gridClass);
         if (!grid) return;
 
-        
+
         const cards = Array.from(grid.querySelectorAll('.' + cardClass));
         if (cards.length === 0) return;
 
-        
+
         const existingCarousel = grid.nextElementSibling;
         if (existingCarousel && existingCarousel.classList.contains('carousel-container')) {
-            return; 
+            return;
         }
 
-        
+
         const carousel = document.createElement('div');
         carousel.className = 'carousel-container';
 
-        
+
         const track = document.createElement('div');
         track.className = 'carousel-track';
 
-        
+
         cards.forEach(card => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function updateSlide() {
             const slideWidth = getSlideWidth();
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            track.style.transform = `translateX(-${currentIndex * slideWidth + currentIndex * 8}px)`;
 
             carousel.querySelectorAll('.carousel-dot').forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
