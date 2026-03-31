@@ -78,6 +78,8 @@ class ChatWidget {
                             .filter(text => !text.toLowerCase().includes('continue'));
 
                         if (selectedOptions.length > 0) {
+                            optionsContainer.querySelectorAll('.option-button')
+                                .forEach(b => { b.disabled = true; });
                             this.handleOption(selectedOptions, true);
                         }
                     } else {
@@ -94,6 +96,8 @@ class ChatWidget {
                         }
                     }
                 } else {
+                    optionsContainer.querySelectorAll('.option-button')
+                        .forEach(b => { b.disabled = true; });
                     this.handleOption(option, false);
                 }
             };
@@ -144,7 +148,14 @@ class ChatWidget {
         const submitButton = document.createElement('button');
         submitButton.classList.add('option-button');
         submitButton.textContent = 'Submit';
-        submitButton.onclick = () => this.handleFormSubmit(form);
+        submitButton.onclick = async () => {
+            const stepBefore = this.currentStep;
+            submitButton.disabled = true;
+            await this.handleFormSubmit(form);
+            if (this.currentStep === stepBefore) {
+                submitButton.disabled = false;
+            }
+        };
         form.appendChild(submitButton);
 
         this.chatMessages.appendChild(form);
@@ -207,18 +218,19 @@ class ChatWidget {
             const nextStep = conversationFlow[this.currentStep].next;
             this.currentStep = nextStep;
             this.showStep(this.currentStep);
+
+            try {
+                if (this.currentStep === 'summary') {
+                    await this.sendToBackend({
+                        timestamp: this.userResponses.timestamp,
+                        responses: this.userResponses.answers
+                    });
+                }
+            } catch (error) {
+                this.addMessage("There was an error submitting your consultation. Please try again.", 'bot');
+            }
         } else if (firstInvalidInput) {
             firstInvalidInput.focus();
-        }
-        try {
-            if (this.currentStep === 'summary') {
-                await this.sendToBackend({
-                    timestamp: this.userResponses.timestamp,
-                    responses: this.userResponses.answers
-                });
-            }
-        } catch (error) {
-            this.addMessage("There was an error submitting your consultation. Please try again.", 'bot');
         }
     }
 
@@ -226,9 +238,11 @@ class ChatWidget {
         if (allowMultiple && Array.isArray(option)) {
             this.addMessage("Selected: " + option.join(", "), 'user');
             this.userResponses.answers[this.currentStep] = option;
+            this.saveResponses();
             const nextStep = conversationFlow[this.currentStep].next;
             this.currentStep = nextStep;
             this.showStep(this.currentStep);
+            return;
         } else if (!allowMultiple) {
             this.addMessage(option, 'user');
         }
@@ -260,7 +274,14 @@ class ChatWidget {
         }
 
         this.saveResponses();
-        if (nextStep) {
+        if (nextStep && conversationFlow[nextStep]) {
+            if (nextStep === 'start') {
+                this.chatMessages.innerHTML = '';
+                this.userResponses = {
+                    timestamp: new Date().toISOString(),
+                    answers: {}
+                };
+            }
             this.currentStep = nextStep;
             this.showStep(this.currentStep);
         }
@@ -312,25 +333,36 @@ class ChatWidget {
         return summaryText;
     }
 
+    escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
     formatValue(key, value) {
         if (!value) return "";
 
         if (Array.isArray(value)) {
-            return value.map(item => `• ${item}`).join('<br>');
+            return value.map(item => `• ${this.escapeHtml(item)}`).join('<br>');
         }
 
         if (key === "contact_info" && typeof value === "object") {
             const contactInfo = [];
-            if (value.text) contactInfo.push(`• Name: ${value.text}`);
-            if (value.email) contactInfo.push(`• Email: ${value.email}`);
-            if (value.company) contactInfo.push(`• Company: ${value.company}`);
+            if (value.name) contactInfo.push(`• Name: ${this.escapeHtml(value.name)}`);
+            if (value.email) contactInfo.push(`• Email: ${this.escapeHtml(value.email)}`);
+            if (value.company) contactInfo.push(`• Company: ${this.escapeHtml(value.company)}`);
             return contactInfo.join('<br>');
         }
 
-        return value;
+        return this.escapeHtml(value);
     }  
 }
 
+
+export { ChatWidget };
 
 document.addEventListener('DOMContentLoaded', () => {
     new ChatWidget();

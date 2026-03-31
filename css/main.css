@@ -92,6 +92,7 @@ header nav ul li a {
 .features {
     padding: 3rem 0;
     background-color: #ffffff;
+    scroll-margin-top: 300px;
 }
 
 .features .container {
@@ -149,6 +150,7 @@ header nav ul li a {
 .how-we-help {
     padding: 2rem 0;
     background-color: #f9f9f9;
+    scroll-margin-top: 300px;
 }
 
 .how-we-help .container {
@@ -285,6 +287,7 @@ footer {
 .about {
     background: #ffffff;
     padding: 4rem 0;
+    scroll-margin-top: 300px;
 }
 
 .about h2 {
