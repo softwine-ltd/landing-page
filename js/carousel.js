@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 initCarousels();
             } else {
 
-                document.querySelectorAll('.feature-grid, .masonry-grid, .project-cards-container').forEach(grid => {
+                document.querySelectorAll('.feature-grid, .masonry-grid, .project-cards-container, .suitable-grid').forEach(grid => {
                     if (grid) grid.style.display = 'flex';
                 });
 
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         createCarousel('project-cards-container', 'project-card');
+
+        createCarousel('suitable-grid', 'suitable-card');
     }
 
     function createCarousel(gridClass, cardClass) {
