@@ -336,6 +336,45 @@
   flex-direction: row-reverse;
 }
 
+/* ── Floating Book a Meeting ───────────────────────────────── */
+.blog-book-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+}
+
+.blog-page.rtl .blog-book-float {
+  right: auto;
+  left: 28px;
+}
+
+.blog-book-float button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  color: white !important;
+  background-color: #A0CD9A !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 0.95rem !important;
+  border-radius: 6px !important;
+  padding: 0.7rem 1.5rem !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22) !important;
+  transition: opacity 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.blog-book-float button::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f133";
+  font-weight: 900;
+}
+
+.blog-book-float button:hover {
+  opacity: 0.82 !important;
+}
+
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .blog-header-inner {
@@ -366,5 +405,15 @@
 
   .blog-listing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .blog-book-float {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .blog-page.rtl .blog-book-float {
+    right: auto;
+    left: 16px;
   }
 }
