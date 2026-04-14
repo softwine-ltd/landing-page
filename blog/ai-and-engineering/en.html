@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in Software Engineering: Staying the Pilot, Not Becoming the Passenger | Softwine</title>
+  <meta name="description" content="AI boosts developer productivity 40%, but also creates dangerous dependency. How CTOs build teams that leverage AI without losing judgment.">
+  <link rel="canonical" href="https://softwine.net/blog/ai-and-engineering/en.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-and-engineering/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-and-engineering/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-and-engineering/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html" class="active">EN</a>
+  <span>/</span>
+  <a href="he.html">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-03-25T00:00:00.000Z">March 25, 2026</time>
+    </div>
+    <h1 class="blog-article-title">AI in Software Engineering: Staying the Pilot, Not Becoming the Passenger</h1>
+    <div class="blog-article-body">
+<p>A senior developer on a team I work with recently spent three hours debugging code that Claude wrote in two minutes. The AI solved the original problem perfectly, but introduced three new edge cases nobody anticipated.</p>
+<p>This isn&#39;t a surprise. It&#39;s a pattern I see repeatedly as teams adopt AI tooling. And it&#39;s exactly where the biggest opportunity and the biggest risk of AI in software engineering converge.</p>
+<h2>The 40% Paradox</h2>
+<p>Anthropic research shows developers with AI tools become 40% more productive. That sounds impressive. But the same research reveals something else: after six months, those same developers struggle to solve problems without their digital assistant.</p>
+<p>We gained speed. We traded away understanding.</p>
+<p>Marcus Fontoura of Microsoft puts it well in his book <em>Human Agency in the Digital World</em>: <strong>are your developers pilots or passengers?</strong> A pilot understands the flight system and can disengage autopilot the moment conditions demand it. A passenger just sits there and hopes the machine knows where to go.</p>
+<p>Teams that benefit from AI over the long term are the ones who stay pilots.</p>
+<h2>The Wagging Tail Problem</h2>
+<p>There&#39;s a pattern I see in teams that lean too heavily on AI: a &quot;simple&quot; API fix that touches dozens of files takes months because nobody really understands the generated code. When the AI suggests a solution, people check whether tests pass, not whether the logic is correct. Debugging becomes trial-and-error with the AI rather than understanding the root cause.</p>
+<p>This is the wagging tail problem: the AI ends up directing the team instead of the team directing the AI.</p>
+<p>Anthropic research explains the geometric reason: AI models can&#39;t distinguish between &quot;good&quot; and &quot;bad&quot; code paths: they look identical in the model&#39;s representation space. Think of a brilliant junior engineer who nails the main task but misses the side effects entirely.</p>
+<h2>The Interface Mistake: Not Every Problem Needs a Chatbot</h2>
+<p>A classic example: a team that spent three months building a natural-language AI interface, and ended up with users who actively avoided it. The reason? Their actual workflow relied on structured forms and dropdowns, not free-form conversation.</p>
+<p>Everyone&#39;s building chatbots because they demo well in board presentations. But your CFO doesn&#39;t want to &quot;chat&quot; about invoice approvals: they want dropdown menus, form validation, and clearly labeled fields.</p>
+<p><strong>The right use of AI is to fill existing structures more intelligently, not to replace your domain models with natural language.</strong></p>
+<h2>The 70% Nobody&#39;s Talking About</h2>
+<p>Researchers from both OpenAI and Anthropic have recently said, each in their own way: &quot;I don&#39;t write code anymore. 100% of it is AI-generated.&quot; Anthropic itself reports that 70–90% of its own codebase is AI-generated.</p>
+<p>The underreported part: <strong>the infrastructure wasn&#39;t built for this.</strong> GitHub pull requests, code reviews, CI pipelines: all designed for humans who think in hours and days, not for agents committing code every few minutes.</p>
+<p>This also explains what I think of as the Electron paradox: Anthropic spent $20,000 on a &quot;swarm&quot; of AI agents to build a C compiler (software that runs at bare-metal level). Yet they built their own desktop app in Electron, a framework as far from the metal as you can get. The point isn&#39;t to criticize the choice: our tooling and processes keep running ahead of our ability to adapt workflows around them.</p>
+<p><strong>The companies designing workflows built for agents (not for humans working alongside AI) are the ones that will grow 3–5x in the next year.</strong></p>
+<h2>How to Stay the Pilot</h2>
+<p>The approach I recommend:</p>
+<p><strong>Verify, don&#39;t just run.</strong> When AI suggests a solution, ask &quot;why?&quot; not just &quot;does it work?&quot; Your AI assistant is a brilliant junior colleague, not an oracle.</p>
+<p><strong>Use AI for the refactors humans skip.</strong> Renaming poorly named variables across an entire codebase, splitting 3,000-line files into modules, removing duplicated logic: these are where AI agents excel. The cost of code has dropped so far that zero tolerance for small code friction is now achievable.</p>
+<p><strong>Adapt your workflows.</strong> PR reviews, CI pipelines, even how you define acceptance criteria: all of it needs to evolve for a world where large amounts of code are AI-generated.</p>
+<p><strong>Protect the architects.</strong> AI can write code. Only humans can decide what to build, why, and how it connects to business outcomes.</p>
+<h2>Takeaways</h2>
+<p>AI in software engineering is a powerful lever, provided you&#39;re the one holding it. Winning teams use AI to do more of the right things, not to stop thinking.</p>
+<p>The question isn&#39;t &quot;should we use AI?&quot; It&#39;s &quot;how do we stay the architects?&quot; Once you have a clear answer to that, the 40% productivity gain is just the beginning.</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>Join the discussion on socials:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7424180434089127936/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid025prKzVQjacM1yPhQ8tioaEfhtRQQtRVoohZKxYvwUCAJByaA5SrXAbpUd6XKQNqUl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7425168775685173248/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02igkQePP328Ca4MHS91kopcnMGzFeCNwj1yyjMgr13tHvaMa1rxvuUyFQ7XYBWrmNl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7435277728347672577/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0tDb2yDR5vT7hjMtuvCkJGBempwi1YdpXY9oNpgC8xgY8d9no4GMqgBmpjslwMgoA0" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7437414242636578816/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02hKvDQQcBgD9bwacTcFjQGGVXB5Pi5677eFX54kcjssZcXfKahG5Um9Ufj33Xq5Qrl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7437851902802837504/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid035FnDrPAnzLxfEo8zjKJRUZze4j213ifzHHbwb2NQBLMccRscA7NUKvkJ2KtPd2kFl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7439656913069400065/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0zd1zrFWCk2EghAiJ9NEU1g6xYHtViC386qJYtnqf6eiA7FvQikA4aWKmRRf9iQ98l" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7441818114994118657/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02HhLaAgvE5BPFqVDvpBaxNuv5w32svgdZJm3NgXs9FojMVNgCS1Dv5sdC7iR7AP3vl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+  </ul>
+</div>
+  </article>
+</main>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>

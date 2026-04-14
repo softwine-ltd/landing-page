@@ -1,1 +1,16 @@
 .vscode/*
+node_modules/**
+.playwright-cli/**
+.playwright/**
+.a5c/**
+content/**
+**/__tests__/**
+scripts/blog-gen/**
+docs/conversation-flow.md
+docs/hebrew-blog-writing-style.md
+config/blog-categories.yaml
+PROJECT_MINDMAP.md
+package-lock.json
+package.json
+vitest.config.js
+scripts/render.js

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Leadership: When a Title Isn't Enough and Open Source Burns Out | Softwine</title>
+  <meta name="description" content="Microsoft appointed a 'quality czar' with no authority, your code depends on volunteers who are burning out, and AI is changing what open source ownership means. Three lessons on leadership that creates real change.">
+  <link rel="canonical" href="https://softwine.net/blog/engineering-leadership/en.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/engineering-leadership/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/engineering-leadership/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/engineering-leadership/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html" class="active">EN</a>
+  <span>/</span>
+  <a href="he.html">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-04-02T00:00:00.000Z">April 2, 2026</time>
+    </div>
+    <h1 class="blog-article-title">Engineering Leadership: When a Title Isn't Enough and Open Source Burns Out</h1>
+    <div class="blog-article-body">
+<p>Microsoft recently appointed a &quot;quality czar.&quot; No budget. No team. No real authority.</p>
+<p>That&#39;s like hiring a fire chief who isn&#39;t allowed to touch the hoses.</p>
+<p>On GitHub, a project with 2,400 stars tried to replace all its code with AI-generated code and change its open source license, while keeping the same name. The internet debated the legal question: does an AI-assisted rewrite permit relicensing? They missed the real story.</p>
+<p>Your entire tech product probably depends on code written by volunteers. Volunteers who receive no compensation, and who burn out along the way.</p>
+<p>Three stories about the same thing: <strong>real engineering leadership isn&#39;t titles, good intentions, or the quiet exploitation of other people&#39;s work. It requires authority, resources, and accountability.</strong></p>
+<h2>The Change Initiative That Always Fails</h2>
+<p>Twelve years of Windows security incidents, research on organizational cultures that undermine employees, and Microsoft responds by appointing one person.</p>
+<p>This pattern is familiar from every organizational transformation I&#39;ve seen fail. It always looks the same: make noise as if something is being done, appoint a title that sounds important, then avoid the hard work of actually changing processes and structures.</p>
+<p><strong>Real organizational change requires at least three things:</strong></p>
+<ol>
+<li><strong>Authority</strong> to make decisions, not just to recommend</li>
+<li><strong>Budget</strong> to implement them, not just to discuss</li>
+<li><strong>Accountability</strong> for outcomes, not just for reports</li>
+</ol>
+<p>Without all three together, the appointment is theater. It creates the illusion of action without impact. And sometimes that&#39;s worse than doing nothing, because it gives the organization &quot;evidence&quot; that something is being handled, while nothing is being handled at all.</p>
+<p>Engineering leadership that changes things starts with the question: &quot;Who has the power to force real change, and how do you make them build systems where quality is structurally embedded?&quot;</p>
+<h2>Open Source: The Invisible Foundation</h2>
+<p>Dan Lorenc from ChainGuard spent ten years at Google. He watched App Engine grow from before the PaaS category existed. Everything is built on open source foundations.</p>
+<p>But what people don&#39;t talk about: <strong>there is no single &quot;open source community&quot; managing everything.</strong> There are random individuals uploading code to the internet under various licenses. Many of them receive no compensation, burn out over time, and stop maintaining.</p>
+<p>Your entire stack (from the framework you&#39;re using to the security libraries you don&#39;t know exist) depends on people who could decide tomorrow they have nothing left to give.</p>
+<p>This isn&#39;t theoretical. It happened. The Heartbleed bug in OpenSSL (code protecting a significant portion of the internet) was maintained by two or three people with no meaningful organizational backing.</p>
+<p><strong>Allocate resources to OSS maintenance.</strong> Not as charity, but as risk management. The same way you budget for security and SLAs, budget for the foundations you&#39;re built on.</p>
+<h2>AI and Code Ownership: The Wrong Question</h2>
+<p>The chardet project (a Python character detection library with 2,400 stars) saw a maintainer attempt to replace all the code with AI-generated code and relicense it. The internet asked: &quot;Does an AI-assisted rewrite permit relicensing?&quot;</p>
+<p>But that&#39;s the wrong question.</p>
+<p>As a maintainer of a CNCF project myself, I can tell you: writing code was never the core of open source ownership. <strong>Owning an open source project means owning the integration processes, deployment pipelines, tests, documentation, and issue triage.</strong> That&#39;s the asset built over years that can&#39;t be rewritten by AI.</p>
+<p>There&#39;s also a deeper warning here for every engineering leader: when AI dependency becomes a tool for circumventing original contributions, you erode the community trust that makes projects live. A fork is always an option, but a community that doesn&#39;t follow you is no longer an asset you have.</p>
+<h2>Takeaways</h2>
+<p>These three stories (Microsoft&#39;s quality czar, chardet, and open source volunteers) speak to leadership in an environment where the tools change constantly but leadership principles don&#39;t:</p>
+<ul>
+<li><strong>Organizational change requires authority + budget + accountability.</strong> Each component alone isn&#39;t enough.</li>
+<li><strong>The open source you depend on is a dependency, not a backdrop.</strong> Manage it accordingly.</li>
+<li><strong>AI changes who writes code, not who is responsible for it.</strong> Accountability stays with you.</li>
+</ul>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>Join the discussion on socials:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7426699537655947264/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0Ej6HTc4N8Tnh38CQRY3rNudvYLjsrjKK88LFtCW9e74aKuTs7ybFwpicXtgtV5yJl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7436728335457525761/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0SMb8kyyBofzokueUzePwyjzD4hXUUexMLcKssv73trfhk1UYwzjuN4fFPopjwSCWl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7444707119716659200/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02dnPy9a79zarnxorNcj2TNboaE9d1QpYebKtWLUD5AJbLkfhGLzTn9eMyhxHo5x4el" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+  </ul>
+</div>
+  </article>
+</main>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>

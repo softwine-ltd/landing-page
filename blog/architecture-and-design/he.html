@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ארכיטקטורת תוכנה: מעבר לסכמה במסד הנתונים | Softwine</title>
+  <meta name="description" content="מיקרו-סרביסים שהם בעצם מונוליט מבוזר, פאנלי ניהול שעולים שעות של פיתוח בשביל להוסיף פיצ'ר פשוט, ומתי כדאי לעזוב את המונוליט. ארכיטקטורה שנגזרת מהעסק, לא מהטרנד.">
+  <link rel="canonical" href="https://softwine.net/blog/architecture-and-design/he.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/architecture-and-design/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/architecture-and-design/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/architecture-and-design/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page rtl">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/index.he.html" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html">EN</a>
+  <span>/</span>
+  <a href="he.html" class="active">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-03-28T00:00:00.000Z">28 במרץ 2026</time>
+    </div>
+    <h1 class="blog-article-title">ארכיטקטורת תוכנה: מעבר לסכמה במסד הנתונים</h1>
+    <div class="blog-article-body">
+<p>אחד הצוותים נאבק שעות עם שינוי API פשוט בגלל שהוא דרש תיאום בין חמישה שירותים שונים. הם חשבו שיש להם מיקרו-סרביסים, אבל בפועל בנו מונוליט מבוזר, שזה הגרוע משני העולמות.</p>
+<p>חבר CTO אמר לי שהוא &quot;מתחרט שנשארנו עם המונוליט יותר מדי זמן&quot;, שאילתת מסד נתונים איטית, רק אחת, הפילה את כל האפליקציה. עשרות אנשים חיכו לשינויים פשוטים שלקחו שלושה ימים.</p>
+<p>צוות אחר השקיע חמש שעות להוסיף &quot;סינון לפי שכונה&quot; בפאנל הניהול. חמש שעות כדי להוסיף כפתור. כפתור שמציג נתונים קיימים.</p>
+<p>שלושה סיפורים שמלמדים דבר אחד: <strong>ארכיטקטורת תוכנה טובה לא מתחילה בסכמת מסד הנתונים. היא מתחילה בהבנת העסק.</strong></p>
+<h2>&quot;הארכיטקטורה זה הסכמה במסד הנתונים&quot;</h2>
+<p>הרבה אנשים (בעיקר מפתחים) חושבים שארכיטקטורת מוצר תוכנה היא בעיקר סכמה במסד הנתונים. ואולי נוכל להבין את זה אם נשאל מאיפה נגזרת החשיבה הזאת? וכנראה שזה מהנסיון שמפתחים מתחילים בו: כותבים קוד, מגדירים טבלאות, מחברים ביניהם.</p>
+<p>אבל פעולות ה&quot;תכנות&quot; האלו, שמבוצעות היום לגמרי עם כלי תכנות כמו קלוד קוד, הם רק קצה קצהו של תהליך בניית הארכיטקטורה ובטח שלא תחילתו.</p>
+<p>כשמתכננים מוצר, מה שקורה בפועל הוא תרגום: דרישות עסקיות מתורגמות לחווית משתמש, היא מתורגמת לארכיטקטורה והיא מתורגמת לקוד וגם לסכמה. הסכמה היא <strong>תוצאה</strong>, לא נקודת ההתחלה.</p>
+<p>לכן השאלות הנכונות לשאול לפני כל ארכיטקטורה:</p>
+<ul>
+<li><strong>כמה משתמשים יהיו למוצר? כמה מהם יתחברו בו-זמנית?</strong> זה יקבע מהיום הראשון איך תיראה ההתרחבות.</li>
+<li><strong>באיזה כובע המשתמשים האלו ניגשים למוצר?</strong> משתמש קצה, מנהל, סוכן אוטונומי: לכל אחד מהם דפוסי שימוש שונים וגם ציפיות שונות לאיך יראה המידע.</li>
+<li><strong>מהי מהירות התגובה הנדרשת?</strong> 200ms הם הרבה מאוד לדף שחשוף לציבור הרחב וזה שונה מ-5 שניות עבור הפקה של דוח פנימי, שזה לגמרי בסדר.</li>
+<li><strong>איך מגנים על הפרטיות?</strong> הדרישה הזו מעצבת איפה שומרים נתונים ואיך ניגשים אליהם.</li>
+</ul>
+<p>ארכיטקטורה שנגזרת מהתשובות לשאלות האלה עומדת בלחץ של צמיחה והתרחבות. ארכיטקטורה שמתחילה מ&quot;מה הכי טרנדי עכשיו&quot; לא תחזיק.</p>
+<h2>מיקרו-סרביסים כפתרון ומיקרו-סרביסים כבעיה</h2>
+<p>הדיון על מיקרו-סרביסים הפך לאחד הדיונים האמוציונליים ביותר בהנדסת תוכנה. יש מי שמגן עליהם בלי שום תנאים, ויש אלו שמסרבים להם על הסף.</p>
+<p>שניהם טועים.</p>
+<p>מיקרו-סרביסים הם לא דיון על אלגנטיות ולא נקבעים בגלל טרנדים. <strong>הם דיון על עצמאות של צוותים ודיון על עמידות של מוצר</strong></p>
+<p>הסיפור של ה-CTO עם המונוליט ממחיש את זה: עשרות אנשים, דליוורי זריז, הכל עובד, עד שמגיעה נקודת השבר. שאילתה איטית אחת. פיצ&#39;רים חיכו בגלל באג לא קשור. הצוות של המובייל חיכה שלושה ימים לשינוי API. &quot;חשבנו שככה פשוט יותר, אבל התברר שזה צוואר הבקבוק&quot;</p>
+<p>מצד שני, הצוות עם החמישה שירותים שהיו לגמרי מתואמים גם כן לא פתר את הבעיה הזו. הם, אולי, פיזרו אותה.</p>
+<p><strong>מיקרו-סרביסים אמיתיים מאפשרים לכל צוות לפרוס בצורה עצמאית, להכשל בצורה עצמאית, ולהתרחב בצורה עצמאית.</strong> אם שינוי בשירות אחד עדיין דורש תיאום עם ארבעה צוותים אחרים, יש לכם מונוליט מבוזר, לא מיקרו-סרביסים.</p>
+<p>ריקו פריטשה מנסח זאת מצוין: הבעיה אינה חוסר בכלים, היא אי-הבנה של מה מודולריות אמיתית אומרת.</p>
+<h2>פאנל הניהול כמבחן ארכיטקטורה</h2>
+<p>חמש שעות לסינון לפי שכונה. שתי שעות פרונטאנד, שעה בקאנד, שעתיים QA לבדוק שלא שוברים דפדוף. לכפתור שמציג נתונים קיימים.</p>
+<p>מפתחים שונאים לבנות ממשקים כאלה. מנהלי מוצר שונאים לתחזק אותם. צוותי תמיכה שונאים להשתמש בהם.</p>
+<p>מנהל פיתוח אחד עשה משהו שנראה במבט ראשון קיצוני: הוא החליף את פאנל הניהול כולו שמומש ב-React עם ממשק של Text-to-SQL. והתוצאה היתה מיידית מהירות הפיתוח עלתה פי שלושה בין לילה. הצוות מגדיר את הסכמה פעם אחת, ואנשי התמיכה שואלים בשפה טבעית: &quot;תראה לי את חמשת המשתמשים עם ה-LTV הגבוה ביותר שלא קנו בחודש האחרון&quot;. עכשיו הצוות פנוי לפתח את המוצר.</p>
+<p>הנקודה שנמצאת בעומק העניין: <strong>חמש שעות לסינון לפי שכונה הן לא בעיית פיתוח, הן בעיית ארכיטקטורה.</strong> כשממשקי ניהול הם כבדים וקשים מדי לשינוי, זה סימן שהם לא תוכננו כחלק מהתמונה הכוללת.</p>
+<h2>נקודות לסיכום</h2>
+<p>ארכיטקטורה טובה אינה זו שנראית יפה בדיאגרמה,  אלא זו שמאפשרת לצוות לנוע מהר, להכשל בצורה בטוחה, ולצמוח מבלי לבנות מחדש כל הזמן.</p>
+<p>שלושת הלקחים מהסיפורים האלה:</p>
+<ul>
+<li>התחילו מהעסק, לא מהטכנולוגיה</li>
+<li>בדקו את עצמאות הצוותים לפני שאתם הולכים על מיקרו-סרביסים</li>
+<li>ממשקי ניהול כבדים הם תסמין ארכיטקטוני, לא גזירת גורל</li>
+</ul>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>הצטרפו לדיון:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7436339515515912194/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02r6BU79s6dY2fdbBhYr2U79R7F6T1kUqSqq1Q9kpJXgdSgpzhk5PBjG44MdYwfH7Zl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7440051193730715648/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid021jtXfsTS2pnsKFWHLFjzHgqvdg2kNbjb84jnFinpBLckbMiXiNzeSohN5gyMuBwHl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7442172430673924096/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0MBVG5X7RbWqZ5F7KoHUGpGqJ4LQuubDqo8DnJFkLPjgthF6RefLpfQ5EgwDnQZ1El" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7444074559818997760/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0GASpx4DkNGDvXa2oqGh9V6qwbDFzXLJv25jYj4JvbbDdSJGPbX6u3t8jGKWoNehHl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+  </ul>
+</div>
+  </article>
+</main>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>

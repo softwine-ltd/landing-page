@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Architecture: Beyond the Database Schema | Softwine</title>
+  <meta name="description" content="Microservices that are actually distributed monoliths, admin panels that cost five hours for a one-minute feature, and when to leave the monolith behind. Architecture derived from the business, not the trend.">
+  <link rel="canonical" href="https://softwine.net/blog/architecture-and-design/en.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/architecture-and-design/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/architecture-and-design/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/architecture-and-design/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html" class="active">EN</a>
+  <span>/</span>
+  <a href="he.html">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-03-28T00:00:00.000Z">March 28, 2026</time>
+    </div>
+    <h1 class="blog-article-title">Software Architecture: Beyond the Database Schema</h1>
+    <div class="blog-article-body">
+<p>One team struggled for hours with a simple API change that required coordinating five different services. They thought they had microservices, but they&#39;d built a distributed monolith: the worst of both worlds.</p>
+<p>A CTO friend told me he regrets &quot;staying with the monolith too long.&quot; A single slow database query took down the entire application. 80 people waited three days for a simple API change.</p>
+<p>Another team spent five hours adding neighborhood filtering to an admin panel. Five hours. For a button that displays existing data.</p>
+<p>Three stories, one lesson: <strong>good software architecture doesn&#39;t start with the database schema. It starts with understanding the business.</strong></p>
+<h2>&quot;Architecture Is the Database Schema&quot;</h2>
+<p>Many people (primarily developers) think software product architecture is mainly about the database schema. That&#39;s understandable. It comes from where developers start: writing code, defining tables, connecting them together.</p>
+<p>But that&#39;s the end of the process, not the beginning.</p>
+<p>Designing a product is really an act of translation: business requirements → user workflows → architecture → code → schema. The schema is an <strong>output</strong>, not the starting point.</p>
+<p>That&#39;s why the right questions to ask before any architecture decision are:</p>
+<ul>
+<li><strong>How many users, concurrently?</strong> This determines whether you need horizontal scale from day one.</li>
+<li><strong>What role are they in?</strong> End user, admin, automated agent: each has entirely different usage patterns.</li>
+<li><strong>What response time is acceptable?</strong> 200ms for a public page is different from 5 seconds for an internal report.</li>
+<li><strong>How do you protect privacy?</strong> This requirement shapes where data lives and how it&#39;s accessed.</li>
+</ul>
+<p>Architecture derived from the answers to these questions holds up under growth pressure. Architecture that starts from &quot;what&#39;s trending right now&quot; doesn&#39;t.</p>
+<h2>Microservices as Solution and Microservices as Problem</h2>
+<p>The microservices debate has become one of the most toxic in software engineering. Some defend them unconditionally; others reject them on principle.</p>
+<p>Both are wrong.</p>
+<p>Microservices aren&#39;t about elegance or trends. <strong>They&#39;re about team independence.</strong></p>
+<p>The CTO&#39;s monolith story illustrates this: 80 people, fast delivery, everything working, until the breaking point arrived. One slow query took everything down. Features were blocked by an unrelated bug. The mobile team waited three days for a simple API change. &quot;We thought it was simpler, but it turned out to be the bottleneck.&quot;</p>
+<p>On the other side, the team with five coordinating services didn&#39;t solve the bottleneck problem. They distributed it.</p>
+<p><strong>Real microservices let each team deploy independently, fail independently, and scale independently.</strong> If a change to one service still requires coordinating with four other teams, you have a distributed monolith, not microservices.</p>
+<p>Rico Fritzsche puts it well: the problem isn&#39;t a lack of tools: it&#39;s a fundamental misunderstanding of what real modularity means.</p>
+<h2>The Admin Panel as an Architecture Test</h2>
+<p>Five hours to add neighborhood filtering. Two hours frontend, one hour backend, two hours QA to check it didn&#39;t break pagination. For a button displaying existing data.</p>
+<p>Developers hate building these interfaces. Product managers hate maintaining them. Support teams hate using them.</p>
+<p>One engineering leader did something that sounds radical: replaced the entire admin panel with a React interface backed by Text-to-SQL. The result? Development velocity tripled overnight. The team defines the schema once, and support people ask in plain language: &quot;Show me the five users with the highest LTV who haven&#39;t purchased in the last month.&quot;</p>
+<p>The deeper point: <strong>five hours to add a neighborhood filter isn&#39;t a development problem: it&#39;s an architecture problem.</strong> When admin interfaces are expensive to change, it&#39;s a signal they weren&#39;t designed as part of the whole picture.</p>
+<h2>Takeaways</h2>
+<p>Good architecture isn&#39;t the kind that looks clean on a diagram: it&#39;s the kind that lets a team move fast, fail safely, and grow without rebuilding every few years.</p>
+<p>Three lessons from these stories:</p>
+<ul>
+<li>Start from the business, not the technology</li>
+<li>Verify team independence before calling something microservices</li>
+<li>Expensive admin interfaces are an architectural symptom, not an inevitable cost</li>
+</ul>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>Join the discussion on socials:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7436339515515912194/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02r6BU79s6dY2fdbBhYr2U79R7F6T1kUqSqq1Q9kpJXgdSgpzhk5PBjG44MdYwfH7Zl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7440051193730715648/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid021jtXfsTS2pnsKFWHLFjzHgqvdg2kNbjb84jnFinpBLckbMiXiNzeSohN5gyMuBwHl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7442172430673924096/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0MBVG5X7RbWqZ5F7KoHUGpGqJ4LQuubDqo8DnJFkLPjgthF6RefLpfQ5EgwDnQZ1El" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7444074559818997760/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0GASpx4DkNGDvXa2oqGh9V6qwbDFzXLJv25jYj4JvbbDdSJGPbX6u3t8jGKWoNehHl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+  </ul>
+</div>
+  </article>
+</main>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>

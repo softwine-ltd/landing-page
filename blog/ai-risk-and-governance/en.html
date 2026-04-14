@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Governance: When the Black Box Makes Decisions For You | Softwine</title>
+  <meta name="description" content="From Amazon's site going down to a bot booking the wrong hotel room: why AI explainability is a business problem, not just a technical one, and how to build accountability from day one.">
+  <link rel="canonical" href="https://softwine.net/blog/ai-risk-and-governance/en.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-risk-and-governance/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-risk-and-governance/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-risk-and-governance/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html" class="active">EN</a>
+  <span>/</span>
+  <a href="he.html">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-03-18T00:00:00.000Z">March 18, 2026</time>
+    </div>
+    <h1 class="blog-article-title">AI Governance: When the Black Box Makes Decisions For You</h1>
+    <div class="blog-article-body">
+<p>A bot booked the wrong hotel room for a company&#39;s most important client. It understood &quot;downtown location,&quot; but missed the implicit context: &quot;near the convention center.&quot; A small misreading early in the conversation compounded into an expensive mistake.</p>
+<p>A hospital CTO told me: &quot;We can&#39;t trust AI for patient diagnosis, it&#39;s too risky.&quot; He&#39;s right about diagnosis. But he&#39;s missing what AI could actually do.</p>
+<p>Amazon? Its shopping site went down for six hours due to AI-generated code changes. The AWS cost calculator was offline for 13 hours on top of that.</p>
+<p>Three stories, one lesson: <strong>your AI is making decisions. The question is whether you understand them, and who&#39;s accountable when they&#39;re wrong.</strong></p>
+<h2>The Black Box That Decides For You</h2>
+<p>Most organizations treat AI like a power outlet: plug it in, flip the switch, hope it works. Until something breaks.</p>
+<p>The bot that booked the wrong room didn&#39;t malfunction. It worked exactly as designed: it recognized sophisticated language patterns but didn&#39;t understand intent in context. That&#39;s not a bug. It&#39;s an architectural constraint you need to account for when building the system.</p>
+<p>Tom Griffiths of Princeton frames this well in <em>The Laws of Thought</em>: <strong>the math and philosophy behind AI aren&#39;t academic luxuries: they&#39;re your debugging toolkit.</strong> When your recommendation engine starts tanking conversion rates, understanding probabilistic reasoning is what lets you find the root cause. When the chatbot gives strange answers, knowing what the model is actually optimizing for is what lets you fix it.</p>
+<p>CTOs who treat AI as a black box aren&#39;t saving time. They&#39;re deferring panic.</p>
+<h2>Trust Is Not Compliance</h2>
+<p>I attended a compliance conference where speakers spent two hours on the legal risks of AI. Important points, necessary ones. But one question was never asked: &quot;What happens when your best customer asks how your AI made that decision?&quot;</p>
+<p>Compliance is about meeting external requirements. Trust is about a relationship.</p>
+<p>When you can&#39;t explain the reasoning behind an AI decision, compliance becomes the least of your problems: the customer relationship dies first.</p>
+<p><strong>The answer isn&#39;t more compliance training. It&#39;s building transparency and accountability into the architecture from day one.</strong> Not in response to an incident, before the incident happens.</p>
+<h2>AI in Healthcare: The Wrong Debate</h2>
+<p>The hospital CTO who said &quot;AI for diagnosis is too dangerous&quot; was right. But he was also missing the opportunity entirely.</p>
+<p>Healthcare doesn&#39;t need AI making life-or-death calls. It needs AI preventing problems before they happen: early detection of infections, predicting bed shortages, identifying equipment failures before they surface. For these tasks, probabilistic models excel.</p>
+<p>The irony: those same hospitals already track patterns manually that an AI model could catch automatically, and catch better.</p>
+<p>The critical distinction: <strong>don&#39;t ask &quot;can we trust AI?&quot; Ask &quot;which tool fits which task?&quot;</strong> AI isn&#39;t here to replace medical judgment. It&#39;s here to give clinicians information they didn&#39;t have before.</p>
+<h2>When Amazon Can&#39;t Protect Amazon</h2>
+<p>Amazon&#39;s shopping site went down for six hours. The AWS cost calculator: 13 hours down. The cause: AI tools making autonomous code changes without adequate oversight.</p>
+<p>Amazon&#39;s internal briefing cited &quot;novel GenAI usage for which best practices had not yet been established.&quot; That&#39;s an honest answer, but it raises a pointed question: <strong>if Amazon, with unlimited resources and the world&#39;s deepest engineering bench, couldn&#39;t maintain adequate oversight, what about your team?</strong></p>
+<p>This isn&#39;t a call to avoid AI. It&#39;s a call to build oversight that actually works. AI is here, and it&#39;s already making decisions. The question is whether your processes are built to understand what it&#39;s doing and catch it when it goes wrong.</p>
+<h2>Takeaways</h2>
+<p>From the bot with the wrong hotel room to the hospital CTO to Amazon, these stories all point to the same foundational question of AI governance: <strong>who explains, to whom, when something breaks?</strong></p>
+<p>Build accountability into the architecture before you need it. Understand the limitations of the tools you&#39;re deploying. And design intermediate layers that let you explain, not just operate.</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>Join the discussion on socials:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7429496372082606080/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02FEN2w3pou3zzSB3vnfoFL9oEF6TsxW2vuczSnCrycBG3cSjWub3LXbwOmR2FyaWzl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7430229013018816512/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02cf7v6vGmfdtWSfr1esKJfs7Z3Ee1jYreiAa8tkKeToVjoyshAkyvk9fHMh127n5l" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7430607223715905536/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0u548ACdnQ8VSfrLf1nVNySLQBiDn7UX3oiTF4M6pEEUxwB4Je3fE7V7CMLL368gvl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7432388022345654272/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02jVB75sQyFBi9hUhNKAz7LpVYPPevtl5eHa25NARJjVQ3hgaYploCVGKkE4Kxjlvl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7439294652811313152/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02hjjGLUFrn4t1qh7uqfQc8MQjcCTpaq7rBdJRKm9H5regahzV14tpAY8DVosVxAR1l" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+  </ul>
+</div>
+  </article>
+</main>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>
