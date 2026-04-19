@@ -69,6 +69,10 @@
   flex-direction: row-reverse;
 }
 
+.blog-page.rtl .blog-nav ul {
+  direction: ltr;
+}
+
 /* ── Language toggle ───────────────────────────────────────── */
 .blog-lang-toggle {
   display: flex;
