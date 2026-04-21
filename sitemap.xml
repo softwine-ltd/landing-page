@@ -101,4 +101,20 @@
     <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/engineering-leadership/he.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/engineering-leadership/en.html"/>
   </url>
+  <url>
+    <loc>https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html</loc>
+    <lastmod>2026-04-21</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/he.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html"/>
+  </url>
+  <url>
+    <loc>https://softwine.net/blog/engineering-leadership/talent-tax-wfh/he.html</loc>
+    <lastmod>2026-04-21</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/he.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html"/>
+  </url>
 </urlset>
