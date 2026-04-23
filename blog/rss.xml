@@ -7,51 +7,35 @@
     <language>en</language>
     <atom:link href="https://softwine.net/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title><![CDATA[AI in Software Engineering: Staying the Pilot, Not Becoming the Passenger]]></title>
-    <link>https://softwine.net/blog/ai-and-engineering/en.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/ai-and-engineering/en.html</guid>
-    <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[AI boosts developer productivity 40%, but also creates dangerous dependency. How CTOs build teams that leverage AI without losing judgment.]]></description>
+    <title><![CDATA[The Talent Tax: Why Your Back-to-Office Policy is a Gamble You Can’t Afford]]></title>
+    <link>https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html</guid>
+    <pubDate>Tue, 21 Apr 2026 12:00:00 GMT</pubDate>
+    <description><![CDATA[When you mandate office presence, you spend your negotiation capital with the people who have the most of it - your senior engineers.]]></description>
     <xml:lang>en</xml:lang>
   </item>
   <item>
-    <title><![CDATA[AI בפיתוח תוכנה: כיצד להישאר הטייס ולא להפוך לנוסע]]></title>
-    <link>https://softwine.net/blog/ai-and-engineering/he.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/ai-and-engineering/he.html</guid>
-    <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[AI מעלה פרודוקטיביות ב-40%, אבל גם יוצר תלות מסוכנת. איך מנהלי טכנולוגיה בונים צוותים שמשתמשים ב-AI מבלי לאבד את יכולת השיפוט?]]></description>
+    <title><![CDATA[מס הטאלנטים: למה מדיניות החזרה למשרד שלכם היא הימור שאתם לא יכולים להרשות לעצמכם]]></title>
+    <link>https://softwine.net/blog/engineering-leadership/talent-tax-wfh/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/engineering-leadership/talent-tax-wfh/he.html</guid>
+    <pubDate>Tue, 21 Apr 2026 12:00:00 GMT</pubDate>
+    <description><![CDATA[כשאתם כופים הגעה למשרד, אתם מבזבזים את כוח המיקוח שלכם מול האנשים שיש להם הכי הרבה כוח מיקוח - הסניורים שלכם.]]></description>
     <xml:lang>he</xml:lang>
   </item>
   <item>
-    <title><![CDATA[Cloud Infrastructure: Why the Cheapest Option Costs the Most]]></title>
-    <link>https://softwine.net/blog/data-and-infrastructure/en.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/en.html</guid>
-    <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[Managed services lock-in, databases treated as dump sites, and AWS taken down by its own AI tools. Three infrastructure lessons about the real cost of convenience.]]></description>
+    <title><![CDATA[Engineering Leadership: When a Title Isn't Enough and Open Source Burns Out]]></title>
+    <link>https://softwine.net/blog/engineering-leadership/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/engineering-leadership/en.html</guid>
+    <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[Microsoft appointed a 'quality czar' with no authority, your code depends on volunteers who are burning out, and AI is changing what open source ownership means. Three lessons on leadership that creates real change.]]></description>
     <xml:lang>en</xml:lang>
   </item>
   <item>
-    <title><![CDATA[תשתית ענן: מה שנראה זול עולה הכי ביוקר]]></title>
-    <link>https://softwine.net/blog/data-and-infrastructure/he.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/he.html</guid>
-    <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[שירותים מנוהלים, מסדי נתונים שנהפכו לאתרי הטמנה, ו-AWS שנפל בגלל הכלים שלו עצמו. שלוש תובנות על עלות האמת של החלטות תשתית.]]></description>
-    <xml:lang>he</xml:lang>
-  </item>
-  <item>
-    <title><![CDATA[AI Governance: When the Black Box Makes Decisions For You]]></title>
-    <link>https://softwine.net/blog/ai-risk-and-governance/en.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/ai-risk-and-governance/en.html</guid>
-    <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[From Amazon's site going down to a bot booking the wrong hotel room: why AI explainability is a business problem, not just a technical one, and how to build accountability from day one.]]></description>
-    <xml:lang>en</xml:lang>
-  </item>
-  <item>
-    <title><![CDATA[AI בארגון: כשהקופסה השחורה מקבלת החלטות בשבילכם]]></title>
-    <link>https://softwine.net/blog/ai-risk-and-governance/he.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/ai-risk-and-governance/he.html</guid>
-    <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[מהאתר של אמזון שנפל עד לבוט שהזמין חדר מלון לא נכון: מדוע שקיפות ה-AI היא בעיה עסקית, לא רק טכנית, וכיצד בונים אחריותיות מהיום הראשון.]]></description>
+    <title><![CDATA[מנהיגות טכנולוגית: כשתואר לא מספיק וקוד פתוח שנשחק]]></title>
+    <link>https://softwine.net/blog/engineering-leadership/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/engineering-leadership/he.html</guid>
+    <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[מיקרוסופט מינתה 'צאר איכות' בלי סמכות, הקוד שלכם תלוי במתנדבים שנשחקים, ואיך AI משנה את הבעלות על קוד פתוח. שלושה לקחים על מנהיגות שיוצרת שינוי אמיתי.]]></description>
     <xml:lang>he</xml:lang>
   </item>
   <item>
@@ -71,19 +55,51 @@
     <xml:lang>he</xml:lang>
   </item>
   <item>
-    <title><![CDATA[Engineering Leadership: When a Title Isn't Enough and Open Source Burns Out]]></title>
-    <link>https://softwine.net/blog/engineering-leadership/en.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/engineering-leadership/en.html</guid>
-    <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[Microsoft appointed a 'quality czar' with no authority, your code depends on volunteers who are burning out, and AI is changing what open source ownership means. Three lessons on leadership that creates real change.]]></description>
+    <title><![CDATA[AI in Software Engineering: Staying the Pilot, Not Becoming the Passenger]]></title>
+    <link>https://softwine.net/blog/ai-and-engineering/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-and-engineering/en.html</guid>
+    <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[AI boosts developer productivity 40%, but also creates dangerous dependency. How CTOs build teams that leverage AI without losing judgment.]]></description>
     <xml:lang>en</xml:lang>
   </item>
   <item>
-    <title><![CDATA[מנהיגות טכנולוגית: כשתואר לא מספיק וקוד פתוח שורף]]></title>
-    <link>https://softwine.net/blog/engineering-leadership/he.html</link>
-    <guid isPermaLink="true">https://softwine.net/blog/engineering-leadership/he.html</guid>
-    <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
-    <description><![CDATA[מיקרוסופט מינתה 'צאר איכות' בלי סמכות, הקוד שלכם תלוי במתנדבים שנשחקים, ואיך AI משנה את הבעלות על קוד פתוח. שלושה לקחים על מנהיגות שיוצרת שינוי אמיתי.]]></description>
+    <title><![CDATA[AI בפיתוח תוכנה: כיצד להישאר הטייס ולא להפוך לנוסע]]></title>
+    <link>https://softwine.net/blog/ai-and-engineering/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-and-engineering/he.html</guid>
+    <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[AI מעלה פרודוקטיביות ב-40%, אבל גם יוצר תלות מסוכנת. איך מנהלי טכנולוגיה בונים צוותים שמשתמשים ב-AI מבלי לאבד את יכולת השיפוט?]]></description>
+    <xml:lang>he</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[AI Governance: When the Black Box Makes Decisions For You]]></title>
+    <link>https://softwine.net/blog/ai-risk-and-governance/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-risk-and-governance/en.html</guid>
+    <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[From Amazon's site going down to a bot booking the wrong hotel room: why AI explainability is a business problem, not just a technical one, and how to build accountability from day one.]]></description>
+    <xml:lang>en</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[AI בארגון: כשהקופסה השחורה מקבלת החלטות בשבילכם]]></title>
+    <link>https://softwine.net/blog/ai-risk-and-governance/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-risk-and-governance/he.html</guid>
+    <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[מהאתר של אמזון שנפל עד לבוט שהזמין חדר מלון לא נכון: מדוע שקיפות ה-AI היא בעיה עסקית, לא רק טכנית, וכיצד בונים אחריותיות מהיום הראשון.]]></description>
+    <xml:lang>he</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[Cloud Infrastructure: Why the Cheapest Option Costs the Most]]></title>
+    <link>https://softwine.net/blog/data-and-infrastructure/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/en.html</guid>
+    <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[Managed services lock-in, databases treated as dump sites, and AWS taken down by its own AI tools. Three infrastructure lessons about the real cost of convenience.]]></description>
+    <xml:lang>en</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[תשתית ענן: מה שנראה זול עולה הכי ביוקר]]></title>
+    <link>https://softwine.net/blog/data-and-infrastructure/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/he.html</guid>
+    <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[שירותים מנוהלים, מסדי נתונים שנהפכו לאתרי הטמנה, ו-AWS שנפל בגלל הכלים שלו עצמו. שלוש תובנות על עלות האמת של החלטות תשתית.]]></description>
     <xml:lang>he</xml:lang>
   </item>
   </channel>
