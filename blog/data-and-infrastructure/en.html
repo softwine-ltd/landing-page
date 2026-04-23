@@ -51,20 +51,21 @@
     </div>
     <h1 class="blog-article-title">Cloud Infrastructure: Why the Cheapest Option Costs the Most</h1>
     <div class="blog-article-body">
-<p>One team spent $45,000 a year on a managed load balancer. When they replaced it with HAProxy (decades-old technology), they didn&#39;t just save the money. They handled ten times the traffic too.</p>
-<p>Another engineering leader spent an uncomfortable board meeting explaining why queries that used to be &quot;fast&quot; suddenly took 30 seconds. The cause: years of treating the database like a dumping ground instead of a strategic asset.</p>
-<p>Then there&#39;s AWS, taken down by its own AI tooling.</p>
+<p>One team spent $45,000 a year on a managed load balancer. When they replaced it with HAProxy (decades-old technology), they didn&#39;t just save the money. They handled ten times the traffic too. The managed service had hidden throughput limits buried in a pricing tier they&#39;d never thought to question.</p>
+<p>Another engineering leader spent an uncomfortable board meeting explaining why queries that used to be &quot;fast&quot; suddenly took 30 seconds. The cause: years of treating the database like a dumping ground instead of a strategic asset. No indexes on the columns that mattered. No thought given to query patterns. Just tables filling up, silently degrading.</p>
+<p>Then there&#39;s AWS, taken down by its own AI tooling. The outage wasn&#39;t hardware or network  -  it was the company&#39;s own AI-assisted deployment process malfunctioning. The company promising 99.9% availability couldn&#39;t keep its own lights on.</p>
 <p>Three stories that look different on the surface, but share a common root: <strong>decisions that look simple in the short term are usually the most expensive in the long term.</strong></p>
 <h2>When &quot;Convenience&quot; Becomes a Prison</h2>
-<p>The managed services conversation always starts the same way: &quot;We&#39;ll just run it on AWS, minimal maintenance, and our ops people can focus on features.&quot;</p>
+<p>The managed services conversation always starts the same way: &quot;We&#39;ll just run it on AWS, minimal maintenance, and our two developers can focus on features&quot;.</p>
 <p>In year one, that sounds right.</p>
-<p>By year two the real cost appears: monthly bills creeping upward, the team gradually forgetting how the underlying systems actually work, and flexibility shrinking: every upgrade or change requires navigating the vendor&#39;s interface. By year three, when you want to move, you discover the entire infrastructure is written around that vendor&#39;s proprietary API.</p>
+<p>By year two the real cost appears: monthly bills creeping upward, the team gradually forgetting how the underlying systems actually work, and flexibility shrinking - every upgrade or change requires navigating the vendor&#39;s interface. By year three, when you want to move, you discover the entire infrastructure is written around that vendor&#39;s proprietary API.</p>
 <p>The deeper problem: vendor lock-in doesn&#39;t just buy you maintenance. It buys you the vendor&#39;s way of thinking. Every trade-off they made in designing their service becomes your trade-off, whether it fits your situation or not.</p>
 <p>The team that switched from ALB to HAProxy wasn&#39;t making a bold contrarian bet. They were simply deciding to understand what they were building.</p>
+<p>Understanding your infrastructure matters beyond cost: when things break, and they will, you need engineers who know what to do. A team that never touched a load balancer because the managed service handled it invisibly is a team that can&#39;t diagnose why latency spikes at 2 AM. The cost of that ignorance shows up exactly when you can least afford it.</p>
 <h2>A Database Is Not a Dump Site</h2>
-<p>There&#39;s a mental model that developers fall into on almost every project at some point: the database is &quot;the box where we put stuff.&quot;</p>
+<p>There&#39;s a mental model that developers fall into on almost every project at some point: the database is &quot;the box where we put stuff&quot;.</p>
 <p>A collection of tables. A place to push data.</p>
-<p>The result: queries that get progressively slower as data grows. Indexes added reactively, after the problem has already hit production. Architecture that&#39;s hard to change because &quot;everything is connected to everything.&quot;</p>
+<p>The result: queries that get progressively slower as data grows. Indexes added reactively, after the problem has already hit production. Architecture that&#39;s hard to change because &quot;everything is connected to everything&quot;.</p>
 <p><strong>Data really is the new oil, but like oil extraction, it&#39;s entirely about smart drilling strategy.</strong></p>
 <p>You wouldn&#39;t build an oil rig without geological surveys. So why design a schema without understanding usage patterns?</p>
 <p>The questions worth asking at the start of every project:</p>
@@ -73,24 +74,32 @@
 <li>Where do you need strong consistency, and where can you relax it?</li>
 <li>What does this data look like when there&#39;s ten times as much of it?</li>
 </ul>
-<p>Indexes aren&#39;t an implementation detail: they&#39;re part of the architecture. And schema design isn&#39;t a one-day task: it&#39;s a process that needs to evolve as your domain understanding deepens.</p>
+<p>Indexes aren&#39;t an implementation detail: they&#39;re part of the architecture. And schema design isn&#39;t a one-day task - it&#39;s a process that needs to evolve as your domain understanding deepens.</p>
+<p>The engineering leader who spent that board meeting explaining 30-second queries had a root cause that predated the problem by two years. The team had added columns reactively, never thought about index coverage, and assumed the database would &quot;handle it&quot;. By the time it couldn&#39;t, the schema was too entangled to fix quickly. Unpacking it took a quarter.</p>
 <h2>When AWS Takes Itself Down</h2>
 <p>A few weeks ago, AWS suffered multiple outages caused by its own AI tooling. This is the same company that promises 99.9% availability.</p>
-<p>Amazon&#39;s response: &quot;Human error, not AI error.&quot; Technically true, as humans added AI tools to deployment processes before best practices for that usage had been established.</p>
-<p>But that misses the point: <strong>when you use a managed service, you&#39;re trading control for convenience.</strong> When things break (and things always break), you&#39;re left explaining to customers and the board why your systems went down for a reason entirely outside your control.</p>
+<p>Amazon&#39;s response: &quot;Human error, not AI error&quot;. Technically true  -  humans added AI tools to deployment processes before anyone had established what careful usage even looked like.</p>
+<p>But that misses the point: <strong>when you use a managed service, you&#39;re trading control for imaginary convenience.</strong> When things break (and things always break), you&#39;re left explaining to customers and the board why your systems went down for a reason entirely outside your control.</p>
 <p>This doesn&#39;t mean you shouldn&#39;t use managed services. It means you should know exactly what you&#39;re exchanging for what, and plan accordingly: an abstraction layer that lets you switch providers if needed, monitoring that catches problems before your vendor even knows they exist, and a backup plan that doesn&#39;t assume the vendor&#39;s uptime guarantee is ironclad.</p>
+<p>The practical version: your monitoring should tell you about a vendor problem before the vendor&#39;s status page does. If you learn about an outage from a customer, you&#39;ve already failed. An abstraction layer doesn&#39;t need to be complex  -  it needs to be enough that swapping one component doesn&#39;t require rewriting the entire system.</p>
 <h2>Takeaways</h2>
-<p>These three stories teach the same lesson: <strong>in infrastructure, the real trade-off isn&#39;t between fast and expensive. It&#39;s between control and ease of operation.</strong></p>
-<p>The &quot;convenient&quot; solution you buy today is sometimes the growth bottleneck of three years from now. Before adopting a new managed service, it&#39;s worth asking: what do you gain? What do you give up? And what happens on the day you need to switch?</p>
-<p>The teams that win long-term are those that use managed services deliberately, not out of habit.</p>
+<p><strong>In infrastructure, the real trade-off isn&#39;t between fast and expensive. It&#39;s between control and ease of operation.</strong></p>
+<ol>
+<li><p><strong>Managed services are a trade, not a gift.</strong> You get maintenance off your plate. You give up control, flexibility, and the institutional knowledge your team would have built. Know exactly what you&#39;re exchanging before you sign up  -  and make sure you can exit without rewriting everything.</p>
+</li>
+<li><p><strong>Your database is a strategic asset, not a filing cabinet.</strong> Schema design decisions made in year one compound into constraints in year three. Treat indexes and data modeling as architecture, not implementation details  -  and revisit them as your domain understanding grows.</p>
+</li>
+<li><p><strong>Vendor reliability is not your reliability.</strong> The AWS outage was caused by AWS&#39;s own tooling. Your SLA with your customers doesn&#39;t carry an asterisk for vendor failures. Monitor independently, abstract your dependencies, and plan for failures you don&#39;t control.</p>
+</li>
+</ol>
+<p>The &quot;convenient&quot; solution you adopt today is sometimes the growth bottleneck of three years from now. Before adopting a new managed service: what do you gain? What do you give up? And what happens on the day you need to switch?</p>
 
     </div>
     <div class="blog-source-attribution">
   <p>Join the discussion on socials:</p>
   <ul>
-    <li><a href="https://linkedin.com/in/bezalelbrandwine" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0ezNSEY6WDvVnzHNyACQCgLLiX7UYYQ1dNSwcZ5LMzLFxvxphcjGvgWX6vP1w1ViHl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7431307925408681984/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02HgZHxLKyfosSrsPHs3gmFcEBZRYa2Pc15FjCNtVVJqCMdHe5VboA2xAJToBsVEByl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7433896690849337344/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02Rp8ZFofpmQmeQv1WT9CxQ6NWbrEBUX6hFtrAqW4YEMgosFv95UJe7nXY7HYAccoDl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7431307925408681984/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7433896690849337344/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
   </ul>
 </div>
   </article>

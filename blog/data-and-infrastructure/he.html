@@ -59,12 +59,12 @@
 <p>השיחה על שירותים מנוהלים תמיד מתחילה באותו המקום: &quot;פשוט נפעיל את זה ב-AWS, מינימום תחזוקה, שני המפתחים שלנו מתמקדים בפיצ&#39;רים&quot;.</p>
 <p>בשנה הראשונה זה נשמע נכון.</p>
 <p>בשנה השנייה מתחילים לראות את העלות האמיתית: החשבון החודשי עולה בהדרגה, הצוות מפסיק ללמוד את היסודות, הגמישות מצטמצמת. כל שדרוג או שינוי צריך לעבור דרך ממשק של הספק. בשנה השלישית, כשמנסים לעבור לפתרון אחר, מגלים שהתשתית כולה כתובה סביב ה-API הייחודי של אותו ספק.</p>
-<p>הבעיה העמוקה יותר: כשעושים &quot;lock-in&quot; לספק ספציפי, לא רק קונים תחזוקה, אלא גם את אופן החשיבה שלו. כל ה-trade-offs שהוא עשה בתכנון השירות הופכים ל-trade-offs שלכם, גם אם הם לא מתאימים לתרחיש שלכם.</p>
-<p>הצוות שעבר מ-ALB ל-HAProxy לא עשה מהלך אמיץ. הם בחרו בפתרון ה&quot;משעמם&quot; שעובד, על פני השירות הנוצץ שעולה. הם פשוט החליטו להבין מה הם בונים.</p>
+<p>הבעיה העמוקה יותר: כשעושים lock-in לספק ספציפי, לא רק קונים תחזוקה, אלא גם את אופן החשיבה שלו. כל ה-trade-offs שהוא עשה בתכנון השירות הופכים ל-trade-offs שלכם, גם אם הם לא מתאימים לתרחיש שלכם.</p>
+<p>הצוות שעבר מ-ALB ל-HAProxy לא עשה מהלך אמיץ. הם פשוט החליטו להבין מה הם בונים.</p>
 <h2>מסד נתונים הוא לא אתר הטמנה</h2>
-<p>יש תפיסה שמפתחים נופלים אליה כמעט בכל פרויקט בשלב מסוים: מסד הנתונים הוא &quot;הקופסה שאליה שומרים דברים&quot;</p>
+<p>יש תפיסה שמפתחים נופלים אליה כמעט בכל פרויקט בשלב מסוים: מסד הנתונים הוא &quot;הקופסה שאליה שומרים דברים&quot;.</p>
 <p>אוסף טבלאות. מקום לדחוף נתונים.</p>
-<p>התוצאה: שאילתות שנהיות יותר ויותר איטיות ככל שהמידע גדל. אינדקסים שנבנו בדיעבד, אחרי שהבעיה כבר מול לקוחות. ארכיטקטורה שמתקשה לשנות כי &quot;הכל מחובר להכל&quot;</p>
+<p>התוצאה: שאילתות שנהיות יותר ויותר איטיות ככל שהמידע גדל. אינדקסים שנבנו בדיעבד, אחרי שהבעיה כבר מול לקוחות. ארכיטקטורה שמתקשה לשנות כי &quot;הכל מחובר להכל&quot;.</p>
 <p><strong>מידע הוא באמת הנפט החדש, אבל כמו בקידוח נפט, הכל עניין של אסטרטגיית קידוח חכמה.</strong></p>
 <p>לא הייתם בונים אסדת נפט בלי סקרים גיאולוגיים. מדוע לתכנן סכמה בלי להבין את דפוסי השימוש?</p>
 <p>השאלות שצריך לשאול בתחילת כל פרויקט:</p>
@@ -76,21 +76,20 @@
 <p>אינדקסים הם לא פרט יישומי: הם חלק מהארכיטקטורה. ותכנון הסכמה הוא לא משימה של יום אחד, זה תהליך שצריך להתעדכן ככל שמבינים יותר על הדומיין.</p>
 <h2>כאשר AWS נופל בגלל הכלים שלה עצמה</h2>
 <p>לפני מספר שבועות, AWS סבלה ממספר הפסקות שנגרמו על ידי כלי ה-AI שלה עצמה. זו אותה חברה שמבטיחה 99.9% זמינות.</p>
-<p>התגובה של אמזון היתה בסגנון של: &quot;שגיאה אנושית, לא שגיאת AI&quot; טכנית, אולי, נכון. בני אדם הוסיפו כלי AI לתהליכי פריסה בלי שנקבעו עדיין &quot;best practices&quot; לשימוש כזה.</p>
+<p>התגובה של אמזון: &quot;שגיאה אנושית, לא שגיאת AI&quot; - טכנית נכון, בני אדם הוסיפו כלי AI לתהליכי פריסה בלי שנקבעו עדיין best practices לשימוש כזה.</p>
 <p>אבל זה מחמיץ את הנקודה: <strong>כשאתם עובדים עם שירות מנוהל, אתם מחליפים שליטה בנוחות מדומיינת.</strong> כשדברים נשברים (ודברים תמיד נשברים), אתם נשארים להסביר ללקוחות ולדירקטוריון למה המערכות שלכם נפלו בגלל סיבה שאין לכם שליטה עליה.</p>
 <p>זה לא אומר שאסור להשתמש בשירותים מנוהלים. זה אומר שצריך להבין בדיוק מה מחליפים במה, ולתכנן בהתאם: שכבת הפשטה שמאפשרת לעבור ספק אם נדרש, ניטור שמאפשר לזהות בעיות לפני שהספק יודע שהן קיימות, ותוכנית גיבוי שלא מניחה ש-uptime של הספק מובטח.</p>
-<h2>נקודות לסיכום</h2>
+<h2>Takeaways</h2>
 <p>שלושת הסיפורים האלה מלמדים את אותו הדבר: <strong>בתשתית, ה-trade-off האמיתי הוא לא בין מהיר ליקר, אלא בין שליטה להקלת עבודה.</strong></p>
-<p>פתרון ה-&quot;נוחות&quot; שנרכש היום הוא לפעמים מגבלת הצמיחה של עוד שלוש שנים. לפני שרצים לאמץ שירות מנוהל חדש, שווה לשאול: מה מקבלים? מה משיגים? ומה יקרה ביום שצריך להחליף?</p>
+<p>פתרון ה&quot;נוחות&quot; שנרכש היום הוא לפעמים מגבלת הצמיחה של עוד שלוש שנים. לפני שרצים לאמץ שירות מנוהל חדש, שווה לשאול: מה מקבלים? מה משיגים? ומה יקרה ביום שצריך להחליף?</p>
 <p>הצוותים שמנצחים לטווח ארוך הם אלה שמשתמשים בשירותים מנוהלים בצורה מודעת, לא כהרגל.</p>
 
     </div>
     <div class="blog-source-attribution">
   <p>הצטרפו לדיון:</p>
   <ul>
-    <li><a href="https://linkedin.com/in/bezalelbrandwine" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0ezNSEY6WDvVnzHNyACQCgLLiX7UYYQ1dNSwcZ5LMzLFxvxphcjGvgWX6vP1w1ViHl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7431307925408681984/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02HgZHxLKyfosSrsPHs3gmFcEBZRYa2Pc15FjCNtVVJqCMdHe5VboA2xAJToBsVEByl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7433896690849337344/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid02Rp8ZFofpmQmeQv1WT9CxQ6NWbrEBUX6hFtrAqW4YEMgosFv95UJe7nXY7HYAccoDl" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7431307925408681984/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7433896690849337344/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span></li>
   </ul>
 </div>
   </article>

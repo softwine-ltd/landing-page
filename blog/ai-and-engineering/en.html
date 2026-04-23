@@ -51,35 +51,45 @@
     </div>
     <h1 class="blog-article-title">AI in Software Engineering: Staying the Pilot, Not Becoming the Passenger</h1>
     <div class="blog-article-body">
-<p>A senior developer on a team I work with recently spent three hours debugging code that Claude wrote in two minutes. The AI solved the original problem perfectly, but introduced three new edge cases nobody anticipated.</p>
+<p>It happens again and again: a senior developer on a team I work with recently spent three hours debugging code that Claude wrote in two minutes. The AI solved the original problem perfectly, but introduced three new edge cases with every small fix.</p>
 <p>This isn&#39;t a surprise. It&#39;s a pattern I see repeatedly as teams adopt AI tooling. And it&#39;s exactly where the biggest opportunity and the biggest risk of AI in software engineering converge.</p>
 <h2>The 40% Paradox</h2>
 <p>Anthropic research shows developers with AI tools become 40% more productive. That sounds impressive. But the same research reveals something else: after six months, those same developers struggle to solve problems without their digital assistant.</p>
 <p>We gained speed. We traded away understanding.</p>
+<p>That trade-off doesn&#39;t show up in any sprint report. Velocity goes up. The on-call incidents that come six months later don&#39;t get attributed to AI adoption. The connection between &quot;we started relying heavily on AI&quot; and &quot;nobody on the team can debug this system without it&quot; is invisible until a critical failure makes it undeniable.</p>
 <p>Marcus Fontoura of Microsoft puts it well in his book <em>Human Agency in the Digital World</em>: <strong>are your developers pilots or passengers?</strong> A pilot understands the flight system and can disengage autopilot the moment conditions demand it. A passenger just sits there and hopes the machine knows where to go.</p>
 <p>Teams that benefit from AI over the long term are the ones who stay pilots.</p>
-<h2>The Wagging Tail Problem</h2>
+<h2>&quot;The Tail Wagging the Dog&quot;</h2>
 <p>There&#39;s a pattern I see in teams that lean too heavily on AI: a &quot;simple&quot; API fix that touches dozens of files takes months because nobody really understands the generated code. When the AI suggests a solution, people check whether tests pass, not whether the logic is correct. Debugging becomes trial-and-error with the AI rather than understanding the root cause.</p>
-<p>This is the wagging tail problem: the AI ends up directing the team instead of the team directing the AI.</p>
-<p>Anthropic research explains the geometric reason: AI models can&#39;t distinguish between &quot;good&quot; and &quot;bad&quot; code paths: they look identical in the model&#39;s representation space. Think of a brilliant junior engineer who nails the main task but misses the side effects entirely.</p>
+<p>This is &quot;the tail wagging the dog&quot; problem: the AI ends up directing the team instead of the team directing the AI.</p>
+<p>It turns out there&#39;s a geometric reason for this: Anthropic research explains that AI models can&#39;t distinguish between &quot;good&quot; and &quot;bad&quot; code paths  -  they look identical in the model&#39;s representation space. Think of a brilliant junior engineer who nails the main task but misses the side effects entirely.</p>
+<p>The difference is that a junior engineer grows. They get code reviews, make mistakes, and learn the system. AI doesn&#39;t. Every prompt is the first prompt. The model has no institutional memory of what broke last quarter or why that specific design decision was made.</p>
 <h2>The Interface Mistake: Not Every Problem Needs a Chatbot</h2>
 <p>A classic example: a team that spent three months building a natural-language AI interface, and ended up with users who actively avoided it. The reason? Their actual workflow relied on structured forms and dropdowns, not free-form conversation.</p>
 <p>Everyone&#39;s building chatbots because they demo well in board presentations. But your CFO doesn&#39;t want to &quot;chat&quot; about invoice approvals: they want dropdown menus, form validation, and clearly labeled fields.</p>
+<p>The pattern repeats across industries. A natural-language interface feels modern and impressive. But the people who use it every day don&#39;t want to wonder whether they phrased their question correctly. They want reliable, predictable tools that do what they expect. AI should make those tools smarter  -  not replace them with a conversation.</p>
 <p><strong>The right use of AI is to fill existing structures more intelligently, not to replace your domain models with natural language.</strong></p>
 <h2>The 70% Nobody&#39;s Talking About</h2>
-<p>Researchers from both OpenAI and Anthropic have recently said, each in their own way: &quot;I don&#39;t write code anymore. 100% of it is AI-generated.&quot; Anthropic itself reports that 70–90% of its own codebase is AI-generated.</p>
-<p>The underreported part: <strong>the infrastructure wasn&#39;t built for this.</strong> GitHub pull requests, code reviews, CI pipelines: all designed for humans who think in hours and days, not for agents committing code every few minutes.</p>
-<p>This also explains what I think of as the Electron paradox: Anthropic spent $20,000 on a &quot;swarm&quot; of AI agents to build a C compiler (software that runs at bare-metal level). Yet they built their own desktop app in Electron, a framework as far from the metal as you can get. The point isn&#39;t to criticize the choice: our tooling and processes keep running ahead of our ability to adapt workflows around them.</p>
+<p>Researchers from both OpenAI and Anthropic have recently said, each in their own way: &quot;I don&#39;t write code anymore. 100% of it is AI-generated&quot;. Anthropic itself reports that 70–90% of its own codebase is AI-generated.</p>
+<p>The underreported part: <strong>the infrastructure wasn&#39;t built for this.</strong> GitHub pull requests, code reviews, CI pipelines: all designed for humans who think in hours and days, not for agents committing code every few minutes. The review process that worked when a developer committed a few hundred lines per day breaks down when an agent can generate thousands in an hour. The bottleneck shifts from generation to evaluation  -  and most teams haven&#39;t restructured for that.</p>
+<p>This also explains the paradox with Electron in Claude Code: Anthropic spent $20,000 on a &quot;swarm&quot; of AI agents to build a C compiler (software that runs at bare-metal level). Yet they built their own desktop app in Electron, a framework as far from the metal as you can get. Native APIs have become so complex that even giant companies choose web technologies. Our workflows keep running ahead of our ability to adapt tools around them.</p>
 <p><strong>The companies designing workflows built for agents (not for humans working alongside AI) are the ones that will grow 3–5x in the next year.</strong></p>
 <h2>How to Stay the Pilot</h2>
 <p>The approach I recommend:</p>
-<p><strong>Verify, don&#39;t just run.</strong> When AI suggests a solution, ask &quot;why?&quot; not just &quot;does it work?&quot; Your AI assistant is a brilliant junior colleague, not an oracle.</p>
-<p><strong>Use AI for the refactors humans skip.</strong> Renaming poorly named variables across an entire codebase, splitting 3,000-line files into modules, removing duplicated logic: these are where AI agents excel. The cost of code has dropped so far that zero tolerance for small code friction is now achievable.</p>
-<p><strong>Adapt your workflows.</strong> PR reviews, CI pipelines, even how you define acceptance criteria: all of it needs to evolve for a world where large amounts of code are AI-generated.</p>
-<p><strong>Protect the architects.</strong> AI can write code. Only humans can decide what to build, why, and how it connects to business outcomes.</p>
+<p><strong>Verify, don&#39;t just run.</strong> When AI suggests a solution, ask &quot;why&quot;? not just &quot;does it work&quot;? Your AI assistant is a brilliant junior colleague, not an oracle. If a developer can&#39;t explain why the solution works, it doesn&#39;t go to production  -  regardless of who wrote it.</p>
+<p><strong>Use AI for the refactors humans skip.</strong> Renaming poorly named variables across an entire codebase, splitting 3,000-line files into modules, removing duplicated logic: these are where AI agents excel. The cost of code has dropped so far that zero tolerance for small code friction is now achievable. Use that leverage for the cleanup that always gets deprioritized.</p>
+<p><strong>Adapt your workflows.</strong> PR reviews, CI pipelines, even how you define acceptance criteria: all of it needs to evolve for a world where large amounts of code are AI-generated. Those workflows were designed for humans thinking in hours and days. Agents operating in minutes expose their limits quickly.</p>
+<p><strong>Protect the architects.</strong> AI can write code. Only humans can decide what to build, why, and how it connects to business outcomes. That judgment is the scarcest resource on any team  -  and the one most at risk when AI makes generating output feel effortless.</p>
 <h2>Takeaways</h2>
-<p>AI in software engineering is a powerful lever, provided you&#39;re the one holding it. Winning teams use AI to do more of the right things, not to stop thinking.</p>
-<p>The question isn&#39;t &quot;should we use AI?&quot; It&#39;s &quot;how do we stay the architects?&quot; Once you have a clear answer to that, the 40% productivity gain is just the beginning.</p>
+<ol>
+<li><p><strong>The 40% productivity gain is real, but so is the dependency risk.</strong> The same research that shows AI boosts output also shows that developers lose the ability to work without it after six months. Speed without understanding is a liability that surfaces late, and expensively.</p>
+</li>
+<li><p><strong>AI in software is an interface problem as much as a capability problem.</strong> Chatbots impress in demos. Structured workflows serve the actual users. Match the interface to how your team actually works  -  not to what looks impressive in a board meeting.</p>
+</li>
+<li><p><strong>The teams winning with AI aren&#39;t the ones using it most. They&#39;re the ones using it most deliberately.</strong> Verify outputs. Adapt workflows. Protect the architects. Use AI to do more of the right things  -  not to stop thinking about what the right things are.</p>
+</li>
+</ol>
+<p>AI in software engineering is a powerful lever, provided you&#39;re the one holding the handle. The question isn&#39;t &quot;should we use AI&quot;? It&#39;s &quot;how do we stay the architects&quot;? Once you have a clear answer to that, the 40% productivity gain is just the beginning.</p>
 
     </div>
     <div class="blog-source-attribution">
