@@ -7,6 +7,22 @@
     <language>en</language>
     <atom:link href="https://softwine.net/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title><![CDATA[Managed Services: The Convenience That Costs More Than You Think]]></title>
+    <link>https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html</guid>
+    <pubDate>Sun, 26 Apr 2026 18:30:17 GMT</pubDate>
+    <description><![CDATA[Why managed cloud services create hidden costs, vendor lock-in, and knowledge gaps — and what Reddit's live migration teaches us about building portable.]]></description>
+    <xml:lang>en</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[שירותים מנוהלים: הנוחות שעולה לכם יותר ממה שאתם חושבים]]></title>
+    <link>https://softwine.net/blog/data-and-infrastructure/20260414-095441/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/20260414-095441/he.html</guid>
+    <pubDate>Sun, 26 Apr 2026 18:30:17 GMT</pubDate>
+    <description><![CDATA[למה שירותים מנוהלים בענן נראים זולים בהתחלה אבל הופכים למלכודת — ומה רדיט עשו אחרת כדי לשמור על חופש תנועה מלא.]]></description>
+    <xml:lang>he</xml:lang>
+  </item>
+  <item>
     <title><![CDATA[The Talent Tax: Why Your Back-to-Office Policy is a Gamble You Can’t Afford]]></title>
     <link>https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html</link>
     <guid isPermaLink="true">https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html</guid>
