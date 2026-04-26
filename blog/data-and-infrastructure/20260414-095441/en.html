@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managed Services: The Convenience That Costs More Than You Think | Softwine</title>
+  <meta name="description" content="Why managed cloud services create hidden costs, vendor lock-in, and knowledge gaps — and what Reddit's live migration teaches us about building portable.">
+  <link rel="canonical" href="https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/data-and-infrastructure/20260414-095441/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html" class="active">EN</a>
+  <span>/</span>
+  <a href="he.html">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-04-26T18:29:21.317397+00:00">April 26, 2026</time>
+    </div>
+    <h1 class="blog-article-title">Managed Services: The Convenience That Costs More Than You Think</h1>
+    <div class="blog-article-body">
+<p>When you choose a managed cloud service, you&#39;re buying a promise: someone else handles the infrastructure, you focus on the product, you sleep at night. <strong>That promise sounds great on a sales deck slide, but when an experienced CTO examines the numbers, the dependencies, and what happens when you need to move—the picture looks completely different.</strong> This article is based on two posts I wrote on the topic. One about Reddit&#39;s impressive migration from the cloud to self-managed Kubernetes, and the other about the debate that followed around whether managed services are really worth the cost. Both posts hit a nerve  -  because this topic directly impacts your budget, your freedom of movement, and your ability to actually sleep at night.</p>
+<h2>What Reddit Did That Most Companies Won&#39;t</h2>
+<p>Reddit recently migrated their most sensitive system component from the cloud to self-managed Kubernetes. Without a single second of downtime across their entire product.</p>
+<p>Most CTOs would say that&#39;s impossible. But when you look at what made it possible, you see a clear pattern that started long before the migration itself.</p>
+<p>First, they avoided managed services from day one. They used only cloud VMs  -  not managed Kafka. And more importantly, they truly understood the internal architecture of that service, precisely <em>because</em> it wasn&#39;t managed. When you run something yourself, you understand what&#39;s happening under the hood. When someone else runs it for you, you only know what they&#39;re willing to tell you.</p>
+<p>When the time came to move, they built on Kubernetes instead of vendor-specific tooling. They planned a four-stage migration process that grew out of deep familiarity with the internals of the component they wanted to move. This wasn&#39;t an impulsive decision  -  it was precise planning made possible because the knowledge lived inside their team, not with an external vendor.</p>
+<p>The result speaks for itself: they can shift workloads between any provider  -  or even to their own machines  -  without rebuilding the entire product. While competitors locked themselves into AWS or GCP services, Reddit stayed portable and fully understood what they were running. While competitors did what looked most convenient on the surface, Reddit planned ahead.</p>
+<h2>&quot;If You Can&#39;t Afford an Extra $10M a Year, You Already Have a Problem&quot;  -  Really?</h2>
+<p>After I published the Reddit post, arguments in favor of managed services came pouring in. One of them was that if you&#39;ve reached a scale where you can&#39;t afford an extra $10 million a year, you already have a problem.</p>
+<p>I get the logic, but that argument is a half-truth. Which is worse than a lie.</p>
+<p>It assumes money is cheap and that budgets aren&#39;t about trade-offs. But money isn&#39;t as cheap as it was when the training data behind today&#39;s AI tools was written. And the real question isn&#39;t &quot;do you have $10 million&quot;  -  it&#39;s &quot;what are you buying with those $10 million&quot;.</p>
+<p>I&#39;m personally a co-founder of a bootstrapped product with several thousand daily users, where every dollar is measured. But even if you&#39;re backed by investors, you should probably operate the same way  -  so you can look in the mirror and say you acted responsibly. And of course, the argument flips entirely if your investors have a financial interest in strengthening managed services.</p>
+<h2>What $10 Million a Year Actually Buys</h2>
+<p>Let&#39;s break it down. If you&#39;re buying peace of mind  -  managed services have outages too, and you&#39;re still the one facing your customers with no sleep. A managed service doesn&#39;t actually buy you peace of mind. It buys you the <em>illusion</em> of peace of mind, because when the incident hits  -  and incidents always hit  -  you&#39;re dependent on an external vendor&#39;s response time while your customers are angry at <em>you</em>.</p>
+<p>The critical question: could you have bought that same peace of mind by building the knowledge internally? Absolutely.</p>
+<p>We&#39;re talking about the annual salary of more than 40 engineers. There&#39;s no scenario where hiring a solid mix of junior and senior engineers costs you more than that per year. And with 40 people you don&#39;t just get infrastructure maintenance  -  you get internal knowledge, solutions precisely tailored to your needs, a culture of ownership, access to a broader talent pool, and additional capacity for other initiatives.</p>
+<p>If you&#39;re buying something else with those $10 million  -  it&#39;s worth asking: could you buy the same thing for significantly less?</p>
+<h2>Today&#39;s Convenience Is Tomorrow&#39;s Constraint</h2>
+<p>The pattern repeats itself over and over: a company picks a managed service because it&#39;s &quot;quick to start&quot;. A year or two later, costs are climbing, the team doesn&#39;t understand what&#39;s running underneath, and then the moment comes when they need to move  -  and suddenly discover they can&#39;t. Your &quot;quick&quot; cloud setup today can become your biggest constraint tomorrow.</p>
+<p>This isn&#39;t just about avoiding vendor lock-in. It&#39;s about preserving options when business needs change. Markets shift, regulatory requirements evolve, providers raise prices  -  and if you&#39;ve built your entire infrastructure on one vendor&#39;s proprietary tools, you&#39;re essentially at their mercy.</p>
+<p>Reddit proved there&#39;s another way. They proved that investing in internal knowledge and portable architecture doesn&#39;t just save money  -  it delivers real freedom of movement. The ability to shift workloads between providers without rebuilding the product isn&#39;t a privilege reserved for tech giants. It&#39;s the result of sound architectural decisions made early.</p>
+<h2>Takeaways</h2>
+<p>A few principles that emerge from this experience and the discussion around it:</p>
+<p><strong>Build portable from day one.</strong> Kubernetes and self-managed infrastructure give you freedom that a managed service never will. The upfront investment is larger, but it pays off the moment you need to move.</p>
+<p><strong>Know what you&#39;re running.</strong> When infrastructure is managed, the knowledge stays with the vendor. When you manage it, the knowledge stays with you. And internal knowledge is the asset that enables smooth migrations, fast incident resolution, and solutions precisely fitted to your needs.</p>
+<p><strong>Do the real math.</strong> Don&#39;t just compare setup costs. Compare total cost of ownership  -  including what you lose in flexibility, knowledge, and freedom of movement. $10 million a year on managed services is 40 salaries of people who can build something tailored to you, and keep the knowledge inside your organization.</p>
+<p><strong>Build portable and smart, not what&#39;s marketed to you as &quot;convenient&quot;.</strong> The convenience of a managed service is real  -  at first. But as you grow, that convenience turns into a cage. And then you discover someone else is holding the key.</p>
+<p>So what&#39;s your exit plan if your cloud vendor becomes too expensive?</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>Join the discussion on socials:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7449725572810862592/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid0vNSJ96Lii4AsxH9as9Bn58M9xfyn3nGBFx3MiF8tSZGAeQVUPhTq4c245RxwZ2ewl?__cft__[0]=AZbw6BHgc1ti17DlLV-rtvjNNuHejd9G8BQnoZENGTI05cZ9tpSbS4WZM3QZYiKDsqEwLLVyWgv-rrxjb3tLqGhFJAJQkAEFt6rK1haJ0O2t2fOLD4yZgevCIvbDzAqWyzdPTdg3T4BIvKd2cgU5SKcKqX37I4pJJJzAkifUq14T0aTs7GyuKM5Yv4qOFEMm264&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7451606880285732864/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid025rkTaDZsUcZendEEK8buXKJvtv6ekMgDyEhTaheWgcDBJxYw15Qc9Pmht6mHvMHjl?__cft__[0]=AZY1D_Q5fov51YyCaUn5VAOGmJ05aRWGex4FUBjcJ1GBpsbhXJhtjBzF756nKBf8Ox96_N7muAROeO6uMabVt7vPEDe2tJ85-SaR2RDxLEKH77FlZT8BcyKVqBF6TX_y-IlTKxvCdeDD6dvwWKWwc8Yk9BncXwOjFlCs1DM1d5ZGMZn2ffXZBv5YpxzxSmPH7CE&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+  </ul>
+</div>
+  </article>
+</main>
+<div class="blog-book-float">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script>
+    (function() {
+      var target = document.currentScript;
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true',
+          color: '#A0CD9A',
+          label: 'Book a meeting',
+          target,
+        });
+      });
+    })();
+  </script>
+</div>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>
