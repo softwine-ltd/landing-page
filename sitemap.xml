@@ -13,12 +13,12 @@
   </url>
   <url>
     <loc>https://softwine.net/blog/</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://softwine.net/blog/index.he.html</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -38,6 +38,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-and-engineering/en.html"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-and-engineering/he.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-and-engineering/en.html"/>
+  </url>
+  <url>
+    <loc>https://softwine.net/blog/ai-and-engineering/20260429-145530/he.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/he.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html"/>
+  </url>
+  <url>
+    <loc>https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/he.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html"/>
   </url>
   <url>
     <loc>https://softwine.net/blog/architecture-and-design/he.html</loc>
@@ -77,7 +95,7 @@
   </url>
   <url>
     <loc>https://softwine.net/blog/data-and-infrastructure/20260414-095441/he.html</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html"/>
@@ -86,7 +104,7 @@
   </url>
   <url>
     <loc>https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html"/>

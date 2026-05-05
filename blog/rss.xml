@@ -7,10 +7,26 @@
     <language>en</language>
     <atom:link href="https://softwine.net/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title><![CDATA[The Mazda 3 Trap: Why Your AI’s 'Correct' Solution Isn't the Right One for Production]]></title>
+    <link>https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html</guid>
+    <pubDate>Tue, 05 May 2026 07:03:33 GMT</pubDate>
+    <description><![CDATA[Don't let generic AI solutions create hidden technical debt. Learn why production-ready architecture requires a Bionic Expert in the room.]]></description>
+    <xml:lang>en</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[בין פתרון "נכון" לפתרון הנכון לנו: המלכודת של ה-AI בפרודקשן]]></title>
+    <link>https://softwine.net/blog/ai-and-engineering/20260429-145530/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-and-engineering/20260429-145530/he.html</guid>
+    <pubDate>Tue, 05 May 2026 07:03:33 GMT</pubDate>
+    <description><![CDATA[למה ה-AI שלכם עדיין מזהה פרות כמאזדה 3, ואיך להימנע מקוד שנראה מושלם בדמו אבל זוחל כמו צבי עם בעיות ברכיים במציאות.]]></description>
+    <xml:lang>he</xml:lang>
+  </item>
+  <item>
     <title><![CDATA[Managed Services: The Convenience That Costs More Than You Think]]></title>
     <link>https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html</link>
     <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html</guid>
-    <pubDate>Sun, 26 Apr 2026 18:30:17 GMT</pubDate>
+    <pubDate>Tue, 05 May 2026 07:02:09 GMT</pubDate>
     <description><![CDATA[Why managed cloud services create hidden costs, vendor lock-in, and knowledge gaps — and what Reddit's live migration teaches us about building portable.]]></description>
     <xml:lang>en</xml:lang>
   </item>
@@ -18,7 +34,7 @@
     <title><![CDATA[שירותים מנוהלים: הנוחות שעולה לכם יותר ממה שאתם חושבים]]></title>
     <link>https://softwine.net/blog/data-and-infrastructure/20260414-095441/he.html</link>
     <guid isPermaLink="true">https://softwine.net/blog/data-and-infrastructure/20260414-095441/he.html</guid>
-    <pubDate>Sun, 26 Apr 2026 18:30:17 GMT</pubDate>
+    <pubDate>Tue, 05 May 2026 07:02:09 GMT</pubDate>
     <description><![CDATA[למה שירותים מנוהלים בענן נראים זולים בהתחלה אבל הופכים למלכודת — ומה רדיט עשו אחרת כדי לשמור על חופש תנועה מלא.]]></description>
     <xml:lang>he</xml:lang>
   </item>
