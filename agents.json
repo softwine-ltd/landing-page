@@ -1,0 +1,83 @@
+{
+  "$schema": "https://agents.json/schema.json",
+  "name": "Softwine",
+  "description": "Softwine is a technology consultancy providing fractional technology partnership — strategy, execution, and team-building for startups, growing SMBs, and non-technical founders. Specializations: AI integration, cloud architecture, application and development infrastructure, software development, engineering leadership.",
+  "url": "https://softwine.net/",
+  "contact": {
+    "email": "contactus@softwine.net",
+    "scheduling": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true"
+  },
+  "publisher": {
+    "name": "Softwine.LTD",
+    "founder": "Bezalel Brandwine",
+    "founded": "2024",
+    "url": "https://softwine.net/",
+    "founderUrl": "https://bezbran.com/"
+  },
+  "policies": {
+    "aiAccess": "allow",
+    "aiTraining": "allow-with-attribution",
+    "attribution": "Cite as: Softwine (https://softwine.net/) — original author Bezalel Brandwine where applicable.",
+    "rateLimit": "Please respect a polite crawl rate. No authentication required for public pages.",
+    "preferredLanguages": ["en", "he"]
+  },
+  "resources": {
+    "llmsTxt": "https://softwine.net/llms.txt",
+    "sitemap": "https://softwine.net/sitemap.xml",
+    "robots": "https://softwine.net/robots.txt",
+    "rss": "https://softwine.net/blog/rss.xml"
+  },
+  "entrypoints": [
+    {
+      "name": "Homepage",
+      "url": "https://softwine.net/",
+      "description": "Services, target clients, expertise areas, founder story, and contact options."
+    },
+    {
+      "name": "Projects",
+      "url": "https://softwine.net/projects-a.html",
+      "description": "Portfolio of client engagements organized by client type."
+    },
+    {
+      "name": "Blog",
+      "url": "https://softwine.net/blog/",
+      "description": "Articles on architecture, AI, infrastructure, and engineering leadership. English at /blog/, Hebrew at /blog/index.he.html."
+    }
+  ],
+  "actions": [
+    {
+      "name": "contact",
+      "description": "Reach Softwine for inquiries, consultations, or partnership.",
+      "method": "email",
+      "target": "mailto:contactus@softwine.net"
+    },
+    {
+      "name": "book-meeting",
+      "description": "Schedule an introductory consultation with the founder.",
+      "method": "external-link",
+      "target": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true"
+    },
+    {
+      "name": "subscribe-rss",
+      "description": "Subscribe to the blog feed for new articles.",
+      "method": "feed",
+      "target": "https://softwine.net/blog/rss.xml"
+    }
+  ],
+  "topics": [
+    "AI integration",
+    "cloud architecture",
+    "application infrastructure",
+    "development infrastructure",
+    "software development",
+    "engineering leadership",
+    "team building",
+    "DevOps",
+    "CI/CD",
+    "serverless",
+    "containerization",
+    "SaaS",
+    "API design"
+  ],
+  "languages": ["en", "he"]
+}

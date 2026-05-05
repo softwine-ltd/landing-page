@@ -1,0 +1,39 @@
+# Softwine
+
+> Softwine is a technology consultancy founded by Bezalel Brandwine in 2024. We act as a fractional technology partner — providing strategy, execution, and team-building for startups, growing SMBs, and non-technical founders. Specializations include AI integration, cloud architecture, application and development infrastructure, software development, and engineering leadership.
+
+Softwine helps companies make sound technical decisions without the overhead of full-time, in-house architects or DevOps teams. Our approach is to set up modern infrastructure once, properly, then maintain it efficiently — freeing teams to focus on their core business.
+
+## Core Pages
+
+- [Homepage](https://softwine.net/): Overview of services, specializations, target clients, and the founder's story.
+- [Projects](https://softwine.net/projects-a.html): Portfolio of completed and ongoing client engagements, organized by client type (startups, SMBs, non-tech founders).
+- [Blog](https://softwine.net/blog/): Articles on software architecture, AI, infrastructure, and engineering leadership.
+
+## Services (sections of the homepage)
+
+- [Our Specializations](https://softwine.net/index.html#services): AI integration, cloud architecture, application and development infrastructure, software development, team building and leadership.
+- [Whom This Is Suitable For](https://softwine.net/index.html#suitable-for): Startups & early-stage, growing SMBs, non-tech founders.
+- [Your Success, Our Mission](https://softwine.net/index.html#how-we-help): Custom AI models, AI integration, AI data pipelines, cloud migration, serverless architecture, containerization, CI/CD, DevOps, SaaS building, API design, technology team building.
+- [Our Story](https://softwine.net/index.html#about): Founder background and the consultancy's origin.
+
+## Blog Articles
+
+- [Managed Services: The Convenience That Costs More Than You Think](https://softwine.net/blog/data-and-infrastructure/20260414-095441/en.html): Hidden costs, vendor lock-in, and knowledge gaps in managed cloud services — and what Reddit's live migration teaches about portability.
+- [The Talent Tax: Why Your Back-to-Office Policy is a Gamble You Can't Afford](https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html): How office mandates spend negotiation capital with the engineers who have the most of it.
+- [Engineering Leadership: When a Title Isn't Enough and Open Source Burns Out](https://softwine.net/blog/engineering-leadership/en.html): Three lessons on leadership that creates real change — quality czars without authority, volunteer burnout, and AI's effect on open-source ownership.
+- [Software Architecture: Beyond the Database Schema](https://softwine.net/blog/architecture-and-design/en.html): Distributed monoliths posing as microservices, admin-panel costs, and architecture derived from business rather than trend.
+- [AI in Software Engineering: Staying the Pilot, Not Becoming the Passenger](https://softwine.net/blog/ai-and-engineering/en.html): How CTOs build teams that leverage AI without losing judgment.
+- [AI Governance: When the Black Box Makes Decisions For You](https://softwine.net/blog/ai-risk-and-governance/en.html): Why AI explainability is a business problem, not just a technical one.
+- [Cloud Infrastructure: Why the Cheapest Option Costs the Most](https://softwine.net/blog/data-and-infrastructure/en.html): Three infrastructure lessons about the real cost of convenience.
+
+## Contact
+
+- Email: contactus@softwine.net
+- Book a meeting: Available via Google Calendar scheduling on the homepage.
+- Founder's site: [bezbran.com](https://bezbran.com/) — Bezalel Brandwine's personal site.
+
+## Feeds
+
+- [RSS Feed](https://softwine.net/blog/rss.xml): Latest blog articles.
+- [Sitemap](https://softwine.net/sitemap.xml): Full site index.

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>בין פתרון &quot;נכון&quot; לפתרון הנכון לנו: המלכודת של ה-AI בפרודקשן | Softwine</title>
+  <meta name="description" content="למה ה-AI שלכם עדיין מזהה פרות כמאזדה 3, ואיך להימנע מקוד שנראה מושלם בדמו אבל זוחל כמו צבי עם בעיות ברכיים במציאות.">
+  <link rel="canonical" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/he.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-and-engineering/20260429-145530/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page rtl">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/index.he.html" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html">EN</a>
+  <span>/</span>
+  <a href="he.html" class="active">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-05-05T07:04:22.857833+00:00">5 במאי 2026</time>
+    </div>
+    <h1 class="blog-article-title">בין פתרון &quot;נכון&quot; לפתרון הנכון לנו: המלכודת של ה-AI בפרודקשן</h1>
+    <div class="blog-article-body">
+<p>פעם, בתחילת הדרך של עולם הראייה הממוחשבת, מודלים של AI זיהו פרות על כבישים בתור מכוניות.</p>
+<p>למה? כי הם למדו לזהות את האספלט, לא את הרכב. הלוגיקה של המודל הייתה פשוטה להפליא: פרה על אספלט = מאזדה 3. (הגיוני סך הכל, אם אתה אלגוריתם שמעולם לא ראה טבע).</p>
+<p>מאז עברו הרבה מים בנהר ה-GPU. תיקנו את זה, דחפנו למודלים דאטה הרבה יותר טוב, והרגשנו שניצחנו את המערכת. היום אנחנו מסתכלים על LLMs ומרגישים שהם מבינים אותנו, שהם שותפים לדרך. אבל כ-CTO או VP R&amp;D, כדאי שתדעו שהבעיה הבסיסית לא זזה מילימטר.
+<strong>ה-AI הוא כלי רב עוצמה, אך כשהוא פוגש את המורכבות הייחודית של ארכיטקטורת תוכנה ודרישות פרודקשן ספציפיות, הוא נוטה לספק פתרונות גנריים, הדורשים מומחיות אנושית קריטית כדי למנוע חוב טכני וכישלונות.</strong></p>
+<p>ה-AI עדיין מוגבל למה שהוא בלע ב&quot;אימון&quot;. פרה על כביש כולם יודעים לזהות היום, אבל כשאנחנו דוחפים מודלים לתחומים המורכבים של ארכיטקטורת תוכנה, לוגיקה עסקית סבוכה וביצועים תחת עומס – שם בדיוק מתחילה ה&quot;שכונה&quot;.</p>
+<h2>הבעיה שלא זזה מילימטר: האשליה של הנתונים הגנריים</h2>
+<p>המודלים המודרניים הם רהוטים להפליא. הם יודעים לכתוב קוד Python שנראה נקי, הם יודעים להסביר למה הם בחרו ב-Design Pattern מסוים, והם עושים את זה בביטחון עצמי של ארכיטקט עם 20 שנות ניסיון. אבל מתחת למכסה המנוע, הם עדיין מחפשים את האספלט.</p>
+<p>הבעיה היא שרוב מה שה-AI למד ב&quot;בית ספר ל-AI&quot; (כלומר, על הררי הקוד של GitHub) הוא הממוצע של הממוצע. הוא יודע איך לפתור בעיות גנריות בצורה סבירה. אבל הארגון שלכם לא חי על בעיות גנריות. הארגון שלכם חי על הפינות, על האופטימיזציות הספציפיות, על ה-Use Cases שמי שכתב את ה-Tutorial הממוצע באינטרנט לא חשב עליהם.</p>
+<p>ה-AI שלכם בפרודקשן מקבל כנראה עכשיו החלטות כאלה. הוא פולט תשובות שנראות נכון כי זה מה שהוא מכיר, ואתם תגלו את זה רק במקרי קיצון – כשלקוח חשוב יתלונן, או כשהמערכת פשוט תפסיק להגיב.</p>
+<h2>המקרה של האלגוריתם והצבי: כשהקוד ה&quot;מושלם&quot; פוגש את המציאות</h2>
+<p>הנה משהו שקרה לי לאחרונה, המחשה חיה לפער שבין דמו למציאות. היינו צריכים אלגוריתם find-replace מורכב. ביקשנו מה-AI, והוא פלט קוד פגז. הקוד עבר טסטים, הוא היה אלגנטי, הוא עבד מושלם בסביבת הפיתוח.</p>
+<p>אבל אז שמנו את זה ביוז-קייס הספציפי שלנו, על נפחי דאטה אמיתיים ובתוך הקונטקסט של המערכת שלנו, והדבר הזה פשוט זז לאט. ברמה של צבי עם בעיות ברכיים.</p>
+<p>מה היה הקטע המעצבן? שה-AI קיבל מאיתנו את כל הקונטקסט. הוא ידע בדיוק מה אנחנו צריכים, מה המגבלות ומה היעדים. אבל מה שהוא למד בבית הספר לא כיסה את הפינה הספציפית הזאת. אז הוא פשוט זרק עלינו את הפתרון ה&quot;נכון&quot; והגנרי, כי זה מה שהיה לו במחסנית. לא היה לו איך לייצר את הפתרון הנכון <em>לנו</em>.</p>
+<p>זה ההבדל בין מפתח שיודע לכתוב סינטקס לבין ארכיטקט שמבין את המשמעות של כל שורת קוד על ה-Main Loop של המערכת. ה-AI הוא מפתח סינטקס מעולה, אבל הוא ארכיטקט גרוע מאוד בסיטואציות שדורשות חשיבה מחוץ לסטטיסטיקה.</p>
+<h2>המעבר מדמו לפרודקשן: איפה שהשכונה מתחילה</h2>
+<p>מנהלי טכנולוגיה רבים נופלים במלכודת ה-Velocity המדומה. הצוות מדווח על עלייה של 40% בפרודוקטיביות, הקוד נכתב מהר יותר, ה-PRs נסגרים בקצב מסחרר. זה מרגיש כמו ניצחון.</p>
+<p>אבל פה בדיוק טמון הסיכון. ה-AI מצטיין ביצירת ה&quot;דמו&quot;. הוא יודע לגרום לדברים להיראות עובדים. אבל בפרודקשן, הקוד הזה הופך לחוב טכני סמוי. אם המפתחים שלכם לא מבינים <em>למה</em> הפתרון עבד, הם לא ידעו למה הוא יפסיק לעבוד כשהעומס יעלה פי 10.</p>
+<p>כשאנחנו דוחפים מודלים לתחומים מורכבים – מערכות מבוזרות, ניהול זיכרון, אופטימיזציה של שאילתות – אנחנו מהמרים על כך שה-AI נתקל במקרה דומה מספיק פעמים. אבל המציאות היא שכל מערכת ארגונית היא אינדיבידואלית. פתרון שמתאים ל-Netflix לא בהכרח יתאים לסטארט-אפ ב-Series B שמריץ Kubernetes על On-prem. ה-AI לא תמיד יודע להבחין בדקויות האלה.</p>
+<h2>המומחה בחדר: האינטואיציה שאי אפשר לאמן</h2>
+<p>בגלל כל זה, היום יותר מתמיד, חייבים מומחה בחדר. מישהו שיודע להיות הסמן הימני, הבלם שמונע מהרכבת הזאת לרדת מהפסים.</p>
+<p>אתם צריכים מישהו שיקבל חום כשהוא רואה פלט &quot;נכון&quot; אבל מנותק מהמציאות. בדיוק כמו שהייתם מקבלים חום אם הייתם רואים פרה שעושה רברס בחניה. </p>
+<p>התפקיד של המומחה (ה-Bionic Expert) הוא לא להחליף את ה-AI, אלא להיות הארכיטקט שמעליו. מישהו שמכיר את הדומיין מספיק טוב כדי לזהות את הנקודות העיוורות של האלגוריתם לפני שהן מתרסקות על הלקוחות. </p>
+<p>זה דורש סוג חדש של מנהיגות טכנולוגית: כזו שלא מתפעלת מהמהירות, אלא שואלת שאלות קשות על המהות. האם הקוד הזה באמת יעיל? האם הוא מתחשב ב-Race Conditions שקיימים רק אצלנו? האם אנחנו בונים מוצר, או שאנחנו בונים צעצוע שנראה טוב בדמו?</p>
+<h2>Takeaways</h2>
+<p>ה-AI הוא כלי עוצמתי, אולי העוצמתי ביותר שקיבלנו בעשור האחרון, אבל הוא לא תחליף לחשיבה ארכיטקטונית עמוקה. כדי לא ליפול למלכודת ה&quot;מאזדה 3&quot;, הנה כמה נקודות למחשבה:</p>
+<ol>
+<li><strong>אל תסתנוורו מהמהירות:</strong> פרודוקטיביות בכתיבת קוד היא לא פרודוקטיביות בבניית מוצר. תוודאו שהצוות שלכם לא מייצר חוב טכני בקצב של GPT-4.</li>
+<li><strong>הקונטקסט הוא המלך:</strong> ה-AI חזק רק כמו הקונטקסט שהוא מקבל, וגם אז, הוא נוטה לפתרונות גנריים. תדרשו מהמפתחים שלכם לאתגר את ה-AI ולחפש את הפתרון שמותאם ספציפית למערכת שלכם.</li>
+<li><strong>שימרו על המומחיות:</strong> אל תתנו לצוות שלכם להפוך ל&quot;מפעילי AI&quot;. הם חייבים להמשיך ללמוד את המערכות הבסיסיות, את ה-Internals. אם הם לא יבינו איך זה עובד למטה, הם לא יוכלו לתקן את זה כשה-AI יטעה.</li>
+<li><strong>ביקורת ארכיטקטונית:</strong> תנהיגו תהליכי Review שמתמקדים בנקודות התורפה של AI – יעילות, אדג&#39; קייסים וחיבור למציאות העסקית.</li>
+</ol>
+<p>בסוף, אתם לא רוצים לגלות שיש לכם פרה שעושה רברס בחניון של הפרודקשן. אתם רוצים מוצר יציב, סקלבילי ואיכותי. וזה, נכון להיום, דורש אדם ביוני שיודע מתי להגיד ל-AI: &quot;יופי של פתרון גנרי, עכשיו בוא נכתוב את מה שבאמת צריך&quot;.</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>הצטרפו לדיון:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7455303714526990336/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid027rX216uHTvg3hv9o4ReYk5ZFHwkVxY5yzDURduxq1Ksc1s5ewNvynVkpqDw73C4tl?__cft__[0]=AZbIeIIoqJEOqj8bCWica22xRlcfG3aboxKnayH2t40FH6PGtuXyZhZjujsD9TDSfuSpfcHq7o3-uDQ1km8FtuXA0-eGEEQ6Vc7MLhQ9xd7BGwV54KkbIMGMe1uCUvKILXi6ad9Q-oTKn7ZF8LIqi3mDfP9VmIq1aJdLoeyuwAQ4lH-gBCUquvTucbp_wS4ocQA&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+  </ul>
+</div>
+  </article>
+</main>
+<div class="blog-book-float">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script>
+    (function() {
+      var target = document.currentScript;
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true',
+          color: '#A0CD9A',
+          label: 'Book a meeting',
+          target,
+        });
+      });
+    })();
+  </script>
+</div>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>
