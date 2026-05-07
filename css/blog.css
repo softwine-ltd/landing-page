@@ -69,6 +69,10 @@
   flex-direction: row-reverse;
 }
 
+.blog-page.rtl .blog-nav {
+  direction: ltr;
+}
+
 .blog-page.rtl .blog-nav ul {
   direction: ltr;
 }
@@ -183,6 +187,63 @@
 .blog-page.rtl .blog-article-body blockquote {
   border-left: none;
   border-right: 4px solid #A0CD9A;
+}
+
+/* ── Questions callout ─────────────────────────────────────── */
+.blog-questions-callout {
+  background: #eef6fb;
+  border-right: 4px solid #51A5D7;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 1rem 0 1.5rem;
+}
+
+.blog-questions-callout p {
+  margin: 0;
+}
+
+.blog-page:not(.rtl) .blog-questions-callout {
+  border-right: none;
+  border-left: 4px solid #51A5D7;
+}
+
+/* ── Section divider ───────────────────────────────────────── */
+.blog-section-divider {
+  margin: 3rem 0 2rem;
+  padding: 20px 24px;
+  background: #f0f8f0;
+  border-radius: 6px;
+  border-right: 4px solid #A0CD9A;
+}
+
+.blog-page:not(.rtl) .blog-section-divider {
+  border-right: none;
+  border-left: 4px solid #A0CD9A;
+}
+
+.blog-section-divider-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 6px;
+}
+
+.blog-section-divider-desc {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ── Article figures ───────────────────────────────────────── */
+.blog-article-body figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.blog-article-body figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 /* ── Source attribution ────────────────────────────────────── */
@@ -390,12 +451,25 @@
     height: 36px;
   }
 
+  .blog-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    min-width: 0;
+  }
+
+  .blog-nav::-webkit-scrollbar {
+    display: none;
+  }
+
   .blog-nav ul {
     gap: 14px;
+    flex-wrap: nowrap;
   }
 
   .blog-nav ul li a {
     font-size: 0.8rem;
+    white-space: nowrap;
   }
 
   .blog-article-main,
