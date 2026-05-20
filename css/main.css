@@ -379,6 +379,49 @@ footer {
     padding: 1rem 0;
 }
 
+.trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.trust-caption {
+    width: 100%;
+    margin: 0 0 0.75rem;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    max-width: 520px;
+}
+
+.trust-strip img {
+    height: 80px;
+    width: auto;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.trust-strip img:hover {
+    opacity: 1;
+}
+
+.trust-strip .upcoming {
+    display: none;
+}
+
+.trust-line {
+    font-size: 0.85rem;
+    color: #A0CD9A;
+    letter-spacing: 0.5px;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
 .about {
     background: #ffffff;
     padding: 4rem 0;

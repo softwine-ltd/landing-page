@@ -1,7 +1,7 @@
 {
   "$schema": "https://agents.json/schema.json",
   "name": "Softwine",
-  "description": "Softwine is a technology consultancy providing fractional technology partnership — strategy, execution, and team-building for startups, growing SMBs, and non-technical founders. Specializations: AI integration, cloud architecture, application and development infrastructure, software development, engineering leadership.",
+  "description": "Softwine is a technology consultancy providing fractional technology partnership - strategy, execution, and team-building for startups, growing SMBs, and non-technical founders. Specializations: AI integration, cloud architecture, application and development infrastructure, software development, engineering leadership.",
   "url": "https://softwine.net/",
   "contact": {
     "email": "contactus@softwine.net",
@@ -17,7 +17,7 @@
   "policies": {
     "aiAccess": "allow",
     "aiTraining": "allow-with-attribution",
-    "attribution": "Cite as: Softwine (https://softwine.net/) — original author Bezalel Brandwine where applicable.",
+    "attribution": "Cite as: Softwine (https://softwine.net/) - original author Bezalel Brandwine where applicable.",
     "rateLimit": "Please respect a polite crawl rate. No authentication required for public pages.",
     "preferredLanguages": ["en", "he"]
   },
