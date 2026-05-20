@@ -381,37 +381,54 @@ footer {
 
 .trust-strip {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
     padding: 1.5rem 1rem 1.25rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid #e5e5e5;
 }
 
 .trust-caption {
-    width: 100%;
     margin: 0 0 0.75rem;
     color: #666;
     font-size: 0.85rem;
     line-height: 1.5;
     max-width: 520px;
+    text-align: center;
 }
 
-.trust-strip img {
+.trust-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.trust-logos a {
+    display: flex;
+    align-items: center;
+}
+
+.trust-logos img {
     height: 80px;
     width: auto;
     opacity: 0.9;
     transition: opacity 0.2s ease;
 }
 
-.trust-strip img:hover {
+.trust-logos img:hover {
     opacity: 1;
 }
 
-.trust-strip .upcoming {
+.trust-logos .upcoming {
     display: none;
+}
+
+@media (max-width: 480px) {
+    .trust-logos img {
+        height: 56px;
+    }
 }
 
 .trust-line {
