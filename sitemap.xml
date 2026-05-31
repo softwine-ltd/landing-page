@@ -183,4 +183,22 @@
     <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/he.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/engineering-leadership/talent-tax-wfh/en.html"/>
   </url>
+  <url>
+    <loc>https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html"/>
+  </url>
+  <url>
+    <loc>https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html"/>
+  </url>
 </urlset>

@@ -7,6 +7,22 @@
     <language>en</language>
     <atom:link href="https://softwine.net/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title><![CDATA[AI in Production: Between Promise and Reality - Avoiding the Trap]]></title>
+    <link>https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html</guid>
+    <pubDate>Tue, 26 May 2026 09:08:32 GMT</pubDate>
+    <description><![CDATA[Why AI systems break in production, how architecture decisions drive business outcomes, and why you need human expertise.]]></description>
+    <xml:lang>en</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[בין הבטחה למציאות - ואיך לא ליפול במלכודת]]></title>
+    <link>https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html</guid>
+    <pubDate>Tue, 26 May 2026 09:08:32 GMT</pubDate>
+    <description><![CDATA[מוצרים שנבנו בAI נראים מושלמים בדמו ואז מתרסקים בפרודקשן. איך מזהים את נקודות העיוורון לפני שהלקוחות מגלים אותן?]]></description>
+    <xml:lang>he</xml:lang>
+  </item>
+  <item>
     <title><![CDATA[Vibe-Coders vs. Perfectionists: The Two Founders AI Created]]></title>
     <link>https://softwine.net/blog/ai-and-engineering/20260518-114208/en.html</link>
     <guid isPermaLink="true">https://softwine.net/blog/ai-and-engineering/20260518-114208/en.html</guid>
