@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in Production: Between Promise and Reality - Avoiding the Trap | Softwine</title>
+  <meta name="description" content="Why AI systems break in production, how architecture decisions drive business outcomes, and why you need human expertise.">
+  <link rel="canonical" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html" class="active">EN</a>
+  <span>/</span>
+  <a href="he.html">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-05-26T09:07:41.168130+00:00">May 26, 2026</time>
+    </div>
+    <h1 class="blog-article-title">AI in Production: Between Promise and Reality - Avoiding the Trap</h1>
+    <div class="blog-article-body">
+<p>There&#39;s a very specific moment that everyone who works with AI in production knows. Everything works perfectly in the demo, the team is excited, and then the system meets the real world - and something breaks. Not dramatically. No alarms, no red lights. Quietly, in corners nobody thought to check.</p>
+<p><strong>This article synthesizes insights from hands-on experience with AI systems in production, focusing on challenges that don&#39;t appear in vendor documentation: model blind spots, hidden security risks, and architecture decisions that look technical but are actually business decisions.</strong></p>
+<h2>A Cow on a Highway: The Fundamental Problem That Hasn&#39;t Budged</h2>
+<p>AI models used to identify cows on highways as cars. Why? Because they learned to recognize the asphalt, not the vehicle. Cow on asphalt equals Mazda 3. Makes perfect sense, really.</p>
+<p>We fixed it, pushed better data, and felt like we&#39;d beaten the system. But the fundamental problem didn&#39;t budge an inch - AI is still limited to what it absorbed during training.</p>
+<p>A cow on a highway is easy to spot. But today we&#39;re pushing models into complex domains, and that&#39;s where things get interesting. The mistakes aren&#39;t funny or obvious anymore. They&#39;re subtle, quiet, and look completely legitimate - until someone gets hurt.</p>
+<p>That&#39;s exactly what makes it scary.</p>
+<h2>When AI Spits Out the &quot;Right&quot; Answer - Just Not Right for You</h2>
+<p>Here&#39;s something that happened to me recently. We needed a complex find-replace algorithm. The AI produced shell code - worked perfectly. But then we dropped it into our specific use case, and it crawled. We&#39;re talking turtle-with-bad-knees slow.</p>
+<p>The frustrating part? It had all our context, knew exactly what we needed. But what it learned in AI school didn&#39;t cover this particular corner. So it just threw the &quot;correct&quot; generic solution at us, because that&#39;s what it had in the stack. It had no way to generate the right solution <em>for us</em>.</p>
+<p>And that&#39;s not a bug. That&#39;s the model&#39;s expected behavior.</p>
+<p>Your AI in production is probably making decisions like this right now. It spits out answers that look correct because that&#39;s what it knows, and you&#39;ll only discover the gap in edge cases - when a customer is angry, when performance tanks, or when someone asks a question the model simply doesn&#39;t know it can&#39;t answer.</p>
+<p>The business risk here isn&#39;t theoretical. This is technical debt accumulating silently, decisions that look automated and efficient but are actually generating fragility that will surface at exactly the worst possible moment.</p>
+<h2>Who&#39;s the User? The Question That Defines Your Architecture</h2>
+<p>A week ago Anthropic published a blog post about the advantages of HTML over Markdown and sparked a heated debate. Now that the dust has settled, it&#39;s worth noticing something many people missed: every single example they gave was an output intended for humans.</p>
+<p>And that brings us back to the most fundamental question in architecture: who is the user? Who consumes the output?</p>
+<p>For machines and agents, Markdown and JSON are king. They save on token costs and are perfectly suited for LLM attention mechanisms. For humans, HTML can be the right choice - but with serious caveats.</p>
+<p>Because even if we set aside efficiency and cost savings for a moment, there&#39;s a security risk that doesn&#39;t get enough airtime. JavaScript code generated by an LLM inside HTML is a reliable path to data leaks and XSS vulnerabilities, with a high risk of reputational damage. This isn&#39;t a theoretical scenario - it&#39;s an attack vector waiting to happen.</p>
+<p>So the rule is simple: Markdown for AI-to-AI communication, and HTML for user interfaces - carefully, with sanitization, and with full awareness of the risks. This isn&#39;t just about efficiency. It&#39;s about building a product, something stable - not a fragile toy.</p>
+<h2>Why You Need an Expert in the Room</h2>
+<p>The common thread across all these challenges - models that fail silently, architecture decisions that look technical but impact security and costs, generic solutions masquerading as tailored ones - is that AI alone won&#39;t tell you there&#39;s a problem.</p>
+<p>That&#39;s why you need an expert in the room. Someone whose gut fires when they see &quot;correct&quot; output that&#39;s disconnected from reality. Exactly the way your gut would fire if you saw a cow reversing out of a parking spot. Someone who knows the domain well enough to spot the algorithm&#39;s blind spots before they crash into your customers.</p>
+<p>This doesn&#39;t mean don&#39;t use AI. The opposite. It means use it the way you&#39;d use any powerful tool - with an experienced person who knows when the tool fits and when it&#39;s dangerous. A developer who takes AI output and ships it straight to production without asking &quot;why&quot;? isn&#39;t efficient - they&#39;re a liability.</p>
+<p>The right approach is bionic: people using AI to be better, not people surrendering their thinking because the AI &quot;already did the work&quot;.</p>
+<h2>Takeaways</h2>
+<p><strong>The fundamental problem hasn&#39;t changed.</strong> AI is limited to what it learned in training. It doesn&#39;t know what it doesn&#39;t know, which means its mistakes look like correct answers. The more complex the domain, the higher the risk.</p>
+<p><strong>Architecture decisions are business decisions.</strong> The choice between HTML and Markdown, between a generic solution and a tailored one, between development speed and security - each one impacts costs, business risk, and time-to-market. Treating these as purely technical decisions means missing the bigger picture.</p>
+<p><strong>Human expertise isn&#39;t a bottleneck - it&#39;s a safety net.</strong> The expert in the room isn&#39;t the person slowing down the process. They&#39;re the person preventing you from discovering problems through your customers. Investing in expertise is the highest-ROI move you can make when running AI in production.</p>
+<p>Ultimately, the question isn&#39;t whether to use AI. The question is whether you&#39;re building a product or a toy. A product demands thoughtful architecture, awareness of blind spots, and someone who knows the domain well enough to recognize when the AI is wrong.</p>
+<p>Where has AI surprised you - for better or worse - in production this year?</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>Join the discussion on socials:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7462870993456455680/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid023ZCjp5yHs9hbYYie5s5hA974uFqwhZ2AQ3oME8oZ4A6pXTYF4w53pGZMwvEecJhwl?__cft__[0]=AZaGJnqBwiRq3gEJQByi0Df_a7TMSSXDsWNWEc6DXtqbSKDEoUdE_R2Og1203G_78Vbf-Wmk9Tv7Y5TUXWny3XJYoVHJpkYho9GJXRXAaZ6sldnpBLxqY1iS1XLssTOFx00KOuhSL2puPPvTC8Vta9S_MQWodKo7vswHYHS_9bL-IPE0yYG9PAmJT2I1p980cuU&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7455303714526990336/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid027rX216uHTvg3hv9o4ReYk5ZFHwkVxY5yzDURduxq1Ksc1s5ewNvynVkpqDw73C4tl?__cft__[0]=AZbIeIIoqJEOqj8bCWica22xRlcfG3aboxKnayH2t40FH6PGtuXyZhZjujsD9TDSfuSpfcHq7o3-uDQ1km8FtuXA0-eGEEQ6Vc7MLhQ9xd7BGwV54KkbIMGMe1uCUvKILXi6ad9Q-oTKn7ZF8LIqi3mDfP9VmIq1aJdLoeyuwAQ4lH-gBCUquvTucbp_wS4ocQA&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+  </ul>
+</div>
+  </article>
+</main>
+<div class="blog-book-float">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script>
+    (function() {
+      var target = document.currentScript;
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true',
+          color: '#A0CD9A',
+          label: 'Book a meeting',
+          target,
+        });
+      });
+    })();
+  </script>
+</div>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>

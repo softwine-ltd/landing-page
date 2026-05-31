@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>בין הבטחה למציאות - ואיך לא ליפול במלכודת | Softwine</title>
+  <meta name="description" content="מוצרים שנבנו בAI נראים מושלמים בדמו ואז מתרסקים בפרודקשן. איך מזהים את נקודות העיוורון לפני שהלקוחות מגלים אותן?">
+  <link rel="canonical" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page rtl">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/index.he.html" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html">EN</a>
+  <span>/</span>
+  <a href="he.html" class="active">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-05-26T09:07:41.168130+00:00">26 במאי 2026</time>
+    </div>
+    <h1 class="blog-article-title">בין הבטחה למציאות - ואיך לא ליפול במלכודת</h1>
+    <div class="blog-article-body">
+<p>יש רגע מאוד ספציפי שכל מי שעובד עם AI בפרודקשן מכיר. הרגע שבו הכל עובד מושלם בדמו, הצוות מתלהב, החברים בטוחים שפיצחתם את זה ואז המערכת פוגשת את העולם האמיתי - ומשהו נשבר. לא בצורה דרמטית. לא עם אזעקות ואורות אדומים. אלא בשקט, בפינות שאף אחד לא חשב לבדוק.</p>
+<p><strong>המאמר הזה משקף תובנות מניסיון מעשי עם מערכות AI בפרודקשן, ומתמקד באתגרים שלא מופיעים בדוקומנטציה של הספקים: נקודות עיוורות של מודלים, סיכוני אבטחה נסתרים, והחלטות ארכיטקטורה שנראות טכניות אבל הן בעצם עסקיות.</strong></p>
+<h2>פרה על כביש: הבעיה הבסיסית שלא זזה מילימטר</h2>
+<p>פעם מודלים של AI זיהו פרות על כבישים בתור מכוניות. למה? כי הם למדו לזהות את האספלט, לא את הרכב. פרה על אספלט שווה מאזדה 3. הגיוני סך הכל.</p>
+<p>תיקנו את זה, דחפנו דאטה יותר טוב, והרגשנו שניצחנו את המערכת. אבל הבעיה הבסיסית לא זזה מילימטר - ה-AI עדיין מוגבל למה שהוא בלע באימון.</p>
+<p>פרה על כביש כולם מזהים. אבל היום אנחנו דוחפים מודלים לתחומים מורכבים, ושם מתחילה השכונה. הטעויות כבר לא מצחיקות ולא ברורות. הן עדינות, שקטות, ונראות לגמרי לגיטימיות - עד שמישהו נפגע.</p>
+<p>וזה בדיוק מה שמפחיד.</p>
+<h2>כשה-AI פולט את התשובה ה&quot;נכונה&quot; - אבל לא את הנכונה לכם</h2>
+<p>הנה משהו שקרה לי לא מזמן. היינו צריכים אלגוריתם find-replace מורכב. ה-AI פלט קוד פגז - עובד מושלם. אבל אז שמנו את זה ביוז-קייס הספציפי שלנו, וזה זז לאט. ברמה של צבי עם בעיות ברכיים.</p>
+<p>הקטע המעצבן? הוא קיבל מאיתנו את כל הקונטקסט, ידע בדיוק מה אנחנו צריכים. אבל מה שהוא למד בבית ספר ל-AI לא כיסה את הפינה הזאת. אז הוא פשוט זרק עלינו את הפתרון ה&quot;נכון&quot; והגנרי, כי זה מה שהיה לו במחסנית. לא היה לו איך לייצר את הפתרון הנכון <em>לנו</em>.</p>
+<p>וזה לא באג. זה ההתנהגות הצפויה של המודל.</p>
+<p>ה-AI שלכם בפרודקשן כנראה מקבל עכשיו החלטות כאלה. פולט תשובות שנראות נכון כי זה מה שהוא מכיר, ואתם תגלו את זה רק במקרי קיצון - כשלקוח כועס, כשביצועים קורסים, או כשמישהו שואל שאלה שהמודל פשוט לא יודע שהוא לא יודע לענות עליה.</p>
+<p>הסיכון העסקי פה הוא לא תיאורטי. מדובר בחוב טכני שמצטבר בשקט, בהחלטות שנראות אוטומטיות ויעילות אבל בפועל מייצרות שבריריות שתתגלה בדיוק ברגע הכי גרוע.</p>
+<h2>מי המשתמש? השאלה שמגדירה את הארכיטקטורה</h2>
+<p>לפני שבוע אנתרופיק פרסמו בבלוג שלהם את היתרונות של HTML לעומת Markdown והציתו דיון סוער. עכשיו כשהאבק שקע, כדאי לשים לב למשהו שרבים פספסו: כל הדוגמאות שהם נתנו הן דוגמאות של תוצרים שמיועדים לבני אדם.</p>
+<p>וזה מחזיר אותנו לשאלה הכי בסיסית בארכיטקטורה: מי המשתמש? מי צורך את התוצר?</p>
+<p>עבור מכונות וסוכנים, Markdown ו-JSON הם המלכים. הם חוסכים בעלויות טוקנים ומתאימים מצוין למנגנוני הקשב של LLMs. עבור בני אדם, HTML יכול להיות הבחירה הנכונה - אבל עם סייגים רציניים.</p>
+<p>כי גם אם נתעלם לרגע מהיעילות ומהחיסכון בכסף, יש פה סיכון אבטחה שלא מדברים עליו מספיק. קוד JavaScript שנוצר על ידי LLM בתוך HTML הוא דרך בטוחה לדליפת נתונים וחולשות XSS, עם סיכון גבוה לפגיעה במוניטין. זה לא תרחיש תיאורטי - זה וקטור תקיפה שרק מחכה לפורץ.</p>
+<p>אז הכלל פשוט: Markdown לתקשורת AI-ל-AI, ו-HTML לממשקי משתמש - בזהירות, עם סניטציה, ועם מודעות לסיכונים. זה לא רק עניין של יעילות. זה לבנות מוצר, משהו יציב - לא סתם צעצוע שביר.</p>
+<h2>למה חייבים מומחה בחדר</h2>
+<p>לכל האתגרים האלה - מודלים שטועים בשקט, החלטות ארכיטקטורה שנראות טכניות אבל משפיעות על אבטחה ועלויות, פתרונות גנריים שמתחזים לפתרונות מותאמים יש מכנה משותף: ה-AI מעצמו לא יגיד לכם שיש בעיה.</p>
+<p>בגלל זה חייבים מומחה בחדר. מישהו שיקבל חום כשהוא רואה פלט &quot;נכון&quot; אבל מנותק מהמציאות. בדיוק כמו שהייתם מקבלים חום מפרה שעושה רברס בחניה. מישהו שמכיר את הדומיין מספיק טוב כדי לזהות את הנקודות העיוורות של האלגוריתם לפני שהן מתרסקות על הלקוחות.</p>
+<p>זה לא אומר לא להשתמש ב-AI. ההפך. זה אומר להשתמש בו כמו שמשתמשים בכל כלי חזק - עם מישהו מנוסה שיודע מתי הכלי מתאים ומתי הוא מסוכן. מפתח שמקבל פלט מ-AI ומריץ אותו ישר לפרודקשן בלי לשאול &quot;למה&quot;? הוא לא יעיל - הוא מסוכן.</p>
+<p>הגישה הנכונה היא ביונית: אנשים שמשתמשים ב-AI כדי להיות טובים יותר, לא אנשים שמוותרים על החשיבה כי ה-AI &quot;כבר עשה את העבודה&quot;.</p>
+<h2>Takeaways</h2>
+<p><strong>הבעיה הבסיסית לא השתנתה.</strong> ה-AI מוגבל למה שהוא למד באימון. הוא לא יודע מה הוא לא יודע, ולכן הטעויות שלו נראות כמו תשובות נכונות. ככל שהדומיין מורכב יותר, הסיכון גדל.</p>
+<p><strong>החלטות ארכיטקטורה הן החלטות עסקיות.</strong> הבחירה בין HTML ל-Markdown, בין פתרון גנרי לפתרון מותאם, בין מהירות פיתוח לאבטחה - כל אחת מהן משפיעה על עלויות, על סיכון עסקי, ועל time-to-market. מי שמתייחס לזה כהחלטה טכנית בלבד מפספס את התמונה.</p>
+<p><strong>מומחיות אנושית היא לא צוואר בקבוק - היא רשת ביטחון.</strong> המומחה בחדר הוא לא מי שמאט את התהליך. הוא מי שמונע מכם לגלות בעיות דרך הלקוחות. ההשקעה במומחיות היא ה-ROI הכי גבוה שיש כשעובדים עם AI בפרודקשן.</p>
+<p>בסופו של דבר, השאלה היא לא אם להשתמש ב-AI. השאלה היא אם אתם בונים מוצר או צעצוע. מוצר דורש ארכיטקטורה מחושבת, מודעות לנקודות עיוורות, ומישהו שמכיר את הדומיין מספיק טוב כדי לדעת מתי ה-AI טועה.</p>
+<p>איפה ה-AI שלכם הפתיע אתכם - לטוב או לרע - בפרודקשן השנה?</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>הצטרפו לדיון:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7462870993456455680/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid023ZCjp5yHs9hbYYie5s5hA974uFqwhZ2AQ3oME8oZ4A6pXTYF4w53pGZMwvEecJhwl?__cft__[0]=AZaGJnqBwiRq3gEJQByi0Df_a7TMSSXDsWNWEc6DXtqbSKDEoUdE_R2Og1203G_78Vbf-Wmk9Tv7Y5TUXWny3XJYoVHJpkYho9GJXRXAaZ6sldnpBLxqY1iS1XLssTOFx00KOuhSL2puPPvTC8Vta9S_MQWodKo7vswHYHS_9bL-IPE0yYG9PAmJT2I1p980cuU&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7455303714526990336/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid027rX216uHTvg3hv9o4ReYk5ZFHwkVxY5yzDURduxq1Ksc1s5ewNvynVkpqDw73C4tl?__cft__[0]=AZbIeIIoqJEOqj8bCWica22xRlcfG3aboxKnayH2t40FH6PGtuXyZhZjujsD9TDSfuSpfcHq7o3-uDQ1km8FtuXA0-eGEEQ6Vc7MLhQ9xd7BGwV54KkbIMGMe1uCUvKILXi6ad9Q-oTKn7ZF8LIqi3mDfP9VmIq1aJdLoeyuwAQ4lH-gBCUquvTucbp_wS4ocQA&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+  </ul>
+</div>
+  </article>
+</main>
+<div class="blog-book-float">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script>
+    (function() {
+      var target = document.currentScript;
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true',
+          color: '#A0CD9A',
+          label: 'Book a meeting',
+          target,
+        });
+      });
+    })();
+  </script>
+</div>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>
