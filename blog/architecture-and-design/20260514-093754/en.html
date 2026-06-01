@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duplications, Formats, and Users: The Small Decisions That Define Architecture | Softwine</title>
+  <meta name="description" content="The architectural decisions that shape your product aren't on the roadmap. They happen quietly - in PRs, team chats, and format choices.">
+  <link rel="canonical" href="https://softwine.net/blog/architecture-and-design/20260514-093754/en.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/architecture-and-design/20260514-093754/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/architecture-and-design/20260514-093754/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/architecture-and-design/20260514-093754/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html" class="active">EN</a>
+  <span>/</span>
+  <a href="he.html">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-06-01T07:27:43.110031+00:00">June 1, 2026</time>
+    </div>
+    <h1 class="blog-article-title">Duplications, Formats, and Users: The Small Decisions That Define Architecture</h1>
+    <div class="blog-article-body">
+<p>There&#39;s a category of architectural decisions that don&#39;t feel like decisions at all. They don&#39;t come with a board presentation, they don&#39;t require budget approval, and they never show up on the roadmap. They happen quietly - inside a PR, during a team chat, in the choice of communication format between two services.</p>
+<p>But these are exactly the decisions that determine whether you&#39;ve built a stable product or a fragile toy.</p>
+<p>This article looks at two such examples: choosing a communication format in AI systems, and the approach to data duplication. Both seem like narrow technical concerns, but both return to the same fundamental question that defines good architecture.</p>
+<h2>Ask Who the User Is - First</h2>
+<p>Last week Anthropic published a blog post about the advantages of HTML over Markdown, and it sparked a heated community debate. But once the dust settled, it&#39;s worth noticing a detail many people missed: every single example they gave involved output intended for humans.</p>
+<p>That brings us back to the most basic question in architecture: <strong>who is the user? Who consumes the output?</strong></p>
+<p>When the answer is machines and agents, Markdown and JSON are king. They save on token costs, they&#39;re perfectly suited for LLM attention mechanisms, and they produce clean, predictable communication. When the answer is humans who need a rich interface, HTML is the right call - but with serious caution.</p>
+<p>Why caution? Even if we set aside the danger of LLM-generated JavaScript inside HTML - which is a reliable path to data leaks and XSS vulnerabilities, with real risk of reputation damage - the core principle still holds: a communication format is an architectural decision, not a personal preference.</p>
+<p>This isn&#39;t just about efficiency or saving money. It&#39;s about building a product - something stable - not a fragile toy. As I explored in <a href="/blog/architecture-and-design/20260520-143001/en.html">Who&#39;s the User? The Question That Defines Good Architecture</a>, this choice ripples through operational costs, security posture, and the system&#39;s ability to scale without breaking.</p>
+<p>The practical takeaway: Markdown for AI-to-AI communication, carefully managed HTML for user interfaces. Simple - but only if you ask the right question first.</p>
+<h2>Stop Being Afraid of Duplication</h2>
+<p>There&#39;s a principle taught early in every engineer&#39;s career that sticks a little too hard: DRY - Don&#39;t Repeat Yourself. It becomes sacred, and then teams start avoiding all duplication as if it were a sin.</p>
+<p>But hold on. Netflix stores the show you&#39;re watching across 15,000+ servers around the world. Virtually every website you visit caches static files as close to you as possible. In DVD-era games like GTA, the same tree textures were stored in multiple locations on the same disc - the same disc.</p>
+<p>That&#39;s not negligence. That&#39;s architecture.</p>
+<p>The problem starts when teams fail to distinguish between two completely different types of duplication.</p>
+<p><strong>Bad duplication</strong> happens when you produce twice. It&#39;s like buying tissues one box at a time from the store instead of getting a bulk pack once. This kind of duplication turns maintenance into a nightmare - every small fix requires syncing two sources of truth, over and over again.</p>
+<p><strong>Smart duplication</strong> happens when you enable consumption twice. It&#39;s like placing tissue boxes around the house - one by the bed, one in the living room, one on the desk. Same product, accessible wherever the consumer needs it.</p>
+<p>The difference isn&#39;t technical. It&#39;s conceptual.</p>
+<h2>Recognize When a Principle Becomes a Prison</h2>
+<p>I recently visited a team that refused at all costs to add another database to their product, just to avoid duplication. They could recite DRY in their sleep, but they never asked themselves one simple question: where should we use duplication to better serve the consumer?</p>
+<p>The result? Users waiting. Latency climbing. Experience degrading. All in the name of a principle that had gone from useful guideline to architectural prison.</p>
+<p>This is a pattern that repeats itself: teams treat engineering principles as sacred without re-examining them in the context of their specific product and user. DRY is a tool, not a commandment carved in stone. When it leads you to build a system that serves the code instead of the user - it&#39;s time to start asking questions.</p>
+<h2>Think About the Consumer, Not the Code</h2>
+<p>What do communication format choices and data duplication approaches have in common? Both are decisions that teams tend to make out of habit or ideology - instead of thinking about who actually consumes the output.</p>
+<p>A team that picks HTML for agent-to-agent communication because &quot;it&#39;s what we know&quot; pays the price in tokens, security exposure, and stability. A team that avoids data duplication because &quot;DRY is sacred&quot; pays the price in latency and user experience.</p>
+<p>In both cases, the business risk is real: the opportunity cost of architecture that isn&#39;t aligned with the consumer compounds into technical debt that&#39;s very hard to pay down later.</p>
+<p>Good architecture doesn&#39;t start with technology. It starts with a question: who is the user, and what do they need?</p>
+<h2>Takeaways</h2>
+<p>The architectural decisions that truly shape a product&#39;s fate are rarely the ones that come with a big price tag. They&#39;re the quiet ones - format, duplication, service structure - that compound over time.</p>
+<p>Three things worth taking from this discussion:</p>
+<p>Before any architectural decision, ask who the consumer is - human, machine, or both. The answer changes everything. Re-examine principles that have become dogma - DRY, KISS, YAGNI - in the context of your specific product. A principle that goes unquestioned becomes technical debt. And smart duplication is a legitimate architectural tool, not a sign of sloppiness. Netflix does it, and you should know when it&#39;s the right call too.</p>
+<p>Think twice, build once. But make sure you&#39;re thinking about the right thing.</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>Join the discussion on socials:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7462870993456455680/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid023ZCjp5yHs9hbYYie5s5hA974uFqwhZ2AQ3oME8oZ4A6pXTYF4w53pGZMwvEecJhwl?__cft__[0]=AZaGJnqBwiRq3gEJQByi0Df_a7TMSSXDsWNWEc6DXtqbSKDEoUdE_R2Og1203G_78Vbf-Wmk9Tv7Y5TUXWny3XJYoVHJpkYho9GJXRXAaZ6sldnpBLxqY1iS1XLssTOFx00KOuhSL2puPPvTC8Vta9S_MQWodKo7vswHYHS_9bL-IPE0yYG9PAmJT2I1p980cuU&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7460595005569564672/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid09Wxdm5F7oRu1FQyBXgHssFLbD6wSuGF4Db69TGoqtDZuCii6r7sAxHiXiz1sMxBPl?__cft__[0]=AZZQpJFnHSDikXNIDj33tS1o6D2Hq42lPCxJ02lSKIe5vpmPnMW6o6wvw0CCfePgq5vUNYn0fIPpDRxvDpq1ImpVMMGMgnMUiz_oMHWNA5ZV5HDJfd5oH8Dwtkr1VifbagzU8gOyentAvSPh04OsJmRL7faozIK7H2g0JFcrTSjgz1nDz1_gXeeDptMD5NsweGg&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a> <span class="blog-source-lang">(Hebrew)</span></li>
+  </ul>
+</div>
+  </article>
+</main>
+<div class="blog-book-float">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script>
+    (function() {
+      var target = document.currentScript;
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true',
+          color: '#A0CD9A',
+          label: 'Book a meeting',
+          target,
+        });
+      });
+    })();
+  </script>
+</div>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>

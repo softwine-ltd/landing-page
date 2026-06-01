@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>כפילויות, פורמטים, ומשתמשים: ההחלטות הקטנות שמגדירות ארכיטקטורה | Softwine</title>
+  <meta name="description" content="למה ההחלטות הארכיטקטוניות הקטנות ביותר - פורמט תקשורת, כפילות נתונים - הן אלה שקובעות אם בניתם מוצר או צעצוע">
+  <link rel="canonical" href="https://softwine.net/blog/architecture-and-design/20260514-093754/he.html">
+  <link rel="alternate" hreflang="he" href="https://softwine.net/blog/architecture-and-design/20260514-093754/he.html">
+  <link rel="alternate" hreflang="en" href="https://softwine.net/blog/architecture-and-design/20260514-093754/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://softwine.net/blog/architecture-and-design/20260514-093754/en.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF35JKVD7E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VF35JKVD7E');
+  </script>
+</head>
+<body class="blog-page rtl">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <a href="/" class="blog-logo-link">
+      <img src="/default.svg" alt="Softwine" class="blog-logo">
+    </a>
+    <nav class="blog-nav">
+      <ul>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#suitable-for">Clients</a></li>
+      <li><a href="/index.html#how-we-help">Expertise</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/projects-a.html">Projects</a></li>
+      <li><a href="/blog/index.he.html" class="active">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="blog-article-main">
+  <article class="blog-article">
+    <div class="blog-article-meta">
+      <div class="blog-lang-toggle">
+  <a href="en.html">EN</a>
+  <span>/</span>
+  <a href="he.html" class="active">HE</a>
+</div>
+      <time class="blog-date" datetime="2026-06-01T07:27:43.110031+00:00">1 ביוני 2026</time>
+    </div>
+    <h1 class="blog-article-title">כפילויות, פורמטים, ומשתמשים: ההחלטות הקטנות שמגדירות ארכיטקטורה</h1>
+    <div class="blog-article-body">
+<p>יש סוג של החלטות ארכיטקטוניות שלא מרגישות כמו החלטות. הן לא מגיעות עם מצגת לדירקטוריון, לא דורשות אישור תקציב, ולא מופיעות ב-roadmap. הן קורות בשקט - בתוך PR, בשיחת צוות, בבחירה של פורמט תקשורת בין שני שירותים.</p>
+<p>אבל בדיוק ההחלטות האלה הן שקובעות אם בניתם מוצר יציב או צעצוע שביר.</p>
+<p>המאמר הזה עוסק בשתי דוגמאות כאלה: בחירת פורמט תקשורת במערכות AI, והגישה לכפילות נתונים. שתיהן נראות טכניות-צרות, אבל שתיהן חוזרות לאותה שאלה בסיסית שמגדירה ארכיטקטורה טובה.</p>
+<h2>תשאלו קודם מי המשתמש</h2>
+<p>לפני שבוע Anthropic פרסמו בבלוג שלהם את היתרונות של HTML לעומת Markdown, והציתו דיון סוער בקהילה. אבל כשהדיון נרגע קצת, שווה לשים לב לפרט שרבים פספסו: כל הדוגמאות שהם נתנו היו של תוצרים שמיועדים לבני אדם.</p>
+<p>וזה מחזיר אותנו לשאלה הכי בסיסית בארכיטקטורה: <strong>מי המשתמש? מי צורך את התוצר?</strong></p>
+<p>כשהתשובה היא מכונות וסוכנים, Markdown ו-JSON הם המלכים. הם חוסכים בעלויות טוקנים, מתאימים מצוין למנגנוני הקשב של LLMs, ומייצרים תקשורת נקייה וצפויה. כשהתשובה היא בני אדם שצריכים ממשק עשיר - HTML הוא הבחירה הנכונה, אבל עם זהירות רבה.</p>
+<p>למה זהירות? כי גם אם נתעלם מהסכנה בקוד JavaScript שנוצר על ידי LLM בתוך HTML - שזו דרך בטוחה לדליפת נתונים וחולשות XSS, עם סיכון גבוה לפגיעה במוניטין - עדיין נשאר העיקרון: פורמט תקשורת הוא החלטה ארכיטקטונית, לא העדפה אישית.</p>
+<p>זה לא רק עניין של יעילות וחיסכון בכסף. זה לבנות מוצר, משהו יציב - לא סתם צעצוע שביר. כפי שהרחבתי ב<a href="/blog/architecture-and-design/20260520-143001/he.html">מי המשתמש? השאלה שמגדירה ארכיטקטורה טובה</a>, הבחירה הזו משפיעה על עלויות תפעול, על אבטחה, ועל היכולת של המערכת לגדול בלי להישבר.</p>
+<p>המסקנה המעשית: Markdown לתקשורת AI-ל-AI, HTML מנוהל בזהירות לממשקי משתמש. פשוט - אבל רק אם שואלים קודם את השאלה הנכונה.</p>
+<h2>תפסיקו לפחד מכפילויות</h2>
+<p>יש עיקרון שמלמדים מוקדם בקריירה ושנשאר דבוק חזק מדי: DRY - Don&#39;t Repeat Yourself. הוא הופך לקדוש, ואז הצוותים מתחילים להימנע מכל כפילות כאילו היא חטא.</p>
+<p>אבל רגע. נטפליקס שומרת את הסדרה שאתם אוהבים על 15,000+ שרתים ברחבי העולם. למעשה כל אתר שאתם מבקרים בו שומר קבצים סטטיים הכי קרוב אליכם. ב-DVD של משחקים כמו GTA שומרים את אותן תמונות של אותם עצים בכמה מקומות באותו דיסק - אותו דיסק!</p>
+<p>זו לא רשלנות. זו ארכיטקטורה.</p>
+<p>הבעיה מתחילה כשצוותים לא מבחינים בין שני סוגים שונים לחלוטין של כפילות:</p>
+<p><strong>כפילות רעה</strong> קורית כשאנחנו מייצרים פעמיים. כמו לקנות טישויים שוב ושוב בחנות במקום מארז בפעם אחת. זו כפילות שהופכת תחזוקה לסיוט - שוב ושוב זה קורה, בכל תיקון קטן, כי יש שני מקורות אמת שצריך לסנכרן.</p>
+<p><strong>כפילות חכמה</strong> קורית כשאנחנו מאפשרים צריכה פעמיים. כמו לפזר טישויים בכל הבית - קופסה ליד המיטה, קופסה בסלון, קופסה על שולחן העבודה. אותו מוצר, נגיש במקום שבו הצרכן צריך אותו.</p>
+<p>ההבדל הוא לא טכני. הוא תפיסתי.</p>
+<h2>תזהו כשהעיקרון הופך לכלא</h2>
+<p>תשימו לב כשהעיקרון הופך לקדוש
+ביקרתי לא מזמן צוות שנמנע בכל מחיר מלהוסיף עוד מסד נתונים למוצר כדי שלא יהיו כפילויות. הם ידעו לצטט DRY בשינה, אבל לא שאלו את עצמם שאלה אחת פשוטה: איפה אנחנו צריכים להשתמש בכפילויות כדי לשרת את הצרכן?
+התוצאה? משתמשים שמחכים. לייטנסי שעולה. חוויה שנשחקת. וכל זה בשם עיקרון שהפך ממדריך שימושי לכלא ארכיטקטוני.
+זה דפוס שחוזר על עצמו: צוותים שמייחסים קדושה לעקרונות הנדסיים בלי לבחון אותם מחדש בהקשר של המוצר והמשתמש. DRY הוא כלי, לא תורה מסיני. כשהוא גורם לכם לבנות מערכת שמשרתת את הקוד במקום את המשתמש - הגיע הזמן לשאול שאלות.</p>
+<h2>תחשבו על הצרכן, לא על הקוד</h2>
+<p>מה משותף לבחירת פורמט תקשורת ולגישה לכפילות נתונים? שתיהן החלטות שצוותים נוטים לקבל מתוך הרגל או אידיאולוגיה - במקום מתוך חשיבה על מי שצורך את התוצר.</p>
+<p>צוות שבוחר HTML לתקשורת בין סוכני AI כי &quot;זה מה שאנחנו מכירים&quot; משלם מחיר בטוקנים, באבטחה, וביציבות. צוות שנמנע מכפילות נתונים כי &quot;DRY הוא קדוש&quot; משלם מחיר בלאטנסי ובחוויית משתמש.</p>
+<p>בשני המקרים, הסיכון העסקי הוא אמיתי: עלות ההזדמנות של ארכיטקטורה שלא מותאמת לצרכן מצטברת לחוב טכני שקשה מאוד לפרוע אחר כך.</p>
+<p>ארכיטקטורה טובה לא מתחילה בטכנולוגיה. היא מתחילה בשאלה: מי המשתמש, ומה הוא צריך?</p>
+<h2>Takeaways</h2>
+<p>ההחלטות הארכיטקטוניות שבאמת קובעות את גורל המוצר הן לרוב לא אלה שמגיעות עם תג מחיר גדול. הן ההחלטות השקטות - פורמט, כפילות, מבנה שירות - שמצטברות לאורך זמן.</p>
+<p>שלושה דברים ששווה לקחת מהדיון הזה:</p>
+<ul>
+<li><strong>לפני כל החלטה ארכיטקטונית, תשאלו מי הצרכן</strong> - בן אדם, מכונה, או שניהם. התשובה משנה הכל.</li>
+<li><strong>תבחנו מחדש עקרונות שהפכו לדוגמה</strong> - DRY, KISS, YAGNI - בהקשר של המוצר הספציפי שלכם. עיקרון שלא נבחן מחדש הופך לחוב טכני.</li>
+<li><strong>כפילות חכמה היא כלי ארכיטקטוני לגיטימי</strong> - לא סימן לרשלנות. נטפליקס עושים את זה, וגם אתם צריכים לדעת מתי זה הדבר הנכון.</li>
+</ul>
+<p>תחשבו פעמיים, תבנו פעם אחת. אבל תוודאו שאתם חושבים על הדבר הנכון.</p>
+
+    </div>
+    <div class="blog-source-attribution">
+  <p>הצטרפו לדיון:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7462870993456455680/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid023ZCjp5yHs9hbYYie5s5hA974uFqwhZ2AQ3oME8oZ4A6pXTYF4w53pGZMwvEecJhwl?__cft__[0]=AZaGJnqBwiRq3gEJQByi0Df_a7TMSSXDsWNWEc6DXtqbSKDEoUdE_R2Og1203G_78Vbf-Wmk9Tv7Y5TUXWny3XJYoVHJpkYho9GJXRXAaZ6sldnpBLxqY1iS1XLssTOFx00KOuhSL2puPPvTC8Vta9S_MQWodKo7vswHYHS_9bL-IPE0yYG9PAmJT2I1p980cuU&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:share:7460595005569564672/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> <span class="blog-source-lang">(English)</span> &middot; <a href="https://www.facebook.com/bbrandwine/posts/pfbid09Wxdm5F7oRu1FQyBXgHssFLbD6wSuGF4Db69TGoqtDZuCii6r7sAxHiXiz1sMxBPl?__cft__[0]=AZZQpJFnHSDikXNIDj33tS1o6D2Hq42lPCxJ02lSKIe5vpmPnMW6o6wvw0CCfePgq5vUNYn0fIPpDRxvDpq1ImpVMMGMgnMUiz_oMHWNA5ZV5HDJfd5oH8Dwtkr1VifbagzU8gOyentAvSPh04OsJmRL7faozIK7H2g0JFcrTSjgz1nDz1_gXeeDptMD5NsweGg&__tn__=%2CO%2CP-R" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+  </ul>
+</div>
+  </article>
+</main>
+<div class="blog-book-float">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script>
+    (function() {
+      var target = document.currentScript;
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ06Ifzehs1vZZkdIApK8HPeMFwps-mjv9u_Dt-eNCFE1YZXZ9zR22u9kvAA7EwlGjOXeFM1UYEq?gv=true',
+          color: '#A0CD9A',
+          label: 'Book a meeting',
+          target,
+        });
+      });
+    })();
+  </script>
+</div>
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <p>&copy; 2026 Softwine &mdash; <a href="mailto:contactus@softwine.net">contactus@softwine.net</a></p>
+    <p><a href="/blog/rss.xml"><i class="fas fa-rss"></i> RSS</a></p>
+  </div>
+</footer>
+</body>
+</html>
