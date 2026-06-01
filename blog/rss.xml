@@ -7,6 +7,22 @@
     <language>en</language>
     <atom:link href="https://softwine.net/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title><![CDATA[Duplications, Formats, and Users: The Small Decisions That Define Architecture]]></title>
+    <link>https://softwine.net/blog/architecture-and-design/20260514-093754/en.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/architecture-and-design/20260514-093754/en.html</guid>
+    <pubDate>Mon, 01 Jun 2026 07:25:13 GMT</pubDate>
+    <description><![CDATA[The architectural decisions that shape your product aren't on the roadmap. They happen quietly - in PRs, team chats, and format choices.]]></description>
+    <xml:lang>en</xml:lang>
+  </item>
+  <item>
+    <title><![CDATA[ההחלטות הקטנות שמגדירות ארכיטקטורה. כפילויות, פורמטים, ומשתמשים]]></title>
+    <link>https://softwine.net/blog/architecture-and-design/20260514-093754/he.html</link>
+    <guid isPermaLink="true">https://softwine.net/blog/architecture-and-design/20260514-093754/he.html</guid>
+    <pubDate>Mon, 01 Jun 2026 07:25:13 GMT</pubDate>
+    <description><![CDATA[למה ההחלטות הארכיטקטוניות הקטנות ביותר כמו פורמט תקשורת וכפילות נתונים הן אלה שקובעות אם בניתם מוצר או צעצוע]]></description>
+    <xml:lang>he</xml:lang>
+  </item>
+  <item>
     <title><![CDATA[AI in Production: Between Promise and Reality - Avoiding the Trap]]></title>
     <link>https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html</link>
     <guid isPermaLink="true">https://softwine.net/blog/ai-in-production-challenges/20260520-143001/en.html</guid>
